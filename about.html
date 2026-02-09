@@ -11,25 +11,42 @@
             theme: {
                 extend: {
                     colors: {
-                        'nl-navy': '#0A192F',
+                        'nl-navy': '#050B15',
                         'nl-teal': '#39C6D6',
                         'nl-green': '#38D98A',
                         'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
+        }
+    </style>
 </head>
-<body class="bg-nl-navy text-white font-sans">
-    <nav class="fixed w-full z-50 bg-nl-navy/80 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
+<body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+        <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
-            <a href="index.html" class="text-sm font-medium text-nl-slate hover:text-white">← Back to Home</a>
+            <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-nl-slate">
+                <a href="solutions.html" class="hover:text-white transition-colors">Solutions</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="case-studies.html" class="hover:text-white transition-colors">Insights</a>
+                <a href="assessment.html" class="bg-nl-green text-nl-navy px-6 py-3 rounded-sm hover:bg-white transition-all transform active:scale-95">
+                    Admin Tax Audit
+                </a>
+            </div>
         </div>
     </nav>
 
-    <main class="pt-40 pb-20 max-w-4xl mx-auto px-6">
+    <main class="pt-48 pb-20 max-w-4xl mx-auto px-6 hero-gradient">
         <h1 class="text-5xl font-bold mb-8">20 Years of Data Depth.<br><span class="text-nl-teal">Data-Native Automation.</span></h1>
         
         <div class="prose prose-invert lg:prose-xl text-nl-slate space-y-8 leading-relaxed">
@@ -54,7 +71,7 @@
 
         <div class="mt-20 pt-20 border-t border-white/5">
             <h2 class="text-3xl font-bold mb-8">Ready for clarity?</h2>
-            <a href="assessment.html" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full font-bold inline-block hover:bg-nl-teal transition-all">
+            <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10 text-xs">
                 Start Your Admin Tax Audit
             </a>
         </div>
