@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Real results from real businesses. See how newlens transforms SME operations through intelligent automation and data clarity.">
     <title>Case Studies | newlens - Enterprise Experience, Local Commitment</title>
+        <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,11 +26,20 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(57, 198, 214, 0.3);
+        }
         .hero-gradient {
             background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
                         radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
         }
+        .text-balance { text-wrap: balance; }
     </style>
 </head>
 <body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Take the newlens AI Readiness & Efficiency Audit. Discover your Admin Tax and receive a bespoke roadmap to reduce manual friction.">
     <title>AI Readiness & Efficiency Audit | newlens - Enterprise Experience, Local Commitment</title>
+        <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,6 +16,9 @@
                         'nl-teal': '#39C6D6',
                         'nl-green': '#38D98A',
                         'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -22,33 +26,23 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .step-content { display: none; }
-        .step-content.active { display: block; animation: fadeIn 0.4s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .progress-bar { transition: width 0.4s ease-in-out; }
-        .option-btn {
-            text-align: left;
-            padding: 1.25rem;
-            border-radius: 1rem;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.2s ease;
-            width: 100%;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
         }
-        .option-btn:hover {
-            border-color: #39C6D6;
-            background: rgba(57, 198, 214, 0.05);
-            transform: translateX(4px);
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(57, 198, 214, 0.3);
         }
-        .option-btn.selected {
-            border-color: #38D98A;
-            background: rgba(56, 217, 138, 0.1);
-            box-shadow: 0 0 20px rgba(56, 217, 138, 0.1);
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
         }
+        .text-balance { text-wrap: balance; }
     </style>
 </head>
-<body class="bg-nl-navy text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+<body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
 
     <!-- Navigation -->
         <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
