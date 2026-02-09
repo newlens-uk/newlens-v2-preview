@@ -35,137 +35,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(57, 198, 214, 0.3);
         }
         .hero-gradient {
-            background: radial-gradient(circle at top right, rgba(57, 198, 214, 0.15), transparent),
-                        radial-gradient(circle at bottom left, rgba(56, 217, 138, 0.1), transparent);
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.08), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.05), transparent 40%);
         }
+        .text-balance { text-wrap: balance; }
     </style>
 </head>
-<body class="bg-nl-navy text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+<body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-nl-navy/80 backdrop-blur-md border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <span class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
+                <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
             </div>
             
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-nl-slate">
-                <a href="solutions.html" class="hover:text-nl-teal transition-colors">Solutions</a>
-                <a href="about.html" class="hover:text-nl-teal transition-colors">About</a>
-                <a href="#proof" class="hover:text-nl-teal transition-colors">Case Studies</a>
-                <a href="#audit" class="bg-nl-green text-nl-navy px-5 py-2.5 rounded-full font-bold hover:bg-nl-teal transition-all transform hover:scale-105">
-                    15-Min Friction Audit
+            <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-nl-slate">
+                <a href="solutions.html" class="hover:text-white transition-colors">Solutions</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="case-studies.html" class="hover:text-white transition-colors">Insights</a>
+                <a href="assessment.html" class="bg-nl-green text-nl-navy px-6 py-3 rounded-sm hover:bg-white transition-all transform active:scale-95">
+                    Admin Tax Audit
                 </a>
-            </div>
-
-            <!-- Mobile Menu Toggle (Simplified) -->
-            <div class="md:hidden text-nl-slate">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-gradient">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <div class="relative z-10">
-                <div class="inline-block px-3 py-1 rounded-full border border-nl-teal/30 bg-nl-teal/5 text-nl-teal text-xs font-bold uppercase tracking-widest mb-6">
+    <header class="relative pt-40 pb-24 lg:pt-60 lg:pb-40 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nl-teal/10 border border-nl-teal/20 text-nl-teal text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+                    <span class="w-1.5 h-1.5 bg-nl-teal rounded-full animate-pulse"></span>
                     Enterprise Experience. Local Commitment.
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-6">
-                    Data Clarity. <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Workflow Efficiency.</span>
+                <h1 class="text-6xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-8 text-balance">
+                    Improving Productivity with <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Data-Native</span> Automation.
                 </h1>
-                <p class="text-xl text-nl-slate mb-10 max-w-lg leading-relaxed">
-                    Stop paying the "Admin Tax". Your business could be losing tens—or even hundreds—of hours every month to manual processes that are ripe for automation.
+                <p class="text-xl md:text-2xl text-nl-slate mb-12 max-w-2xl leading-relaxed font-light">
+                    Stop paying the "Admin Tax". We bring 20 years of enterprise analytics experience to build intelligent, clean, and self-healing workflows for local SMEs.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#audit" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full font-bold text-center hover:bg-nl-teal transition-all">
-                        Start Your Automation Assessment
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10">
+                        Start Your AI Readiness Audit
                     </a>
-                    <a href="solutions.html" class="border border-white/20 px-8 py-4 rounded-full font-bold text-center hover:bg-white/5 transition-all">
-                        View Solutions
+                    <a href="calculator.html" class="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest py-5">
+                        Calculate Your Admin Tax
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                     </a>
                 </div>
-            </div>
-            <div class="relative">
-                <div class="absolute -inset-4 bg-nl-teal/20 blur-3xl rounded-full"></div>
-                <img src="assets/lens-dna-test.png" alt="newlens DNA Core" class="relative w-full max-w-lg mx-auto drop-shadow-2xl">
             </div>
         </div>
     </header>
 
-    <!-- The Problem Section -->
-    <section class="py-24 bg-white/5 border-y border-white/5">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Is your data working for you, or <span class="text-nl-teal italic">against</span> you?</h2>
-            <p class="text-xl text-nl-slate leading-relaxed">
-                Most SMEs are paying a hidden "Admin Tax"—hours lost to manual entry, messy spreadsheets, and missed leads. We stop the leak by bridging the gap between your tools and your business goals.
-            </p>
-        </div>
-    </section>
-
-    <!-- Solutions / Vertical focus -->
-    <section id="solutions" class="py-32">
+    <!-- How We Can Help (Ten10 Style Grid) -->
+    <section class="py-32 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-20">
-                <h2 class="text-4xl font-bold mb-4">Engineered for Efficiency</h2>
-                <p class="text-nl-slate">High-end automation tailored to your industry.</p>
+            <div class="max-w-2xl mb-20">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-6">How we can help</h2>
+                <h3 class="text-4xl md:text-5xl font-bold leading-tight">Addressing your productivity challenges with quality-first automation</h3>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Automation -->
-                <div class="glass-card p-10 rounded-3xl group hover:border-nl-teal/50 transition-all">
-                    <div class="w-12 h-12 bg-nl-teal/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-nl-teal/20 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-nl-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Workflow Automation</h3>
-                    <p class="text-nl-slate mb-6">Industrial-grade systems for your inbox. Intelligent triage and self-healing workflows built with Python and n8n.</p>
-                    <ul class="space-y-3 text-sm text-nl-slate/80">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-green rounded-full"></span> Lead Triage & Routing</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-green rounded-full"></span> CRM & Xero Integration</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-green rounded-full"></span> Automated Quoting</li>
-                    </ul>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+                <!-- Workflow & Voice -->
+                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">Workflow & Voice</h4>
+                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                        Reduce admin with intelligent voice agents for reception and bookings: alongside self-healing workflows that keep human intelligence in the loop.
+                    </p>
+                    <a href="solutions.html#automation" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                        Eliminate Bottlenecks 
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
                 </div>
 
-                <!-- Data Clarity -->
-                <div class="glass-card p-10 rounded-3xl group hover:border-nl-green/50 transition-all">
-                    <div class="w-12 h-12 bg-nl-green/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-nl-green/20 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-nl-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Data Clarity & BI</h3>
-                    <p class="text-nl-slate mb-6">Stop guessing. We unlock the value in your data with custom dashboards and rigorous reporting audits.</p>
-                    <ul class="space-y-3 text-sm text-nl-slate/80">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-teal rounded-full"></span> Salesforce / CRMA Experts</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-teal rounded-full"></span> Commercial Insight</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-teal rounded-full"></span> Margin & Rebate Recovery</li>
-                    </ul>
+                <!-- Data-First Automation -->
+                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">Data-First Automation</h4>
+                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                        We don't just connect apps: we ensure your data is clean and your insights are accurate. We build "Data-Native" workflows that eliminate manual errors.
+                    </p>
+                    <a href="solutions.html#data" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                        Build Clean Systems
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
                 </div>
 
-                <!-- AI Empowerment -->
-                <div class="glass-card p-10 rounded-3xl group hover:border-white/50 transition-all">
-                    <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-8 group-hover:bg-white/20 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                        </svg>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">AI Empowerment</h3>
-                    <p class="text-nl-slate mb-6">AI that works for people, not instead of them. Training and workshops focused on practical SME application.</p>
-                    <ul class="space-y-3 text-sm text-nl-slate/80">
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-slate rounded-full"></span> Foundation Training</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-slate rounded-full"></span> Process Mapping</li>
-                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-nl-slate rounded-full"></span> Strategic LLM Adoption</li>
-                    </ul>
+                <!-- AI Roadmap -->
+                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">AI Roadmap</h4>
+                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                        Navigate the AI landscape with practical implementation strategies that empower your people: not replace them.
+                    </p>
+                    <a href="solutions.html#ai" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                        Find Your Roadmap
+                        <span class="group-hover:translate-x-1 transition-transform">→</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -174,6 +150,15 @@
     <!-- Verticals / Industries -->
     <section class="py-24 bg-nl-teal/5">
         <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 p-8 bg-nl-green/10 border border-nl-green/20 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                <div>
+                    <h4 class="text-xl font-bold text-nl-green mb-2">Alpha Partner Program — Q1 2026</h4>
+                    <p class="text-nl-slate">We are looking for three local businesses to become our first "Alpha Partners." Get enterprise-grade automation at a reduced rate in exchange for a case study.</p>
+                </div>
+                <a href="mailto:hello@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-green text-nl-navy px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-white transition-all">
+                    Apply to Join
+                </a>
+            </div>
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-4xl font-bold mb-8 text-nl-teal">Tailored for your vertical.</h2>
@@ -207,10 +192,10 @@
                 <img src="assets/lens-bright-office.png" alt="newlens Office" class="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             </div>
             <div class="order-1 lg:order-2">
-                <h2 class="text-4xl font-bold mb-8">Corporate Rigor. <span class="text-nl-green">Local Agility.</span></h2>
+                <h2 class="text-4xl font-bold mb-8">20 Years of Data Depth. <span class="text-nl-green">Local Commitment.</span></h2>
                 <div class="space-y-6 text-nl-slate text-lg leading-relaxed">
-                    <p>Founded by Matthew Keys, newlens brings 20 years of senior analytics experience from £multi-million organizations directly to the SME market.</p>
-                    <p>Based in Sudbury, Suffolk, we bridge the gap between "big data" complexity and the practical, daily needs of growing businesses. We don't just build tools; we build business solutions with clarity, integrity, and practicality.</p>
+                    <p>Founded by Matthew Keys, newlens was built on a simple premise: automation is only as good as the data behind it. With over two decades of experience managing complex data systems for large enterprise organisations, Mat brings a level of precision to the SME market that pure automation shops often miss.</p>
+                    <p>Based in Sudbury, Suffolk, we bridge the gap between enterprise-grade data logic and the practical, daily needs of growing businesses. We don't just "automate"—we build business solutions that are clean, monitored, and designed to scale without creating "data debt."</p>
                     <div class="pt-6">
                         <div class="flex items-center gap-4">
                             <div class="w-12 h-12 rounded-full bg-nl-green/20 border border-nl-green/30"></div>
@@ -236,9 +221,9 @@
             <form class="max-w-md mx-auto space-y-4">
                 <input type="email" placeholder="Enter your business email" class="w-full bg-nl-navy border border-white/10 rounded-full px-8 py-4 text-white focus:outline-none focus:border-nl-green transition-all">
                 <button type="submit" class="w-full bg-nl-green text-nl-navy font-bold py-4 rounded-full hover:bg-nl-teal transition-all transform hover:scale-105">
-                    Start My Free Audit
+                    Calculate My Admin Tax
                 </button>
-                <p class="text-xs text-nl-slate/50">No credit card. No fluff. Just clarity.</p>
+                <p class="text-xs text-nl-slate/50">Direct answers. Pragmatic solutions. Clear results.</p>
             </form>
         </div>
     </section>

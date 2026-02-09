@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculate your yearly Admin Tax. See how much time and money your manual processes are costing your business.">
-    <title>Admin Tax Calculator | newlens - Enterprise Experience, Local Commitment</title>
+    <meta name="description" content="Take the newlens AI Readiness & Efficiency Audit. Discover your Admin Tax and receive a bespoke roadmap to reduce manual friction.">
+    <title>AI Readiness & Efficiency Audit | newlens - Enterprise Experience, Local Commitment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'nl-navy': '#0A192F',
+                        'nl-navy': '#050B15',
                         'nl-teal': '#39C6D6',
                         'nl-green': '#38D98A',
                         'nl-slate': '#BFC9D1',
@@ -22,124 +22,217 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        input[type="number"] {
-            background: rgba(255, 255, 255, 0.05);
+        .glass-card { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .step-content { display: none; }
+        .step-content.active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .progress-bar { transition: width 0.4s ease-in-out; }
+        .option-btn {
+            text-align: left;
+            padding: 1.25rem;
+            border-radius: 1rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+            width: 100%;
         }
-        input[type="number"]:focus {
+        .option-btn:hover {
             border-color: #39C6D6;
-            outline: none;
+            background: rgba(57, 198, 214, 0.05);
+            transform: translateX(4px);
+        }
+        .option-btn.selected {
+            border-color: #38D98A;
+            background: rgba(56, 217, 138, 0.1);
+            box-shadow: 0 0 20px rgba(56, 217, 138, 0.1);
         }
     </style>
 </head>
-<body class="bg-nl-navy text-white font-sans">
-    <nav class="fixed w-full z-50 bg-nl-navy/80 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
+<body class="bg-nl-navy text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
-            <a href="index.html" class="text-sm font-medium text-nl-slate hover:text-white">← Back to Home</a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-widest text-nl-slate hover:text-white transition-colors">← Exit Audit</a>
         </div>
     </nav>
 
-    <main class="pt-40 pb-20 max-w-3xl mx-auto px-6">
-        <h1 class="text-5xl font-bold mb-8">Calculate Your<br><span class="text-nl-teal">Admin Tax</span></h1>
-        
-        <p class="text-xl text-nl-slate mb-16">
-            See how much time (and money) manual processes are costing your business each year.
-        </p>
-
-        <div class="glass-card p-8 rounded-3xl space-y-8">
-            <div>
-                <label class="block text-nl-slate mb-2">What administrative process would you like to analyze?</label>
-                <input type="text" id="processName" placeholder="e.g., Invoice Processing, Lead Entry, Report Generation" 
-                    class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-nl-teal outline-none">
+    <main class="pt-48 pb-20 min-h-screen flex flex-col items-center px-6">
+        <div class="max-w-2xl w-full">
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Data-Native <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Efficiency Audit</span></h1>
+                <p class="text-nl-slate font-light">Benchmark your business against 20 years of enterprise data standards.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-nl-slate mb-2">How often do you do this? (times per week)</label>
-                    <input type="number" id="frequency" min="0" step="1" 
-                        class="w-full px-4 py-3 rounded-xl" 
-                        onchange="calculateAdminTax()">
-                </div>
-                <div>
-                    <label class="block text-nl-slate mb-2">How long does it take? (minutes)</label>
-                    <input type="number" id="duration" min="0" step="1" 
-                        class="w-full px-4 py-3 rounded-xl"
-                        onchange="calculateAdminTax()">
-                </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-white/5 h-1 rounded-full mb-12 overflow-hidden">
+                <div id="progress" class="progress-bar bg-nl-green h-full w-[14%]"></div>
             </div>
 
-            <div id="result" class="hidden">
-                <div class="border-t border-white/10 pt-8 mt-8">
-                    <h2 class="text-2xl font-bold mb-4">Your Annual Admin Tax</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div class="glass-card p-6 rounded-2xl">
-                            <p class="text-nl-slate text-sm mb-1">Hours per Year</p>
-                            <p class="text-3xl font-bold text-nl-green" id="hoursPerYear">0</p>
+            <div class="glass-card p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                
+                <!-- Step 1: Scale -->
+                <div id="step1" class="step-content active">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">01. Business Context</h2>
+                    <h3 class="text-2xl font-bold mb-8">How many employees are in your business?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('size', '1-10'); nextStep(2)" class="option-btn">1 - 10 employees</button>
+                        <button onclick="saveData('size', '11-50'); nextStep(2)" class="option-btn">11 - 50 employees</button>
+                        <button onclick="saveData('size', '51-250'); nextStep(2)" class="option-btn">51 - 250 employees</button>
+                        <button onclick="saveData('size', '250+'); nextStep(2)" class="option-btn">250+ employees</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Strategy -->
+                <div id="step2" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">02. Strategy</h2>
+                    <h3 class="text-2xl font-bold mb-8 text-balance">Do you have a documented plan for AI or automation adoption?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('strategy', 'Yes'); nextStep(3)" class="option-btn">Yes: we have a formal roadmap</button>
+                        <button onclick="saveData('strategy', 'In Progress'); nextStep(3)" class="option-btn">In progress: we're drafting one now</button>
+                        <button onclick="saveData('strategy', 'No'); nextStep(3)" class="option-btn">No: we're exploring options</button>
+                    </div>
+                    <button onclick="prevStep(1)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 3: Data -->
+                <div id="step3" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">03. Data Foundation</h2>
+                    <h3 class="text-2xl font-bold mb-8">How would you describe your business data today?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('data', 'Centralised'); nextStep(4)" class="option-btn">Clean: centralised: and structured</button>
+                        <button onclick="saveData('data', 'Partial'); nextStep(4)" class="option-btn">Partial: some silos exist</button>
+                        <button onclick="saveData('data', 'Spreadsheets'); nextStep(4)" class="option-btn">Mainly spreadsheets and "Data Debt"</button>
+                        <div class="relative mt-2">
+                            <input type="text" id="customData" placeholder="Other: Describe your setup..." 
+                                class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all pr-24 text-sm">
+                            <button onclick="saveData('data', document.getElementById('customData').value); nextStep(4)" class="absolute right-2 top-2 bottom-2 px-4 bg-nl-teal text-nl-navy font-bold rounded-xl text-[10px] uppercase tracking-widest hover:bg-white transition-all">Next</button>
                         </div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <p class="text-nl-slate text-sm mb-1">Yearly Cost (at £30/hr)</p>
-                            <p class="text-3xl font-bold text-nl-teal" id="yearlyCost">£0</p>
+                    </div>
+                    <button onclick="prevStep(2)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 4: Current AI -->
+                <div id="step4" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">04. Current Maturity</h2>
+                    <h3 class="text-2xl font-bold mb-8">Are you already using AI tools in your daily operations?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('usage', 'Extensive'); nextStep(5)" class="option-btn">Yes: embedded in our core processes</button>
+                        <button onclick="saveData('usage', 'Informal'); nextStep(5)" class="option-btn">Informally: team experiments with LLMs</button>
+                        <button onclick="saveData('usage', 'None'); nextStep(5)" class="option-btn">Not yet: we're evaluating the impact</button>
+                    </div>
+                    <button onclick="prevStep(3)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 5: The Pain Point -->
+                <div id="step5" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">05. Friction Audit</h2>
+                    <h3 class="text-2xl font-bold mb-8">Which area is most weighed down by manual admin?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('pain', 'Voice/Bookings'); nextStep(6)" class="option-btn">Customer Bookings & Reception</button>
+                        <button onclick="saveData('pain', 'Invoicing/Finance'); nextStep(6)" class="option-btn">Invoicing & Financial Processing</button>
+                        <button onclick="saveData('pain', 'Lead Management'); nextStep(6)" class="option-btn">Lead Triage & Data Entry</button>
+                        <button onclick="saveData('pain', 'Reporting'); nextStep(6)" class="option-btn">Reporting & Data Cleaning</button>
+                    </div>
+                    <button onclick="prevStep(4)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 6: Admin Tax Calculation -->
+                <div id="step6" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">06. Impact Calculation</h2>
+                    <h3 class="text-2xl font-bold mb-4 text-balance">On average: how many hours a week does your team lose to these tasks?</h3>
+                    <p class="text-nl-slate mb-10 text-sm">Include time spent finding: processing: and double-checking data.</p>
+                    <div class="space-y-12">
+                        <input type="range" id="taxRange" min="1" max="100" value="10" class="w-full accent-nl-green h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('taxVal').textContent = this.value">
+                        <div class="text-center">
+                            <span id="taxVal" class="text-6xl font-bold text-nl-green">10</span>
+                            <span class="text-xl text-nl-slate"> hours per week</span>
+                        </div>
+                        <button onclick="saveData('hours', document.getElementById('taxRange').value); showResults()" class="w-full py-5 bg-nl-green text-nl-navy font-bold rounded-xl text-sm uppercase tracking-widest hover:bg-white transition-all transform active:scale-95 shadow-lg shadow-nl-green/10">Calculate Audit Results</button>
+                    </div>
+                    <button onclick="prevStep(5)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 7: Results & Lead Gen -->
+                <div id="step7" class="step-content">
+                    <h2 class="text-3xl font-bold mb-4 text-center tracking-tight">Audit Complete.</h2>
+                    <p class="text-center text-nl-slate mb-12">Your business is ready for Data-Native efficiency.</p>
+                    
+                    <div class="grid gap-6 mb-12">
+                        <div class="p-8 bg-nl-green/5 border border-nl-green/20 rounded-[2rem] text-center">
+                            <p class="text-nl-teal text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Estimated Yearly Admin Tax</p>
+                            <div class="text-6xl font-bold text-white"><span id="resHours">0</span><span class="text-nl-green text-3xl ml-1">hours</span></div>
+                            <p class="text-nl-slate text-sm mt-4 font-light">Losing approximately <span id="resValue" class="text-white font-bold">£0</span> in annual revenue potential*.</p>
                         </div>
                     </div>
 
-                    <div class="mt-8">
-                        <label class="block text-nl-slate mb-2">How many more processes like this do you have?</label>
-                        <input type="number" id="additionalProcesses" min="0" step="1" 
-                            class="w-full px-4 py-3 rounded-xl" 
-                            onchange="calculateTotalImpact()">
-                        
-                        <div id="totalImpact" class="hidden mt-8 p-6 bg-nl-green/10 rounded-2xl">
-                            <h3 class="text-xl font-bold text-nl-green mb-4">Potential Total Impact</h3>
-                            <p class="text-nl-slate" id="totalImpactText"></p>
+                    <div class="space-y-8">
+                        <div class="p-8 glass-card rounded-[2rem] border-nl-teal/20">
+                            <h4 class="text-lg font-bold mb-4">Request Your Data-Native Efficiency Review</h4>
+                            <p class="text-sm text-nl-slate mb-8 leading-relaxed font-light">We will generate a bespoke roadmap tailored to your specific friction points: identifying data logic gaps and providing enterprise-grade solutions to reclaim your time.</p>
+                            <form class="space-y-4" onsubmit="event.preventDefault(); alert('In a live environment, this would now update HubSpot & Sheets via n8n!');">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all text-sm">
+                                    <input type="email" placeholder="Business Email" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all text-sm">
+                                </div>
+                                <button type="submit" class="w-full py-5 bg-nl-teal text-nl-navy font-bold rounded-xl text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-teal/10">Receive My Bespoke Review</button>
+                            </form>
+                            <p class="text-[10px] text-center text-nl-slate/40 mt-6 uppercase tracking-widest">No obligation. Direct insights. Strictly confidential.</p>
                         </div>
+                        <button onclick="location.reload()" class="w-full text-[10px] font-bold uppercase tracking-widest text-nl-slate hover:text-white transition-colors">Start New Audit</button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="mt-16 text-center">
-            <a href="index.html#audit" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full font-bold inline-block hover:bg-nl-teal transition-all">
-                Book a Friction Audit
-            </a>
+            <div class="mt-12 text-center text-nl-slate/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+                Enterprise Experience. Local Commitment.
+            </div>
         </div>
     </main>
 
-    <footer class="py-20 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-nl-slate/40 text-xs">© 2026 Newlens Limited. Enterprise Experience. Local Commitment.</p>
-        </div>
-    </footer>
-
     <script>
-        function calculateAdminTax() {
-            const frequency = parseFloat(document.getElementById('frequency').value) || 0;
-            const duration = parseFloat(document.getElementById('duration').value) || 0;
-            
-            if (frequency > 0 && duration > 0) {
-                // Calculate yearly hours (52 weeks)
-                const yearlyHours = (frequency * duration * 52) / 60;
-                const yearlyCost = yearlyHours * 30; // £30/hour
+        let auditData = {
+            size: '',
+            strategy: '',
+            data: '',
+            usage: '',
+            pain: '',
+            hours: 10
+        };
 
-                document.getElementById('hoursPerYear').textContent = yearlyHours.toFixed(1);
-                document.getElementById('yearlyCost').textContent = `£${yearlyCost.toFixed(0)}`;
-                document.getElementById('result').classList.remove('hidden');
-            }
+        function saveData(key, value) {
+            auditData[key] = value;
+            console.log('Saved:', key, value);
         }
 
-        function calculateTotalImpact() {
-            const additionalProcesses = parseFloat(document.getElementById('additionalProcesses').value) || 0;
-            const baseHours = parseFloat(document.getElementById('hoursPerYear').textContent) || 0;
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
             
-            if (additionalProcesses > 0) {
-                const totalHours = baseHours * (additionalProcesses + 1);
-                const totalCost = totalHours * 30;
-                
-                document.getElementById('totalImpactText').innerHTML = 
-                    `With ${additionalProcesses} similar processes, your total Admin Tax could be <span class="text-white font-bold">${totalHours.toFixed(1)} hours</span> and <span class="text-white font-bold">£${totalCost.toFixed(0)}</span> per year.`;
-                document.getElementById('totalImpact').classList.remove('hidden');
-            }
+            // Update progress
+            const progress = (step / 7) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            
+            const progress = (step / 7) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function showResults() {
+            const weeklyHours = parseInt(auditData.hours);
+            const yearlyHours = weeklyHours * 52;
+            const yearlyValue = yearlyHours * 30; // £30/hr conservative estimate
+
+            document.getElementById('resHours').textContent = Math.round(yearlyHours).toLocaleString();
+            document.getElementById('resValue').textContent = '£' + Math.round(yearlyValue).toLocaleString();
+
+            nextStep(7);
         }
     </script>
 </body>

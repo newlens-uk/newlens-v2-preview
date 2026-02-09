@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions | newlens - Workflow, Data & AI</title>
+    <title>Solutions | newlens - Enterprise Experience, Local Commitment</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'nl-navy': '#0A192F',
+                        'nl-navy': '#050B15',
                         'nl-teal': '#39C6D6',
                         'nl-green': '#38D98A',
                         'nl-slate': '#BFC9D1',
@@ -21,75 +21,137 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
+        }
     </style>
 </head>
-<body class="bg-nl-navy text-white font-sans">
-    <nav class="fixed w-full z-50 bg-nl-navy/80 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
+<body class="bg-nl-navy text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
-            <a href="index.html" class="text-sm font-medium text-nl-slate hover:text-white">← Back to Home</a>
+            <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-nl-slate">
+                <a href="solutions.html" class="text-white">Solutions</a>
+                <a href="about.html" class="hover:text-white transition-colors">About</a>
+                <a href="index.html#audit" class="bg-nl-green text-nl-navy px-6 py-3 rounded-sm hover:bg-white transition-all">Admin Tax Audit</a>
+            </div>
         </div>
     </nav>
 
-    <main class="pt-40 pb-20 max-w-7xl mx-auto px-6">
-        <h1 class="text-5xl font-bold mb-12">Industrial-Grade Automation.</h1>
-        
-        <div class="space-y-24">
-            <!-- Automation Deep Dive -->
-            <section id="automation" class="grid lg:grid-cols-2 gap-16 items-center">
+    <!-- Header -->
+    <header class="relative pt-48 pb-20 lg:pt-60 lg:pb-32 hero-gradient border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <h1 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-6">Our Solutions</h1>
+            <h2 class="text-5xl lg:text-7xl font-bold tracking-tight mb-8">Data-Native Automation.<br>Enterprise Precision.</h2>
+            <p class="text-xl text-nl-slate max-w-2xl font-light leading-relaxed">
+                We build the digital infrastructure that reduces the "Admin Tax": identifies revenue leaks: and ensures your data is clean before it hits the dashboard.
+            </p>
+        </div>
+    </header>
+
+    <!-- Service Deep Dives -->
+    <section class="py-32">
+        <div class="max-w-7xl mx-auto px-6 space-y-40">
+            
+            <!-- Workflow & Voice -->
+            <div id="automation" class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold text-nl-teal mb-6">Workflow Automation</h2>
-                    <p class="text-nl-slate text-lg mb-8 leading-relaxed">
-                        We don't just write scripts; we build intelligent, self-healing systems that handle your most tedious manual processes. Scalable, monitorable, and resilient.
+                    <h3 class="text-4xl font-bold mb-8">Workflow & <span class="text-nl-teal">Voice Agents</span></h3>
+                    <p class="text-nl-slate text-lg mb-10 leading-relaxed font-light">
+                        We design and deploy industrial-grade automation for your business operations. Our systems are built to be "Data-Native": ensuring every automated step leaves a clean trail for your reporting.
                     </p>
-                    <div class="grid gap-4">
-                        <div class="glass-card p-6 rounded-2xl">
-                            <h4 class="font-bold mb-2">Intelligent Triage</h4>
-                            <p class="text-sm text-nl-slate">Automatically categorize, prioritize, and route inbound enquiries from email or web forms without human intervention.</p>
+                    <div class="space-y-6">
+                        <div class="p-8 glass-card rounded-2xl">
+                            <h4 class="text-xl font-bold mb-3">AI Booking & Reception</h4>
+                            <p class="text-nl-slate text-sm leading-relaxed">Intelligent voice and text agents that handle customer enquiries: manage complex bookings: and provide 24/7 reception support. We bridge the gap between AI conversation and your backend data.</p>
                         </div>
-                        <div class="glass-card p-6 rounded-2xl">
-                            <h4 class="font-bold mb-2">CRM & Finance Sync</h4>
-                            <p class="text-sm text-nl-slate">Keep Salesforce, HubSpot, Xero, and Outlook in perfect harmony. No more manual data entry between platforms.</p>
+                        <div class="p-8 glass-card rounded-2xl">
+                            <h4 class="text-xl font-bold mb-3">Self-Healing Workflows</h4>
+                            <p class="text-nl-slate text-sm leading-relaxed">Custom orchestration via Python and n8n that eliminates manual entry. We build monitored systems that flag errors before they become "data debt."</p>
                         </div>
                     </div>
                 </div>
-                <img src="assets/automation-hero-dna.png" alt="Automation" class="rounded-3xl shadow-2xl">
-            </section>
-
-            <!-- Data Clarity Deep Dive -->
-            <section id="data" class="grid lg:grid-cols-2 gap-16 items-center">
-                <img src="assets/lens-modern-desk.png" alt="Data Clarity" class="rounded-3xl shadow-2xl order-2 lg:order-1">
-                <div class="order-1 lg:order-2">
-                    <h2 class="text-3xl font-bold text-nl-green mb-6">Data Clarity & BI</h2>
-                    <p class="text-nl-slate text-lg mb-8 leading-relaxed">
-                        Unlock the hidden value in your existing tools. We bring £multi-million organization rigor to SME data, identifying logic gaps and formula risks before they cost you.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <span class="text-nl-green mt-1">✔</span>
-                            <div>
-                                <span class="font-bold block">Reporting Audits</span>
-                                <p class="text-sm text-nl-slate">A deep dive into your spreadsheets and dashboards to ensure accuracy and reliability.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-nl-green mt-1">✔</span>
-                            <div>
-                                <span class="font-bold block">Salesforce Analytics</span>
-                                <p class="text-sm text-nl-slate">Custom CRMA dashboards designed specifically for sales team action and pipeline visibility.</p>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="relative group">
+                    <div class="absolute -inset-4 bg-nl-teal/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <img src="assets/automation-hero-dna.png" alt="Automation" class="relative rounded-3xl shadow-2xl border border-white/5">
                 </div>
-            </section>
-        </div>
-    </main>
+            </div>
 
-    <footer class="py-20 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-nl-slate/40 text-xs">© 2026 Newlens Limited. Built for local agility.</p>
+            <!-- Data Testing -->
+            <div id="data" class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative group lg:order-1 order-2">
+                    <div class="absolute -inset-4 bg-nl-green/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <img src="assets/lens-modern-desk.png" alt="Data Testing" class="relative rounded-3xl shadow-2xl border border-white/5">
+                </div>
+                <div class="lg:order-2 order-1">
+                    <h3 class="text-4xl font-bold mb-8">Data Engineering & <span class="text-nl-green">Analytics</span></h3>
+                    <p class="text-nl-slate text-lg mb-10 leading-relaxed font-light">
+                        Lay the foundation for accurate decisions. With 20 years of analytics experience, we bring large enterprise data precision to your spreadsheets, CRM, and reporting tools.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="p-8 glass-card rounded-2xl">
+                            <h4 class="text-xl font-bold mb-3">Commercial Reporting Audits</h4>
+                            <p class="text-nl-slate text-sm leading-relaxed">A rigorous review of your current reporting logic: identifying revenue leaks and margin risks that automation can fix.</p>
+                        </div>
+                        <div class="p-8 glass-card rounded-2xl">
+                            <h4 class="text-xl font-bold mb-3">Salesforce / CRM Analytics</h4>
+                            <p class="text-nl-teal font-bold text-xs uppercase tracking-widest mb-2">Specialist Expertise</p>
+                            <p class="text-nl-slate text-sm leading-relaxed">Bespoke dashboard builds and CRMA optimization that turns raw pipeline data into clean, actionable commercial insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Roadmap -->
+            <div id="ai" class="max-w-4xl mx-auto text-center">
+                <h3 class="text-4xl font-bold mb-8">The AI <span class="text-nl-teal">Roadmap</span></h3>
+                <p class="text-nl-slate text-lg mb-16 leading-relaxed font-light">
+                    Practical: pragmatic adoption. We provide the training and strategy your team needs to leverage large language models safely and effectively.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-8 glass-card rounded-2xl">
+                        <div class="text-nl-green font-bold text-3xl mb-4">01</div>
+                        <h4 class="font-bold mb-3">Readiness Audit</h4>
+                        <p class="text-xs text-nl-slate leading-relaxed">Benchmarking your current infrastructure against AI-native standards.</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-2xl">
+                        <div class="text-nl-green font-bold text-3xl mb-4">02</div>
+                        <h4 class="font-bold mb-3">Human-in-the-Loop</h4>
+                        <p class="text-xs text-nl-slate leading-relaxed">Designing processes where AI augments your team without removing oversight.</p>
+                    </div>
+                    <div class="p-8 glass-card rounded-2xl">
+                        <div class="text-nl-green font-bold text-3xl mb-4">03</div>
+                        <h4 class="font-bold mb-3">Strategic Adoption</h4>
+                        <p class="text-xs text-nl-slate leading-relaxed">Training and workshops tailored for your specific industry vertical.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-40 bg-nl-teal/5 border-t border-white/5">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h3 class="text-4xl font-bold mb-8">Ready to reduce your admin?</h3>
+            <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10">
+                Start Your AI Readiness Audit
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 bg-[#050B15]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+            <div>
+                <span class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
+                <p class="text-sm text-nl-slate/60 mt-4">© 2026 Newlens Limited. All rights reserved.</p>
+            </div>
+            <p class="text-[10px] uppercase tracking-widest text-nl-slate/30 font-medium">Enterprise Experience. Local Commitment.</p>
         </div>
     </footer>
+
 </body>
 </html>
