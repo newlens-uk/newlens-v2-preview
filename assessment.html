@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Take the newlens AI Readiness & Efficiency Audit. Discover your Admin Tax and receive a bespoke roadmap to reduce manual friction.">
+    <title>AI Readiness & Efficiency Audit | newlens - Enterprise Experience, Local Commitment</title>
+            <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(57, 198, 214, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
+        }
+        .text-balance { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+
+        <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-widest text-nl-slate hover:text-white transition-colors">← Exit</a>
+        </div>
+    </nav>
+
+    <main class="pt-48 pb-20 min-h-screen flex flex-col items-center px-6">
+        <div class="max-w-2xl w-full">
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Data-Native <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Efficiency Audit</span></h1>
+                <p class="text-nl-slate font-light">Benchmark your business against 20 years of enterprise data standards.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-white/5 h-1 rounded-full mb-12 overflow-hidden">
+                <div id="progress" class="progress-bar bg-nl-green h-full w-[14%]"></div>
+            </div>
+
+            <div class="glass-card p-10 md:p-14 rounded-[3rem] shadow-2xl relative overflow-hidden">
+                
+                <!-- Step 1: Scale -->
+                <div id="step1" class="step-content active">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">01. Business Context</h2>
+                    <h3 class="text-2xl font-bold mb-8">How many employees are in your business?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('size', '1-10'); nextStep(2)" class="option-btn">1 - 10 employees</button>
+                        <button onclick="saveData('size', '11-50'); nextStep(2)" class="option-btn">11 - 50 employees</button>
+                        <button onclick="saveData('size', '51-250'); nextStep(2)" class="option-btn">51 - 250 employees</button>
+                        <button onclick="saveData('size', '250+'); nextStep(2)" class="option-btn">250+ employees</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Strategy -->
+                <div id="step2" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">02. Strategy</h2>
+                    <h3 class="text-2xl font-bold mb-8 text-balance">Do you have a documented plan for AI or automation adoption?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('strategy', 'Yes'); nextStep(3)" class="option-btn">Yes: we have a formal roadmap</button>
+                        <button onclick="saveData('strategy', 'In Progress'); nextStep(3)" class="option-btn">In progress: we're drafting one now</button>
+                        <button onclick="saveData('strategy', 'No'); nextStep(3)" class="option-btn">No: we're exploring options</button>
+                    </div>
+                    <button onclick="prevStep(1)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 3: Data -->
+                <div id="step3" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">03. Data Foundation</h2>
+                    <h3 class="text-2xl font-bold mb-8">How would you describe your business data today?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('data', 'Centralised'); nextStep(4)" class="option-btn">Clean: centralised: and structured</button>
+                        <button onclick="saveData('data', 'Partial'); nextStep(4)" class="option-btn">Partial: some silos exist</button>
+                        <button onclick="saveData('data', 'Spreadsheets'); nextStep(4)" class="option-btn">Mainly spreadsheets and "Data Debt"</button>
+                        <div class="relative mt-2">
+                            <input type="text" id="customData" placeholder="Other: Describe your setup..." 
+                                class="w-full p-5 rounded-2xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all pr-24 text-sm">
+                            <button onclick="saveData('data', document.getElementById('customData').value); nextStep(4)" class="absolute right-2 top-2 bottom-2 px-4 bg-nl-teal text-nl-navy font-bold rounded-xl text-[10px] uppercase tracking-widest hover:bg-white transition-all">Next</button>
+                        </div>
+                    </div>
+                    <button onclick="prevStep(2)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 4: Current AI -->
+                <div id="step4" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">04. Current Maturity</h2>
+                    <h3 class="text-2xl font-bold mb-8">Are you already using AI tools in your daily operations?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('usage', 'Extensive'); nextStep(5)" class="option-btn">Yes: embedded in our core processes</button>
+                        <button onclick="saveData('usage', 'Informal'); nextStep(5)" class="option-btn">Informally: team experiments with LLMs</button>
+                        <button onclick="saveData('usage', 'None'); nextStep(5)" class="option-btn">Not yet: we're evaluating the impact</button>
+                    </div>
+                    <button onclick="prevStep(3)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 5: The Pain Point -->
+                <div id="step5" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">05. Friction Audit</h2>
+                    <h3 class="text-2xl font-bold mb-8">Which area is most weighed down by manual admin?</h3>
+                    <div class="grid gap-3">
+                        <button onclick="saveData('pain', 'Voice/Bookings'); nextStep(6)" class="option-btn">Customer Bookings & Reception</button>
+                        <button onclick="saveData('pain', 'Invoicing/Finance'); nextStep(6)" class="option-btn">Invoicing & Financial Processing</button>
+                        <button onclick="saveData('pain', 'Lead Management'); nextStep(6)" class="option-btn">Lead Triage & Data Entry</button>
+                        <button onclick="saveData('pain', 'Reporting'); nextStep(6)" class="option-btn">Reporting & Data Cleaning</button>
+                    </div>
+                    <button onclick="prevStep(4)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 6: Admin Tax Calculation -->
+                <div id="step6" class="step-content">
+                    <h2 class="text-xl font-bold mb-8 uppercase tracking-widest text-nl-teal text-sm">06. Impact Calculation</h2>
+                    <h3 class="text-2xl font-bold mb-4 text-balance">On average: how many hours a week does your team lose to these tasks?</h3>
+                    <p class="text-nl-slate mb-10 text-sm">Include time spent finding: processing: and double-checking data.</p>
+                    <div class="space-y-12">
+                        <input type="range" id="taxRange" min="1" max="100" value="10" class="w-full accent-nl-green h-2 bg-white/10 rounded-lg appearance-none cursor-pointer" oninput="document.getElementById('taxVal').textContent = this.value">
+                        <div class="text-center">
+                            <span id="taxVal" class="text-6xl font-bold text-nl-green">10</span>
+                            <span class="text-xl text-nl-slate"> hours per week</span>
+                        </div>
+                        <button onclick="saveData('hours', document.getElementById('taxRange').value); showResults()" class="w-full py-5 bg-nl-green text-nl-navy font-bold rounded-xl text-sm uppercase tracking-widest hover:bg-white transition-all transform active:scale-95 shadow-lg shadow-nl-green/10">Calculate Audit Results</button>
+                    </div>
+                    <button onclick="prevStep(5)" class="mt-8 text-xs font-bold uppercase tracking-widest text-nl-slate hover:text-white">← Back</button>
+                </div>
+
+                <!-- Step 7: Results & Lead Gen -->
+                <div id="step7" class="step-content">
+                    <h2 class="text-3xl font-bold mb-4 text-center tracking-tight">Audit Complete.</h2>
+                    <p class="text-center text-nl-slate mb-12">Your business is ready for Data-Native efficiency.</p>
+                    
+                    <div class="grid gap-6 mb-12">
+                        <div class="p-8 bg-nl-green/5 border border-nl-green/20 rounded-[2rem] text-center">
+                            <p class="text-nl-teal text-[10px] uppercase tracking-[0.2em] mb-2 font-bold">Estimated Yearly Admin Tax</p>
+                            <div class="text-6xl font-bold text-white"><span id="resHours">0</span><span class="text-nl-green text-3xl ml-1">hours</span></div>
+                            <p class="text-nl-slate text-sm mt-4 font-light">Losing approximately <span id="resValue" class="text-white font-bold">£0</span> in annual revenue potential*.</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="p-8 glass-card rounded-[2rem] border-nl-teal/20">
+                            <h4 class="text-lg font-bold mb-4">Request Your Data-Native Efficiency Review</h4>
+                            <p class="text-sm text-nl-slate mb-8 leading-relaxed font-light">We will generate a bespoke roadmap tailored to your specific friction points: identifying data logic gaps and providing enterprise-grade solutions to reclaim your time.</p>
+                            <form class="space-y-4" onsubmit="event.preventDefault(); alert('In a live environment, this would now update HubSpot & Sheets via n8n!');">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <input type="text" placeholder="Your Name" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all text-sm">
+                                    <input type="email" placeholder="Business Email" required class="w-full p-4 rounded-xl bg-white/5 border border-white/10 focus:border-nl-teal outline-none transition-all text-sm">
+                                </div>
+                                <button type="submit" class="w-full py-5 bg-nl-teal text-nl-navy font-bold rounded-xl text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-teal/10">Receive My Bespoke Review</button>
+                            </form>
+                            <p class="text-[10px] text-center text-nl-slate/40 mt-6 uppercase tracking-widest">No obligation. Direct insights. Strictly confidential.</p>
+                        </div>
+                        <button onclick="location.reload()" class="w-full text-[10px] font-bold uppercase tracking-widest text-nl-slate hover:text-white transition-colors">Start New Audit</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center text-nl-slate/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+                Enterprise Experience. Local Commitment.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let auditData = {
+            size: '',
+            strategy: '',
+            data: '',
+            usage: '',
+            pain: '',
+            hours: 10
+        };
+
+        function saveData(key, value) {
+            auditData[key] = value;
+            console.log('Saved:', key, value);
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            
+            // Update progress
+            const progress = (step / 7) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevStep(step) {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + step).classList.add('active');
+            
+            const progress = (step / 7) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function showResults() {
+            const weeklyHours = parseInt(auditData.hours);
+            const yearlyHours = weeklyHours * 52;
+            const yearlyValue = yearlyHours * 30; // £30/hr conservative estimate
+
+            document.getElementById('resHours').textContent = Math.round(yearlyHours).toLocaleString();
+            document.getElementById('resValue').textContent = '£' + Math.round(yearlyValue).toLocaleString();
+
+            nextStep(7);
+        }
+    </script>
+</body>
+</html>
