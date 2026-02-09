@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your yearly Admin Tax. See how much time and money your manual processes are costing your business.">
+    <title>Admin Tax Calculator | newlens - Enterprise Experience, Local Commitment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#0A192F',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        input[type="number"] {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input[type="number"]:focus {
+            border-color: #39C6D6;
+            outline: none;
+        }
+    </style>
+</head>
+<body class="bg-nl-navy text-white font-sans">
+    <nav class="fixed w-full z-50 bg-nl-navy/80 backdrop-blur-md border-b border-white/5 h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-sm font-medium text-nl-slate hover:text-white">← Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="pt-40 pb-20 max-w-3xl mx-auto px-6">
+        <h1 class="text-5xl font-bold mb-8">Calculate Your<br><span class="text-nl-teal">Admin Tax</span></h1>
+        
+        <p class="text-xl text-nl-slate mb-16">
+            See how much time (and money) manual processes are costing your business each year.
+        </p>
+
+        <div class="glass-card p-8 rounded-3xl space-y-8">
+            <div>
+                <label class="block text-nl-slate mb-2">What administrative process would you like to analyze?</label>
+                <input type="text" id="processName" placeholder="e.g., Invoice Processing, Lead Entry, Report Generation" 
+                    class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-nl-teal outline-none">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-nl-slate mb-2">How often do you do this? (times per week)</label>
+                    <input type="number" id="frequency" min="0" step="1" 
+                        class="w-full px-4 py-3 rounded-xl" 
+                        onchange="calculateAdminTax()">
+                </div>
+                <div>
+                    <label class="block text-nl-slate mb-2">How long does it take? (minutes)</label>
+                    <input type="number" id="duration" min="0" step="1" 
+                        class="w-full px-4 py-3 rounded-xl"
+                        onchange="calculateAdminTax()">
+                </div>
+            </div>
+
+            <div id="result" class="hidden">
+                <div class="border-t border-white/10 pt-8 mt-8">
+                    <h2 class="text-2xl font-bold mb-4">Your Annual Admin Tax</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="glass-card p-6 rounded-2xl">
+                            <p class="text-nl-slate text-sm mb-1">Hours per Year</p>
+                            <p class="text-3xl font-bold text-nl-green" id="hoursPerYear">0</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl">
+                            <p class="text-nl-slate text-sm mb-1">Yearly Cost (at £30/hr)</p>
+                            <p class="text-3xl font-bold text-nl-teal" id="yearlyCost">£0</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <label class="block text-nl-slate mb-2">How many more processes like this do you have?</label>
+                        <input type="number" id="additionalProcesses" min="0" step="1" 
+                            class="w-full px-4 py-3 rounded-xl" 
+                            onchange="calculateTotalImpact()">
+                        
+                        <div id="totalImpact" class="hidden mt-8 p-6 bg-nl-green/10 rounded-2xl">
+                            <h3 class="text-xl font-bold text-nl-green mb-4">Potential Total Impact</h3>
+                            <p class="text-nl-slate" id="totalImpactText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 text-center">
+            <a href="index.html#audit" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full font-bold inline-block hover:bg-nl-teal transition-all">
+                Book a Friction Audit
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-nl-slate/40 text-xs">© 2026 Newlens Limited. Enterprise Experience. Local Commitment.</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateAdminTax() {
+            const frequency = parseFloat(document.getElementById('frequency').value) || 0;
+            const duration = parseFloat(document.getElementById('duration').value) || 0;
+            
+            if (frequency > 0 && duration > 0) {
+                // Calculate yearly hours (52 weeks)
+                const yearlyHours = (frequency * duration * 52) / 60;
+                const yearlyCost = yearlyHours * 30; // £30/hour
+
+                document.getElementById('hoursPerYear').textContent = yearlyHours.toFixed(1);
+                document.getElementById('yearlyCost').textContent = `£${yearlyCost.toFixed(0)}`;
+                document.getElementById('result').classList.remove('hidden');
+            }
+        }
+
+        function calculateTotalImpact() {
+            const additionalProcesses = parseFloat(document.getElementById('additionalProcesses').value) || 0;
+            const baseHours = parseFloat(document.getElementById('hoursPerYear').textContent) || 0;
+            
+            if (additionalProcesses > 0) {
+                const totalHours = baseHours * (additionalProcesses + 1);
+                const totalCost = totalHours * 30;
+                
+                document.getElementById('totalImpactText').innerHTML = 
+                    `With ${additionalProcesses} similar processes, your total Admin Tax could be <span class="text-white font-bold">${totalHours.toFixed(1)} hours</span> and <span class="text-white font-bold">£${totalCost.toFixed(0)}</span> per year.`;
+                document.getElementById('totalImpact').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
