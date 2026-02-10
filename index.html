@@ -68,12 +68,12 @@
         /* Tech Stack Animation */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-200px * 17)); }
+            100% { transform: translateX(calc(-200px * 18)); }
         }
         .logo-carousel {
             display: flex;
-            width: calc(200px * 34);
-            animation: scroll 50s linear infinite;
+            width: calc(200px * 36);
+            animation: scroll 52s linear infinite;
         }
         .logo-item {
             width: 200px;
@@ -505,58 +505,28 @@
             <div class="relative">
                 
                 <div class="logo-carousel flex items-center" id="logo-carousel">
-                    <!-- Tech logos using SimpleIcons CDN - 30% larger (h-14 → h-20) -->
+                    <!-- Grouped: Productivity Platforms -->
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg" alt="M365" class="h-20" loading="eager">
                         <span class="logo-label">[ Microsoft 365 ]</span>
                     </div>
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" alt="Power BI" class="h-20" loading="eager">
-                        <span class="logo-label">[ Power BI ]</span>
-                    </div>
-                    <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google" class="h-20" loading="eager">
                         <span class="logo-label">[ Google Workspace ]</span>
                     </div>
+                    <!-- Grouped: Data & Analytics -->
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="h-20" loading="eager">
-                        <span class="logo-label">[ Python ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
-                        <span class="logo-label">[ n8n ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="h-20" loading="eager">
-                        <span class="logo-label">[ Claude ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="ChatGPT" class="h-20" loading="eager">
-                        <span class="logo-label">[ ChatGPT ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
-                        <span class="logo-label">[ Xero ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
-                        <span class="logo-label">[ QuickBooks ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/salesforce.svg" alt="Salesforce" class="h-20" loading="eager">
-                        <span class="logo-label">[ Salesforce ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hubspot.svg" alt="HubSpot" class="h-20" loading="eager">
-                        <span class="logo-label">[ HubSpot ]</span>
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" alt="Power BI" class="h-20" loading="eager">
+                        <span class="logo-label">[ Power BI ]</span>
                     </div>
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tableau.svg" alt="Tableau" class="h-20" loading="eager">
                         <span class="logo-label">[ Tableau ]</span>
                     </div>
+                    <!-- Grouped: AI Models -->
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp" class="h-20" loading="eager">
-                        <span class="logo-label">[ WhatsApp ]</span>
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="ChatGPT" class="h-20" loading="eager">
+                        <span class="logo-label">[ ChatGPT ]</span>
                     </div>
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="h-20" loading="eager">
@@ -574,43 +544,11 @@
                         <div class="h-20 flex items-center justify-center"><span class="text-5xl font-black" style="color: #00B8D4;">Kimi</span></div>
                         <span class="logo-label">[ Kimi ]</span>
                     </div>
-                    <!-- Duplicate for infinite scroll -->
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg" alt="M365" class="h-20" loading="eager">
-                        <span class="logo-label">[ Microsoft 365 ]</span>
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/githubcopilot.svg" alt="Copilot" class="h-20" loading="eager">
+                        <span class="logo-label">[ Copilot ]</span>
                     </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" alt="Power BI" class="h-20" loading="eager">
-                        <span class="logo-label">[ Power BI ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google" class="h-20" loading="eager">
-                        <span class="logo-label">[ Google Workspace ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="h-20" loading="eager">
-                        <span class="logo-label">[ Python ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
-                        <span class="logo-label">[ n8n ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="h-20" loading="eager">
-                        <span class="logo-label">[ Claude ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="ChatGPT" class="h-20" loading="eager">
-                        <span class="logo-label">[ ChatGPT ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
-                        <span class="logo-label">[ Xero ]</span>
-                    </div>
-                    <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
-                        <span class="logo-label">[ QuickBooks ]</span>
-                    </div>
+                    <!-- Grouped: CRM & Sales -->
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/salesforce.svg" alt="Salesforce" class="h-20" loading="eager">
                         <span class="logo-label">[ Salesforce ]</span>
@@ -619,13 +557,49 @@
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hubspot.svg" alt="HubSpot" class="h-20" loading="eager">
                         <span class="logo-label">[ HubSpot ]</span>
                     </div>
+                    <!-- Grouped: Finance & Accounting -->
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
+                        <span class="logo-label">[ Xero ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
+                        <span class="logo-label">[ QuickBooks ]</span>
+                    </div>
+                    <!-- Grouped: Automation & Development -->
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
+                        <span class="logo-label">[ n8n ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="h-20" loading="eager">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <!-- Grouped: Communication -->
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp" class="h-20" loading="eager">
+                        <span class="logo-label">[ WhatsApp ]</span>
+                    </div>
+                    <!-- Duplicate for infinite scroll (same grouped order) -->
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg" alt="M365" class="h-20" loading="eager">
+                        <span class="logo-label">[ Microsoft 365 ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google" class="h-20" loading="eager">
+                        <span class="logo-label">[ Google Workspace ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/powerbi.svg" alt="Power BI" class="h-20" loading="eager">
+                        <span class="logo-label">[ Power BI ]</span>
+                    </div>
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tableau.svg" alt="Tableau" class="h-20" loading="eager">
                         <span class="logo-label">[ Tableau ]</span>
                     </div>
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp" class="h-20" loading="eager">
-                        <span class="logo-label">[ WhatsApp ]</span>
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/openai.svg" alt="ChatGPT" class="h-20" loading="eager">
+                        <span class="logo-label">[ ChatGPT ]</span>
                     </div>
                     <div class="logo-item">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/anthropic.svg" alt="Claude" class="h-20" loading="eager">
@@ -642,6 +616,38 @@
                     <div class="logo-item">
                         <div class="h-20 flex items-center justify-center"><span class="text-5xl font-black" style="color: #00B8D4;">Kimi</span></div>
                         <span class="logo-label">[ Kimi ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/githubcopilot.svg" alt="Copilot" class="h-20" loading="eager">
+                        <span class="logo-label">[ Copilot ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/salesforce.svg" alt="Salesforce" class="h-20" loading="eager">
+                        <span class="logo-label">[ Salesforce ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/hubspot.svg" alt="HubSpot" class="h-20" loading="eager">
+                        <span class="logo-label">[ HubSpot ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
+                        <span class="logo-label">[ Xero ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
+                        <span class="logo-label">[ QuickBooks ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
+                        <span class="logo-label">[ n8n ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/python.svg" alt="Python" class="h-20" loading="eager">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/whatsapp.svg" alt="WhatsApp" class="h-20" loading="eager">
+                        <span class="logo-label">[ WhatsApp ]</span>
                     </div>
                 </div>
             </div>
