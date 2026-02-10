@@ -44,9 +44,9 @@
 <body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
 
         <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
+    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-16 md:h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
             <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-nl-slate">
                 <a href="solutions.html" class="hover:text-white transition-colors">Solutions</a>
                 <a href="about.html" class="hover:text-white transition-colors">About</a>
@@ -55,68 +55,74 @@
                     Admin Tax Audit
                 </a>
             </div>
+            <!-- Mobile Menu Button (Placeholder) -->
+            <div class="md:hidden text-nl-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="relative pt-48 pb-20 lg:pt-60 lg:pb-32 hero-gradient border-b border-white/5">
+    <header class="relative pt-32 pb-12 md:pt-48 md:pb-20 lg:pt-60 lg:pb-32 hero-gradient border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-6">Our Solutions</h2>
-            <h2 class="text-5xl lg:text-7xl font-bold tracking-tight mb-8">Data-Native Automation.<br>Enterprise Precision.</h2>
-            <p class="text-xl text-nl-slate max-w-2xl font-light leading-relaxed">
+            <h2 class="text-[11px] md:text-[13px] font-bold text-nl-teal uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-6">Our Solutions</h2>
+            <h2 class="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 md:mb-8 text-balance">Data-Native Automation.<br>Enterprise Precision.</h2>
+            <p class="text-lg md:text-xl text-nl-slate max-w-2xl font-light leading-relaxed">
                 We build the digital infrastructure that reduces the "Admin Tax": identifies revenue leaks: and ensures your data is clean before it hits the dashboard.
             </p>
         </div>
     </header>
 
     <!-- Service Deep Dives -->
-    <section class="py-32">
-        <div class="max-w-7xl mx-auto px-6 space-y-40">
+    <section class="py-16 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 space-y-24 md:space-y-40">
             
             <!-- Workflow & Voice -->
-            <div id="automation" class="grid lg:grid-cols-2 gap-20 items-center">
+            <div id="automation" class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
                 <div>
-                    <h3 class="text-4xl font-bold mb-8">Workflow & <span class="text-nl-teal">Voice Agents</span></h3>
-                    <p class="text-nl-slate text-lg mb-10 leading-relaxed font-light">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Workflow & <span class="text-nl-teal">Voice Agents</span></h3>
+                    <p class="text-nl-slate text-base md:text-lg mb-8 md:mb-10 leading-relaxed font-light">
                         We design and deploy enterprise-standard automation for your business operations. Our systems are built to be "Data-Native": ensuring every automated step leaves a clean trail for your reporting.
                     </p>
-                    <div class="space-y-6">
-                        <div class="p-8 glass-card rounded-2xl">
-                            <h4 class="text-xl font-bold mb-3">AI Booking & Reception</h4>
-                            <p class="text-nl-slate text-sm leading-relaxed">Intelligent voice and text agents that handle customer enquiries: manage complex bookings: and provide 24/7 reception support. We bridge the gap between AI conversation and your backend data.</p>
+                    <div class="space-y-4 md:space-y-6">
+                        <div class="p-6 md:p-8 glass-card rounded-2xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">AI Booking & Reception</h4>
+                            <p class="text-nl-slate text-xs md:text-sm leading-relaxed">Intelligent voice and text agents that handle customer enquiries: manage complex bookings: and provide 24/7 reception support. We bridge the gap between AI conversation and your backend data.</p>
                         </div>
-                        <div class="p-8 glass-card rounded-2xl">
-                            <h4 class="text-xl font-bold mb-3">Self-Healing Workflows</h4>
-                            <p class="text-nl-slate text-sm leading-relaxed">Custom orchestration via Python and n8n that eliminates manual entry. We build monitored systems that flag errors before they become "data debt."</p>
+                        <div class="p-6 md:p-8 glass-card rounded-2xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Self-Healing Workflows</h4>
+                            <p class="text-nl-slate text-xs md:text-sm leading-relaxed">Custom orchestration via Python and n8n that eliminates manual entry. We build monitored systems that flag errors before they become "data debt."</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative group">
                     <div class="absolute -inset-4 bg-nl-teal/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                    <img src="assets/automation-hero-dna.png" alt="Automation" class="relative rounded-3xl shadow-2xl border border-white/5">
+                    <img src="assets/hero-law-office.png" alt="Automation" class="relative rounded-2xl md:rounded-3xl shadow-2xl border border-white/5">
                 </div>
             </div>
 
             <!-- Data Testing -->
-            <div id="data" class="grid lg:grid-cols-2 gap-20 items-center">
+            <div id="data" class="grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
                 <div class="relative group lg:order-1 order-2">
                     <div class="absolute -inset-4 bg-nl-green/10 blur-3xl rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                    <img src="assets/lens-modern-desk.png" alt="Data Testing" class="relative rounded-3xl shadow-2xl border border-white/5">
+                    <img src="assets/hero-accountancy.png" alt="Data Testing" class="relative rounded-2xl md:rounded-3xl shadow-2xl border border-white/5">
                 </div>
                 <div class="lg:order-2 order-1">
-                    <h3 class="text-4xl font-bold mb-8">Data Engineering & <span class="text-nl-green">Analytics</span></h3>
-                    <p class="text-nl-slate text-lg mb-10 leading-relaxed font-light">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">Data Engineering & <span class="text-nl-green">Analytics</span></h3>
+                    <p class="text-nl-slate text-base md:text-lg mb-8 md:mb-10 leading-relaxed font-light">
                         Lay the foundation for accurate decisions. With 20 years of analytics experience, we bring large enterprise data precision to your spreadsheets, CRM, and reporting tools.
                     </p>
-                    <div class="space-y-6">
-                        <div class="p-8 glass-card rounded-2xl">
-                            <h4 class="text-xl font-bold mb-3">Commercial Reporting Audits</h4>
-                            <p class="text-nl-slate text-sm leading-relaxed">A rigorous review of your current reporting logic: identifying revenue leaks and margin risks that automation can fix.</p>
+                    <div class="space-y-4 md:space-y-6">
+                        <div class="p-6 md:p-8 glass-card rounded-2xl">
+                            <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Commercial Reporting Audits</h4>
+                            <p class="text-nl-slate text-xs md:text-sm leading-relaxed">A rigorous review of your current reporting logic: identifying revenue leaks and margin risks that automation can fix.</p>
                         </div>
                         <div class="p-8 glass-card rounded-2xl">
-                            <h4 class="text-xl font-bold mb-3">Salesforce / CRM Analytics</h4>
-                            <p class="text-nl-teal font-bold text-xs uppercase tracking-widest mb-2">Specialist Expertise</p>
-                            <p class="text-nl-slate text-sm leading-relaxed">Bespoke dashboard builds and CRMA optimization that turns raw pipeline data into clean, actionable commercial insights.</p>
+                            <h4 class="text-lg md:text-xl font-bold mb-2 md:mb-3">Salesforce / CRM Analytics</h4>
+                            <p class="text-nl-teal font-bold text-[10px] md:text-xs uppercase tracking-widest mb-2">Specialist Expertise</p>
+                            <p class="text-nl-slate text-xs md:text-sm leading-relaxed">Bespoke dashboard builds and CRMA optimization that turns raw pipeline data into clean, actionable commercial insights.</p>
                         </div>
                     </div>
                 </div>
@@ -124,25 +130,25 @@
 
             <!-- AI Roadmap -->
             <div id="ai" class="max-w-4xl mx-auto text-center">
-                <h3 class="text-4xl font-bold mb-8">The AI <span class="text-nl-teal">Roadmap</span></h3>
-                <p class="text-nl-slate text-lg mb-16 leading-relaxed font-light">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">The AI <span class="text-nl-teal">Roadmap</span></h3>
+                <p class="text-nl-slate text-base md:text-lg mb-10 md:mb-16 leading-relaxed font-light">
                     Practical: pragmatic adoption. We provide the training and strategy your team needs to leverage large language models safely and effectively.
                 </p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-8 glass-card rounded-2xl">
-                        <div class="text-nl-green font-bold text-3xl mb-4">01</div>
-                        <h4 class="font-bold mb-3">Readiness Audit</h4>
-                        <p class="text-xs text-nl-slate leading-relaxed">Benchmarking your current infrastructure against AI-native standards.</p>
+                <div class="grid md:grid-cols-3 gap-4 md:gap-6">
+                    <div class="p-6 md:p-8 glass-card rounded-xl md:rounded-2xl">
+                        <div class="text-nl-green font-bold text-2xl md:text-3xl mb-3 md:mb-4">01</div>
+                        <h4 class="font-bold text-sm md:text-base mb-2 md:mb-3">Readiness Audit</h4>
+                        <p class="text-[10px] md:text-xs text-nl-slate leading-relaxed">Benchmarking your current infrastructure against AI-native standards.</p>
                     </div>
-                    <div class="p-8 glass-card rounded-2xl">
-                        <div class="text-nl-green font-bold text-3xl mb-4">02</div>
-                        <h4 class="font-bold mb-3">Human-in-the-Loop</h4>
-                        <p class="text-xs text-nl-slate leading-relaxed">Designing processes where AI augments your team without removing oversight.</p>
+                    <div class="p-6 md:p-8 glass-card rounded-xl md:rounded-2xl">
+                        <div class="text-nl-green font-bold text-2xl md:text-3xl mb-3 md:mb-4">02</div>
+                        <h4 class="font-bold text-sm md:text-base mb-2 md:mb-3">Human-in-the-Loop</h4>
+                        <p class="text-[10px] md:text-xs text-nl-slate leading-relaxed">Designing processes where AI augments your team without removing oversight.</p>
                     </div>
-                    <div class="p-8 glass-card rounded-2xl">
-                        <div class="text-nl-green font-bold text-3xl mb-4">03</div>
-                        <h4 class="font-bold mb-3">Strategic Adoption</h4>
-                        <p class="text-xs text-nl-slate leading-relaxed">Training and workshops tailored for your specific industry vertical.</p>
+                    <div class="p-6 md:p-8 glass-card rounded-xl md:rounded-2xl">
+                        <div class="text-nl-green font-bold text-2xl md:text-3xl mb-3 md:mb-4">03</div>
+                        <h4 class="font-bold text-sm md:text-base mb-2 md:mb-3">Strategic Adoption</h4>
+                        <p class="text-[10px] md:text-xs text-nl-slate leading-relaxed">Training and workshops tailored for your specific industry vertical.</p>
                     </div>
                 </div>
             </div>
@@ -150,35 +156,35 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="py-40 bg-nl-teal/5 border-t border-white/5">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h3 class="text-4xl font-bold mb-8">Ready to reduce your admin?</h3>
-            <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10">
+    <section class="py-24 md:py-40 bg-nl-teal/5 border-t border-white/5 text-center">
+        <div class="max-w-3xl mx-auto px-6">
+            <h3 class="text-3xl md:text-4xl font-bold mb-8">Ready to reduce your admin?</h3>
+            <a href="assessment.html" class="inline-block bg-nl-green text-nl-navy px-8 md:px-10 py-4 md:py-5 rounded-sm font-bold text-xs md:text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10">
                 Start Your AI Readiness Audit
             </a>
         </div>
     </section>
 
         <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 bg-[#050B15]">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer class="py-12 md:py-20 border-t border-white/5 bg-[#050B15]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 text-center md:text-left">
             <div>
-                <span class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
-                <p class="text-sm text-nl-slate/60 mt-4">© 2026 Newlens Limited. All rights reserved.</p>
-                <p class="text-xs text-nl-slate/40 mt-1">Company No. 16945634 | Registered in England & Wales</p>
+                <span class="text-xl md:text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
+                <p class="text-xs md:text-sm text-nl-slate/60 mt-4">© 2026 Newlens Limited. All rights reserved.</p>
+                <p class="text-[10px] md:text-xs text-nl-slate/40 mt-1">Company No. 16945634 | Registered in England & Wales</p>
             </div>
             
-            <div class="flex gap-12 text-sm font-medium text-nl-slate">
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Legal</span>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-xs md:text-sm font-medium text-nl-slate">
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Legal</span>
                     <a href="privacy.html" class="hover:text-nl-teal transition-colors">Privacy Policy</a>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Sudbury Office</span>
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Sudbury Office</span>
                     <p class="text-nl-slate/60">Sudbury, Suffolk<br>United Kingdom</p>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Contact</span>
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Contact</span>
                     <a href="mailto:info@newlens.uk" class="hover:text-nl-teal transition-colors">info@newlens.uk</a>
                     <a href="#" class="hover:text-nl-teal transition-colors">LinkedIn</a>
                 </div>
