@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Readiness Audit | newlens - Enterprise Experience, Local Commitment</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 50%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html#home" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest">
+                <a href="index.html#home" class="text-nl-slate/60 hover:text-white transition-colors">Home</a>
+                <a href="index.html#solutions" class="text-nl-slate/60 hover:text-white transition-colors">Solutions</a>
+                <a href="index.html#insights" class="text-nl-slate/60 hover:text-white transition-colors">Insights</a>
+                <a href="about.html" class="text-nl-slate/60 hover:text-white transition-colors">About</a>
+                <a href="assessment.html" class="bg-nl-green text-nl-navy px-6 py-3 rounded-full font-bold uppercase text-[10px]">
+                    Admin Tax Audit
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-40 pb-24 md:pt-60 md:pb-40 hero-gradient">
+        <div class="max-w-xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-black text-nl-navy tracking-tighter leading-[0.95] mb-8">
+                Eliminate the <span class="text-nl-green">Admin Tax.</span>
+            </h1>
+            <p class="text-xl text-slate-500 font-medium leading-relaxed mb-12">
+                Take our 15-Minute Friction Audit. We'll identify the revenue leaks and margin risks in your business and provide a bespoke AI Readiness Review.
+            </p>
+            
+            <div class="bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-100 text-left">
+                <form class="space-y-6">
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-widest text-nl-navy mb-2">Business Email</label>
+                        <input type="email" placeholder="mat@newlens.uk" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:outline-none focus:border-nl-teal transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-black uppercase tracking-widest text-nl-navy mb-2">Primary Workflow Concern</label>
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 focus:outline-none focus:border-nl-teal transition-all appearance-none">
+                            <option>Manual Data Entry</option>
+                            <option>Customer Booking/Reception</option>
+                            <option>Inaccurate Commercial Reporting</option>
+                            <option>Supply Chain Complexity</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-nl-navy text-white font-black py-5 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all shadow-xl uppercase text-sm tracking-widest">
+                        Request Friction Audit
+                    </button>
+                    <p class="text-[10px] text-center text-slate-400 font-medium">Direct answers. Pragmatic solutions. Clear results.</p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-10">
+            <div class="max-w-sm">
+                <span class="text-2xl font-black tracking-tighter text-nl-navy">new<span class="text-nl-green">lens</span></span>
+                <p class="text-slate-500 mt-6 leading-relaxed font-medium">Enterprise-grade automation and data clarity for local SMEs. Based in Sudbury, Suffolk.</p>
+                <p class="text-[10px] font-bold text-slate-300 mt-6 uppercase tracking-widest">Co No. 16945634 | Registered in England & Wales</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-slate-400 uppercase tracking-widest">
+                <div class="flex flex-col gap-4">
+                    <span class="text-nl-navy mb-2">Company</span>
+                    <a href="index.html#home" class="hover:text-nl-teal transition-colors">Home</a>
+                    <a href="index.html#solutions" class="hover:text-nl-teal transition-colors">Solutions</a>
+                    <a href="about.html" class="hover:text-nl-teal transition-colors">About</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="text-nl-navy mb-2">Legal</span>
+                    <a href="privacy.html" class="hover:text-nl-teal transition-colors">Privacy Policy</a>
+                </div>
+                <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
+                    <span class="text-nl-navy mb-2">Contact</span>
+                    <a href="mailto:info@newlens.uk" class="text-nl-teal lowercase font-medium">info@newlens.uk</a>
+                    <p class="normal-case font-medium text-slate-300">Sudbury, Suffolk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

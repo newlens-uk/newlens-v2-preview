@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your yearly Admin Tax. See how many hours your business is losing to manual processes.">
+    <title>Admin Tax Calculator | newlens - Enterprise Experience, Local Commitment</title>
+            <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(57, 198, 214, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.05), transparent 40%),
+                        radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.03), transparent 40%);
+        }
+        .text-balance { text-wrap: balance; }
+    </style>
+</head>
+<body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
+
+        <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-widest text-nl-slate hover:text-white transition-colors">← Exit</a>
+        </div>
+    </nav>
+
+    <main class="pt-48 pb-20 min-h-screen flex flex-col items-center px-6">
+        <div class="max-w-2xl w-full">
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Admin Tax <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Calculator</span></h1>
+                <p class="text-nl-slate font-light">See exactly how many hours your business loses to "Data Debt" and manual friction.</p>
+            </div>
+
+            <div class="glass-card p-10 md:p-14 rounded-[3rem] shadow-2xl space-y-12">
+                <!-- Inputs -->
+                <div class="space-y-10">
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest text-nl-teal mb-6">01. Choose a Data-Heavy Process</label>
+                        <select id="calcProcess" class="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white focus:border-nl-teal outline-none transition-all cursor-pointer">
+                            <option value="Invoicing">Sales Invoicing & Finance Ops</option>
+                            <option value="Leads">Lead Triage & CRM Updates</option>
+                            <option value="Reporting">Manual Spreadsheet & BI Reporting</option>
+                            <option value="Voice">Service Bookings & Client Scheduling</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest text-nl-teal mb-6">02. Frequency (times per week)</label>
+                        <input type="range" id="calcFreq" min="1" max="500" value="20" class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer mb-4" oninput="runCalc()">
+                        <div class="text-3xl font-bold text-nl-green" id="calcFreqVal">20</div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-widest text-nl-teal mb-6">03. Duration per task (minutes)</label>
+                        <input type="range" id="calcDur" min="1" max="120" value="15" class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer mb-4" oninput="runCalc()">
+                        <div class="text-3xl font-bold text-nl-green" id="calcDurVal">15</div>
+                    </div>
+                </div>
+
+                <!-- Live Results -->
+                <div class="pt-10 border-t border-white/5">
+                    <div class="bg-gradient-to-br from-nl-green/10 to-nl-teal/10 border border-nl-green/20 p-10 rounded-[2.5rem] text-center">
+                        <p class="text-nl-teal text-[10px] uppercase tracking-[0.2em] mb-4 font-bold">Estimated Yearly Admin Tax</p>
+                        <div class="text-7xl font-bold text-white mb-2"><span id="resHours">260</span><span class="text-nl-green text-3xl ml-1">h</span></div>
+                        <p class="text-nl-slate text-sm font-light">Approximately <span id="resValue" class="text-white font-bold">£7,800</span> in annual revenue potential*</p>
+                    </div>
+                </div>
+
+                <div class="text-center pt-6">
+                    <p class="text-nl-slate text-lg mb-8 leading-relaxed">Automation is only as good as your data logic.</p>
+                    <a href="assessment.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold uppercase tracking-widest hover:bg-white transition-all text-xs">
+                        Start Full Data-Native Audit
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center text-nl-slate/30 text-[10px] uppercase tracking-[0.3em] font-medium">
+                *Based on a conservative overhead of £30 per hour.
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function runCalc() {
+            const freq = document.getElementById('calcFreq').value;
+            const dur = document.getElementById('calcDur').value;
+            
+            document.getElementById('calcFreqVal').textContent = freq;
+            document.getElementById('calcDurVal').textContent = dur;
+
+            const yearlyHours = (freq * dur * 52) / 60;
+            const yearlyValue = yearlyHours * 30;
+
+            document.getElementById('resHours').textContent = Math.round(yearlyHours).toLocaleString();
+            document.getElementById('resValue').textContent = '£' + Math.round(yearlyValue).toLocaleString();
+        }
+        runCalc();
+    </script>
+</body>
+</html>
