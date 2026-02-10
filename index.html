@@ -68,11 +68,11 @@
         /* Tech Stack Animation */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-200px * 18)); }
+            100% { transform: translateX(-3600px); }
         }
         .logo-carousel {
             display: flex;
-            width: calc(200px * 36);
+            width: 7200px;
             animation: scroll 52s linear infinite;
         }
         .logo-item {
@@ -88,6 +88,18 @@
         .logo-item img {
             display: block;
         }
+        /* Brand color filters for monochrome SVGs */
+        .logo-item img[alt="M365"] { filter: invert(38%) sepia(95%) saturate(2361%) hue-rotate(345deg) brightness(98%) contrast(96%); }
+        .logo-item img[alt="Power BI"] { filter: invert(84%) sepia(59%) saturate(1615%) hue-rotate(358deg) brightness(98%) contrast(93%); }
+        .logo-item img[alt="Tableau"] { filter: invert(56%) sepia(93%) saturate(1794%) hue-rotate(339deg) brightness(96%) contrast(96%); }
+        .logo-item img[alt="ChatGPT"] { filter: invert(56%) sepia(42%) saturate(1277%) hue-rotate(122deg) brightness(93%) contrast(88%); }
+        .logo-item img[alt="Llama"] { filter: invert(44%) sepia(94%) saturate(2316%) hue-rotate(196deg) brightness(95%) contrast(101%); }
+        .logo-item img[alt="Salesforce"] { filter: invert(61%) sepia(65%) saturate(3907%) hue-rotate(168deg) brightness(95%) contrast(101%); }
+        .logo-item img[alt="HubSpot"] { filter: invert(64%) sepia(54%) saturate(3441%) hue-rotate(333deg) brightness(101%) contrast(101%); }
+        .logo-item img[alt="Xero"] { filter: invert(67%) sepia(49%) saturate(1803%) hue-rotate(160deg) brightness(95%) contrast(98%); }
+        .logo-item img[alt="QuickBooks"] { filter: invert(43%) sepia(94%) saturate(433%) hue-rotate(75deg) brightness(97%) contrast(88%); }
+        .logo-item img[alt="Python"] { filter: invert(39%) sepia(59%) saturate(1194%) hue-rotate(175deg) brightness(93%) contrast(89%); }
+        .logo-item img[alt="WhatsApp"] { filter: invert(71%) sepia(47%) saturate(3283%) hue-rotate(92deg) brightness(94%) contrast(86%); }
         .logo-label {
             margin-top: 16px;
             font-size: 11px;
