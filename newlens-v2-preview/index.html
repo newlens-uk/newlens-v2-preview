@@ -51,6 +51,29 @@
             box-shadow: 0 10px 20px -5px rgba(5, 11, 21, 0.15);
         }
         section { scroll-margin-top: 80px; }
+
+        /* Tech Stack Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-200px * 8)); }
+        }
+        .logo-carousel {
+            display: flex;
+            width: calc(200px * 16);
+            animation: scroll 40s linear infinite;
+        }
+        .logo-item {
+            width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            filter: grayscale(1) opacity(0.4);
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover {
+            filter: grayscale(0) opacity(1);
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
@@ -312,6 +335,37 @@
 
     <!-- Section: About -->
     <section id="about" class="py-24 bg-nl-navy text-white">
+        <!-- Tech Stack Carousel -->
+        <div class="max-w-7xl mx-auto px-6 mb-32 overflow-hidden border-b border-white/5 pb-20">
+            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-[0.4em] mb-12 text-center">Seamless Integration with your ecosystem</p>
+            <div class="relative">
+                <!-- Overlay Gradients for smooth fade -->
+                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-nl-navy to-transparent z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-nl-navy to-transparent z-10"></div>
+                
+                <div class="logo-carousel flex items-center">
+                    <!-- Tech logos (Text-based placeholders for now, will swap for SVGs) -->
+                    <div class="logo-item font-bold text-lg">Microsoft 365</div>
+                    <div class="logo-item font-bold text-lg">Power BI</div>
+                    <div class="logo-item font-bold text-lg">Google Workspace</div>
+                    <div class="logo-item font-bold text-lg">Python</div>
+                    <div class="logo-item font-bold text-lg">n8n</div>
+                    <div class="logo-item font-bold text-lg">Claude</div>
+                    <div class="logo-item font-bold text-lg">ChatGPT</div>
+                    <div class="logo-item font-bold text-lg">Xero</div>
+                    <div class="logo-item font-bold text-lg">QuickBooks</div>
+                    <div class="logo-item font-bold text-lg">Salesforce</div>
+                    <div class="logo-item font-bold text-lg">HubSpot</div>
+                    <div class="logo-item font-bold text-lg">Tableau</div>
+                    <div class="logo-item font-bold text-lg">WhatsApp</div>
+                    <!-- Duplicate for infinite effect -->
+                    <div class="logo-item font-bold text-lg">Microsoft 365</div>
+                    <div class="logo-item font-bold text-lg">Power BI</div>
+                    <div class="logo-item font-bold text-lg">Google Workspace</div>
+                </div>
+            </div>
+        </div>
+
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative">
