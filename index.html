@@ -53,9 +53,9 @@
 <body class="bg-[#050B15] text-white font-sans selection:bg-nl-teal selection:text-nl-navy">
 
         <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-24 flex items-center">
+    <nav class="fixed w-full z-50 bg-[#050B15]/90 backdrop-blur-xl border-b border-white/5 h-16 md:h-24 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-xl md:text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></a>
             <div class="hidden md:flex items-center gap-10 text-[13px] font-semibold uppercase tracking-widest text-nl-slate">
                 <a href="solutions.html" class="hover:text-white transition-colors">Solutions</a>
                 <a href="about.html" class="hover:text-white transition-colors">About</a>
@@ -64,78 +64,92 @@
                     Admin Tax Audit
                 </a>
             </div>
+            <!-- Mobile Menu Button (Placeholder) -->
+            <div class="md:hidden text-nl-green">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative pt-40 pb-24 lg:pt-60 lg:pb-40 overflow-hidden hero-gradient">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 mb-8">
+    <header class="relative pt-32 pb-16 md:pt-48 md:pb-32 lg:pt-60 lg:pb-40 overflow-hidden hero-gradient">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 mb-6 md:mb-8">
                     <span class="w-1.5 h-1.5 bg-nl-teal rounded-full animate-pulse"></span>
-                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em]">Enterprise Experience. Local Commitment</h2>
+                    <h2 class="text-[11px] md:text-[13px] font-bold text-nl-teal uppercase tracking-[0.2em] md:tracking-[0.3em]">Enterprise Experience. Local Commitment</h2>
                 </div>
-                <h1 class="text-6xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-8 text-balance">
+                <h1 class="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight leading-[1.1] mb-6 md:mb-8 text-balance">
                     Improving Productivity with <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Data-Native</span> Automation.
                 </h1>
-                <p class="text-xl md:text-2xl text-nl-slate mb-12 max-w-2xl leading-relaxed font-light">
+                <p class="text-lg md:text-xl lg:text-2xl text-nl-slate mb-8 md:mb-12 max-w-2xl leading-relaxed font-light">
                     Stop paying the "Admin Tax". We bring 20 years of enterprise analytics experience to build intelligent, clean, and self-healing workflows for local SMEs.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10">
+                <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+                    <a href="assessment.html" class="bg-nl-green text-nl-navy px-8 md:px-10 py-4 md:py-5 rounded-sm font-bold text-xs md:text-sm uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-nl-green/10 text-center">
                         Start Your AI Readiness Audit
                     </a>
-                    <a href="calculator.html" class="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest py-5">
+                    <a href="calculator.html" class="group flex items-center justify-center gap-3 text-xs md:text-sm font-bold uppercase tracking-widest py-4 md:py-5">
                         Calculate Your Admin Tax
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentcolour">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                     </a>
                 </div>
             </div>
+            <div class="relative hidden lg:block">
+                <div class="absolute -inset-20 bg-nl-teal/10 blur-[120px] rounded-full"></div>
+                <img src="assets/hero-concept.png" alt="Data-Native Automation Concept" class="relative z-10 rounded-3xl shadow-2xl border border-white/5">
+            </div>
+            <!-- Mobile Image (Visible only on small screens) -->
+            <div class="lg:hidden mt-12">
+                <img src="assets/hero-concept.png" alt="Data-Native Automation Concept" class="rounded-2xl shadow-xl border border-white/5">
+            </div>
         </div>
     </header>
 
     <!-- How We Can Help (Ten10 Style Grid) -->
-    <section class="py-32 border-t border-white/5">
+    <section class="py-16 md:py-32 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-2xl mb-20">
-                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-6">How we can help</h2>
-                <h3 class="text-4xl md:text-5xl font-bold leading-tight">Addressing your productivity challenges with quality-first automation</h3>
+            <div class="max-w-2xl mb-12 md:mb-20">
+                <h2 class="text-[11px] md:text-[13px] font-bold text-nl-teal uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 md:mb-6">How we can help</h2>
+                <h3 class="text-3xl md:text-5xl font-bold leading-tight">Addressing your productivity challenges with quality-first automation</h3>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
                 <!-- Workflow & Voice -->
-                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
-                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">Workflow & Voice</h4>
-                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                <div class="bg-[#050B15] p-8 md:p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 group-hover:text-nl-teal transition-colors">Workflow & Voice</h4>
+                    <p class="text-nl-slate text-sm md:text-base leading-relaxed mb-8 md:mb-10 min-h-0 md:min-h-[100px]">
                         Reduce admin with intelligent voice agents for reception and bookings: alongside self-healing workflows that keep human intelligence in the loop.
                     </p>
-                    <a href="solutions.html#automation" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                    <a href="solutions.html#automation" class="text-[10px] md:text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
                         Eliminate Bottlenecks 
                         <span class="group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                 </div>
 
                 <!-- Data-First Automation -->
-                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
-                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">Data-First Automation</h4>
-                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                <div class="bg-[#050B15] p-8 md:p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 group-hover:text-nl-teal transition-colors">Data-First Automation</h4>
+                    <p class="text-nl-slate text-sm md:text-base leading-relaxed mb-8 md:mb-10 min-h-0 md:min-h-[100px]">
                         We don't just connect apps: we ensure your data is clean and your insights are accurate. We build "Data-Native" workflows that eliminate manual errors.
                     </p>
-                    <a href="solutions.html#data" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                    <a href="solutions.html#data" class="text-[10px] md:text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
                         Build Clean Systems
                         <span class="group-hover:translate-x-1 transition-transform">→</span>
                     </a>
                 </div>
 
                 <!-- AI Roadmap -->
-                <div class="bg-[#050B15] p-12 hover:bg-white/[0.02] transition-colors group">
-                    <h4 class="text-2xl font-bold mb-6 group-hover:text-nl-teal transition-colors">AI Roadmap</h4>
-                    <p class="text-nl-slate leading-relaxed mb-10 min-h-[100px]">
+                <div class="bg-[#050B15] p-8 md:p-12 hover:bg-white/[0.02] transition-colors group">
+                    <h4 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 group-hover:text-nl-teal transition-colors">AI Roadmap</h4>
+                    <p class="text-nl-slate text-sm md:text-base leading-relaxed mb-8 md:mb-10 min-h-0 md:min-h-[100px]">
                         Navigate the AI landscape with practical implementation strategies that empower your people: not replace them.
                     </p>
-                    <a href="solutions.html#ai" class="text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
+                    <a href="solutions.html#ai" class="text-[10px] md:text-sm font-bold uppercase tracking-widest text-nl-green flex items-center gap-2">
                         Find Your Roadmap
                         <span class="group-hover:translate-x-1 transition-transform">→</span>
                     </a>
@@ -145,60 +159,60 @@
     </section>
 
     <!-- Verticals / Industries -->
-    <section class="py-24 bg-nl-teal/5">
+    <section class="py-16 md:py-24 bg-nl-teal/5">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 p-8 bg-nl-green/10 border border-nl-green/20 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="mb-12 md:mb-16 p-6 md:p-8 bg-nl-green/10 border border-nl-green/20 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 text-center md:text-left">
                 <div>
-                    <h4 class="text-xl font-bold text-nl-green mb-2">Alpha Partner Program : Q1 2026</h4>
-                    <p class="text-nl-slate">We are looking for three local businesses to become our first "Alpha Partners." Get enterprise-grade automation at a reduced rate in exchange for a case study.</p>
+                    <h4 class="text-lg md:text-xl font-bold text-nl-green mb-2">Alpha Partner Program : Q1 2026</h4>
+                    <p class="text-sm md:text-base text-nl-slate">We are looking for three local businesses to become our first "Alpha Partners." Get enterprise-grade automation at a reduced rate in exchange for a case study.</p>
                 </div>
-                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-green text-nl-navy px-8 py-3 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-white transition-all">
+                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-green text-nl-navy px-6 md:px-8 py-3 rounded-sm font-bold text-[10px] md:text-xs uppercase tracking-widest hover:bg-white transition-all">
                     Apply to Join
                 </a>
             </div>
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 md:gap-16 items-center">
                 <div>
-                    <h2 class="text-4xl font-bold mb-8 text-nl-teal">Tailored for your vertical.</h2>
-                    <div class="space-y-8">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-nl-teal">Tailored for your vertical.</h2>
+                    <div class="space-y-6 md:space-y-8">
                         <div>
-                            <h4 class="text-xl font-bold mb-2">Field Services</h4>
-                            <p class="text-nl-slate">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
+                            <h4 class="text-lg md:text-xl font-bold mb-2">Field Services</h4>
+                            <p class="text-sm md:text-base text-nl-slate">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold mb-2">Professional Services</h4>
-                            <p class="text-nl-slate">Clarity for consultancies and legal firms through data rigorous auditing.</p>
+                            <h4 class="text-lg md:text-xl font-bold mb-2">Professional Services</h4>
+                            <p class="text-sm md:text-base text-nl-slate">Clarity for consultancies and legal firms through precision-led data auditing.</p>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold mb-2">Retail & Manufacturing</h4>
-                            <p class="text-nl-slate">Protecting margins through rebate analysis and automated supply chain tracking.</p>
+                            <h4 class="text-lg md:text-xl font-bold mb-2">Retail & Manufacturing</h4>
+                            <p class="text-sm md:text-base text-nl-slate">Protecting margins through rebate analysis and automated supply chain tracking.</p>
                         </div>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <img src="assets/sme-professional.png" alt="Professional Services" class="rounded-2xl shadow-xl">
-                    <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="mt-8 rounded-2xl shadow-xl">
+                    <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="mt-4 md:mt-8 rounded-2xl shadow-xl">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-32">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+    <section id="about" class="py-16 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 md:gap-20 items-center">
             <div class="order-2 lg:order-1">
                 <img src="assets/lens-bright-office.png" alt="newlens Office" class="rounded-3xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             </div>
             <div class="order-1 lg:order-2">
-                <h2 class="text-4xl font-bold mb-8">20 Years of Data Depth. <span class="text-nl-green">Local Commitment.</span></h2>
-                <div class="space-y-6 text-nl-slate text-lg leading-relaxed">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">20 Years of Data Depth. <span class="text-nl-green">Local Commitment.</span></h2>
+                <div class="space-y-4 md:space-y-6 text-nl-slate text-base md:text-lg leading-relaxed">
                     <p>Founded by Matthew Keys, newlens was built on a simple premise: automation is only as good as the data behind it. With over two decades of experience managing complex data systems for large enterprise organisations, Mat brings a level of precision to the SME market that pure automation shops often miss.</p>
                     <p>Based in Sudbury, Suffolk, we bridge the gap between enterprise-grade data logic and the practical, daily needs of growing businesses. We don't just "automate":we build business solutions that are clean, monitored, and designed to scale without creating "data debt."</p>
-                    <div class="pt-6">
+                    <div class="pt-4 md:pt-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-nl-green/20 border border-nl-green/30"></div>
+                            <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-nl-green/20 border border-nl-green/30"></div>
                             <div>
-                                <p class="font-bold text-white">Matthew Keys</p>
-                                <p class="text-sm">Founder & Principal Consultant</p>
+                                <p class="font-bold text-white text-sm md:text-base">Matthew Keys</p>
+                                <p class="text-xs md:text-sm">Founder & Principal Consultant</p>
                             </div>
                         </div>
                     </div>
@@ -208,43 +222,43 @@
     </section>
 
     <!-- Lead Magnet / Audit CTA -->
-    <section id="audit" class="py-32 relative overflow-hidden">
+    <section id="audit" class="py-16 md:py-32 relative overflow-hidden">
         <div class="absolute inset-0 bg-nl-green opacity-5"></div>
-        <div class="max-w-5xl mx-auto px-6 relative z-10 glass-card p-12 md:p-20 rounded-[4rem] text-centre border-nl-green/20">
-            <h2 class="text-4xl md:text-5xl font-bold mb-6">Stop the Friction.</h2>
-            <p class="text-xl text-nl-slate mb-12 max-w-2xl mx-auto leading-relaxed">
+        <div class="max-w-5xl mx-auto px-6 relative z-10 glass-card p-8 md:p-20 rounded-[2rem] md:rounded-[4rem] text-center border-nl-green/20">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Stop the Friction.</h2>
+            <p class="text-lg md:text-xl text-nl-slate mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
                 Take our 15-Minute Friction Audit. We'll identify the "Admin Tax" in your business and provide a bespoke AI Readiness Review delivered to your inbox.
             </p>
             <form class="max-w-md mx-auto space-y-4">
-                <input type="email" placeholder="Enter your business email" class="w-full bg-nl-navy border border-white/10 rounded-full px-8 py-4 text-white focus:outline-none focus:border-nl-green transition-all">
-                <button type="submit" class="w-full bg-nl-green text-nl-navy font-bold py-4 rounded-full hover:bg-nl-teal transition-all transform hover:scale-105">
+                <input type="email" placeholder="Enter your business email" class="w-full bg-nl-navy border border-white/10 rounded-full px-6 md:px-8 py-3 md:py-4 text-white text-sm md:text-base focus:outline-none focus:border-nl-green transition-all text-center">
+                <button type="submit" class="w-full bg-nl-green text-nl-navy font-bold py-3 md:py-4 rounded-full text-xs md:text-sm uppercase tracking-widest hover:bg-white transition-all transform hover:scale-105">
                     Calculate My Admin Tax
                 </button>
-                <p class="text-xs text-nl-slate/50">Direct answers. Pragmatic solutions. Clear results.</p>
+                <p class="text-[10px] md:text-xs text-nl-slate/50">Direct answers. Pragmatic solutions. Clear results.</p>
             </form>
         </div>
     </section>
 
         <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 bg-[#050B15]">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+    <footer class="py-12 md:py-20 border-t border-white/5 bg-[#050B15]">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-10 text-center md:text-left">
             <div>
-                <span class="text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
-                <p class="text-sm text-nl-slate/60 mt-4">© 2026 Newlens Limited. All rights reserved.</p>
-                <p class="text-xs text-nl-slate/40 mt-1">Company No. 16945634 | Registered in England & Wales</p>
+                <span class="text-xl md:text-2xl font-bold tracking-tighter">new<span class="text-nl-green">lens</span></span>
+                <p class="text-xs md:text-sm text-nl-slate/60 mt-4">© 2026 Newlens Limited. All rights reserved.</p>
+                <p class="text-[10px] md:text-xs text-nl-slate/40 mt-1">Company No. 16945634 | Registered in England & Wales</p>
             </div>
             
-            <div class="flex gap-12 text-sm font-medium text-nl-slate">
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Legal</span>
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12 text-xs md:text-sm font-medium text-nl-slate">
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Legal</span>
                     <a href="privacy.html" class="hover:text-nl-teal transition-colors">Privacy Policy</a>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Sudbury Office</span>
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Sudbury Office</span>
                     <p class="text-nl-slate/60">Sudbury, Suffolk<br>United Kingdom</p>
                 </div>
-                <div class="flex flex-col gap-3">
-                    <span class="text-white font-bold mb-2">Contact</span>
+                <div class="flex flex-col gap-2 md:gap-3">
+                    <span class="text-white font-bold mb-1 md:mb-2">Contact</span>
                     <a href="mailto:info@newlens.uk" class="hover:text-nl-teal transition-colors">info@newlens.uk</a>
                     <a href="#" class="hover:text-nl-teal transition-colors">LinkedIn</a>
                 </div>
