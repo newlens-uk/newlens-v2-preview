@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact newlens | Get In Touch</title>
+    <meta name="description" content="Contact newlens for consulting, training, or general enquiries. We're here to help with automation, AI strategy, and data solutions.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        .form-input, .form-textarea, .form-select {
+            @apply w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-nl-teal focus:ring-2 focus:ring-nl-teal/20 outline-none transition-all bg-white text-slate-800;
+        }
+        .form-label {
+            @apply block text-sm font-bold text-nl-navy mb-2 uppercase tracking-wider;
+        }
+        .error-message {
+            @apply text-red-500 text-xs mt-1 hidden;
+        }
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-sm font-bold text-nl-slate hover:text-white transition-colors uppercase tracking-widest">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-nl-navy via-nl-navy to-slate-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">Let's Talk Solutions</h1>
+            <p class="text-xl text-nl-slate max-w-2xl mx-auto leading-relaxed">
+                Whether you need consulting, training, or just want to explore possibilities - we're here to help.
+            </p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100">
+                
+                <form id="contactForm" class="space-y-6">
+                    
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="form-label">Name *</label>
+                        <input type="text" id="name" name="name" required class="form-input" placeholder="Your full name">
+                        <span class="error-message" id="nameError">Please enter your name</span>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="form-label">Email *</label>
+                        <input type="email" id="email" name="email" required class="form-input" placeholder="you@company.com">
+                        <span class="error-message" id="emailError">Please enter a valid email</span>
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                        <label for="phone" class="form-label">Phone (Optional)</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+44 7XXX XXXXXX">
+                    </div>
+
+                    <!-- Company -->
+                    <div>
+                        <label for="company" class="form-label">Company Name (Optional)</label>
+                        <input type="text" id="company" name="company" class="form-input" placeholder="Your company">
+                    </div>
+
+                    <!-- Enquiry Type -->
+                    <div>
+                        <label for="enquiry_type" class="form-label">Enquiry Type *</label>
+                        <select id="enquiry_type" name="enquiry_type" required class="form-select">
+                            <option value="">Select...</option>
+                            <option value="general">General Enquiry</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="training">Training</option>
+                            <option value="both">Consulting & Training</option>
+                            <option value="assessment">Assessment Booking</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <span class="error-message" id="enquiryError">Please select an enquiry type</span>
+                    </div>
+
+                    <!-- Consulting-specific fields (hidden by default) -->
+                    <div id="consultingFields" class="hidden space-y-6">
+                        <div>
+                            <label for="consulting_interest" class="form-label">Consulting Interest</label>
+                            <select id="consulting_interest" name="consulting_interest" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="systems">Systems Architecture</option>
+                                <option value="analytics">Analytics & Reporting</option>
+                                <option value="financial">Commercial & Financial</option>
+                                <option value="crm">CRM Strategy</option>
+                                <option value="ai">AI Roadmap & Policy</option>
+                                <option value="multiple">Multiple Areas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Training-specific fields (hidden by default) -->
+                    <div id="trainingFields" class="hidden space-y-6">
+                        <div>
+                            <label for="training_interest" class="form-label">Training Interest</label>
+                            <select id="training_interest" name="training_interest" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="empowerment">AI Empowerment (team workshops)</option>
+                                <option value="solutions">AI Solutions (technical training)</option>
+                                <option value="both">Both</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="attendees" class="form-label">Number of Attendees</label>
+                            <select id="attendees" name="attendees" class="form-select">
+                                <option value="">Select...</option>
+                                <option value="1-5">1-5</option>
+                                <option value="6-10">6-10</option>
+                                <option value="11-20">11-20</option>
+                                <option value="21+">21+</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="form-label">Message *</label>
+                        <textarea id="message" name="message" required rows="6" class="form-textarea" placeholder="Tell us about your needs..."></textarea>
+                        <span class="error-message" id="messageError">Please enter a message</span>
+                    </div>
+
+                    <!-- Preferred Contact Method -->
+                    <div>
+                        <label for="contact_method" class="form-label">Preferred Contact Method</label>
+                        <select id="contact_method" name="contact_method" class="form-select">
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                            <option value="video">Video Call</option>
+                        </select>
+                    </div>
+
+                    <!-- Privacy Notice -->
+                    <div class="bg-slate-50 rounded-xl p-4 text-xs text-slate-600 leading-relaxed">
+                        <strong class="text-slate-800">Privacy:</strong> Your information is secure and used only to respond to your enquiry. 
+                        See our <a href="privacy.html" class="text-nl-teal hover:underline">Privacy Policy</a> for details. UK GDPR compliant.
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="w-full bg-nl-green text-nl-navy px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all shadow-lg flex items-center justify-center gap-3">
+                        <span id="submitText">Send Enquiry</span>
+                        <div id="submitSpinner" class="spinner hidden"></div>
+                    </button>
+
+                    <!-- Success/Error Messages -->
+                    <div id="successMessage" class="hidden bg-nl-green/10 border-2 border-nl-green text-nl-navy p-4 rounded-xl text-sm font-bold text-center">
+                        ✓ Thank you! We'll be in touch within 24 hours.
+                    </div>
+                    <div id="errorMessage" class="hidden bg-red-50 border-2 border-red-300 text-red-700 p-4 rounded-xl text-sm font-bold text-center">
+                        Something went wrong. Please email us directly at <a href="mailto:info@newlens.uk" class="underline">info@newlens.uk</a>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Alternative Contact -->
+            <div class="mt-12 text-center">
+                <p class="text-slate-600 text-sm mb-4">Prefer to reach out directly?</p>
+                <a href="mailto:info@newlens.uk" class="text-nl-teal font-bold hover:underline">info@newlens.uk</a>
+                <span class="text-slate-400 mx-4">|</span>
+                <span class="text-slate-600">Suffolk, UK</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-nl-navy border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-white inline-block mb-4">new<span class="text-nl-green">lens</span></a>
+            <p class="text-nl-slate/60 text-sm">© 2026 newlens. Co No. 16945634 | Registered in England & Wales</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Get URL parameter for enquiry type
+        const urlParams = new URLSearchParams(window.location.search);
+        const enquiryType = urlParams.get('type');
+        
+        // Pre-select enquiry type if provided
+        if (enquiryType) {
+            const selectEl = document.getElementById('enquiry_type');
+            if (selectEl) {
+                selectEl.value = enquiryType;
+                handleEnquiryTypeChange(enquiryType);
+            }
+        }
+
+        // Show/hide conditional fields based on enquiry type
+        document.getElementById('enquiry_type').addEventListener('change', function() {
+            handleEnquiryTypeChange(this.value);
+        });
+
+        function handleEnquiryTypeChange(value) {
+            const consultingFields = document.getElementById('consultingFields');
+            const trainingFields = document.getElementById('trainingFields');
+            
+            consultingFields.classList.add('hidden');
+            trainingFields.classList.add('hidden');
+            
+            if (value === 'consulting' || value === 'both') {
+                consultingFields.classList.remove('hidden');
+            }
+            if (value === 'training' || value === 'both') {
+                trainingFields.classList.remove('hidden');
+            }
+        }
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMsg.classList.add('hidden');
+            errorMsg.classList.add('hidden');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            submitSpinner.classList.remove('hidden');
+            
+            // Gather form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                // TODO: Replace with actual n8n webhook URL
+                const response = await fetch('https://your-n8n-instance.com/webhook/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    successMsg.classList.remove('hidden');
+                    this.reset();
+                    // Scroll to success message
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMsg.classList.remove('hidden');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Send Enquiry';
+                submitSpinner.classList.add('hidden');
+            }
+        });
+
+        // Real-time validation
+        const requiredFields = ['name', 'email', 'message', 'enquiry_type'];
+        requiredFields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('blur', function() {
+                    validateField(this);
+                });
+            }
+        });
+
+        function validateField(field) {
+            const errorEl = document.getElementById(field.id + 'Error');
+            if (!field.value.trim()) {
+                field.classList.add('border-red-300');
+                if (errorEl) errorEl.classList.remove('hidden');
+                return false;
+            } else {
+                field.classList.remove('border-red-300');
+                if (errorEl) errorEl.classList.add('hidden');
+                return true;
+            }
+        }
+    </script>
+
+</body>
+</html>
