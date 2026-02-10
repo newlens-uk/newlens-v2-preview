@@ -400,23 +400,41 @@
             const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.nav-link');
 
-            window.addEventListener('scroll', () => {
+            function updateScrollSpy() {
                 let current = '';
+                const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // Add an offset to trigger the change earlier
+                const offset = 200;
+
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
                     const sectionHeight = section.clientHeight;
-                    if (pageYOffset >= sectionTop - 150) {
+                    
+                    if (scrollPos >= sectionTop - offset) {
                         current = section.getAttribute('id');
                     }
                 });
 
+                // Mapping for sections without direct nav links (e.g., 'verticals' part of 'solutions')
+                const mapping = {
+                    'verticals': 'solutions',
+                    'audit': 'about'
+                };
+
+                const activeId = mapping[current] || current;
+
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').includes(current)) {
+                    const href = link.getAttribute('href').substring(1);
+                    if (href === activeId) {
                         link.classList.add('active');
                     }
                 });
-            });
+            }
+
+            window.addEventListener('scroll', updateScrollSpy);
+            updateScrollSpy(); // Run on load
         });
     </script>
 
