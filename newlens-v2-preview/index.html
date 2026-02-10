@@ -54,7 +54,7 @@
             box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12),
                         0 0 30px 2px rgba(57, 198, 214, 0.15); /* Subtle Brand Glow */
         }
-        .section-padding { padding-top: 112px; padding-bottom: 112px; }
+        .section-padding { padding-top: 80px; padding-bottom: 80px; }
         .hero-gradient {
             background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.1), transparent 50%),
                         radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.05), transparent 50%);
@@ -78,14 +78,28 @@
         .logo-item {
             width: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0 15px;
+            padding: 0 20px;
             filter: grayscale(1) opacity(0.2);
             transition: filter 0.6s ease, opacity 0.6s ease;
         }
         .logo-item.active-logo {
             filter: grayscale(0) opacity(1);
+        }
+        .logo-label {
+            margin-top: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #BFC9D1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .logo-item.active-logo .logo-label {
+            opacity: 1;
         }
     </style>
 </head>
@@ -150,10 +164,10 @@
     <!-- Section: Solutions -->
     <section id="solutions" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-20">
-                <h2 class="text-[13px] font-bold text-nl-navy uppercase tracking-[0.3em] mb-4">Solutions</h2>
-                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-tight mb-6 text-balance">Addressing your productivity challenges with quality-first automation.</h3>
-                <p class="text-xl text-slate-600 font-medium">How we can help.</p>
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Solutions</h2>
+                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[1.1] mb-6 text-balance">Addressing your productivity challenges with quality-first automation.</h3>
+                <p class="text-lg text-slate-600 font-normal">How we can help.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 mb-32">
@@ -163,7 +177,7 @@
                     <p class="text-slate-500 leading-relaxed mb-8">
                         Reduce admin with intelligent voice agents for reception and bookings: alongside self-healing workflows that keep human intelligence in the loop.
                     </p>
-                    <a href="solutions.html#automation" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#automation" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all">
                         Eliminate Bottlenecks →
                     </a>
                 </div>
@@ -174,7 +188,7 @@
                     <p class="text-slate-500 leading-relaxed mb-8">
                         We don't just connect apps: we ensure your data is clean and your insights are accurate. We build "Data-Native" workflows that eliminate manual errors.
                     </p>
-                    <a href="solutions.html#data" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#data" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all">
                         Build Clean Systems →
                     </a>
                 </div>
@@ -185,7 +199,7 @@
                     <p class="text-slate-500 leading-relaxed mb-8">
                         Navigate the AI landscape with practical implementation strategies that empower your people: not replace them.
                     </p>
-                    <a href="solutions.html#ai" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#ai" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all">
                         Find Your Roadmap →
                     </a>
                 </div>
@@ -254,10 +268,10 @@
     <!-- Section: Consulting (Dark Rhythm) -->
     <section id="consulting" class="section-padding bg-nl-navy text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-20">
+            <div class="max-w-3xl mb-16">
                 <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Consulting</h2>
-                <h3 class="text-5xl md:text-6xl font-black text-white leading-tight mb-6 text-balance">We are more than workflow automation.</h3>
-                <p class="text-xl text-nl-slate font-medium">Strategic Expertise.</p>
+                <h3 class="text-5xl md:text-6xl font-black text-white leading-[1.1] mb-6 text-balance">We are more than workflow automation.</h3>
+                <p class="text-lg text-nl-slate font-normal">Strategic Expertise.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -314,8 +328,8 @@
                 </div>
             </div>
 
-            <div class="mt-20 flex justify-center">
-                <a href="mailto:info@newlens.uk?subject=Consulting Enquiry" class="bg-nl-teal text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
+            <div class="mt-16 flex justify-center">
+                <a href="mailto:info@newlens.uk?subject=Consulting Enquiry" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
                     Enquire About Consulting
                 </a>
             </div>
@@ -325,10 +339,10 @@
     <!-- Section: Insights -->
     <section id="insights" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-20">
-                <h2 class="text-[13px] font-bold text-nl-navy uppercase tracking-[0.3em] mb-4">Insights</h2>
-                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-tight mb-6 text-balance">Data Foundations. Proven Logic.</h3>
-                <p class="text-xl text-slate-600 font-medium">Latest Insights.</p>
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Insights</h2>
+                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[1.1] mb-6 text-balance">Data Foundations. Proven Logic.</h3>
+                <p class="text-lg text-slate-600 font-normal">Latest Insights.</p>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12 mb-20">
@@ -392,9 +406,9 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-[13px] font-bold text-nl-navy uppercase tracking-[0.3em] mb-4">Jump In</h2>
-                    <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-nl-navy leading-[0.95] mb-8 text-balance">The water isn't going to get warmer while you wait.</h3>
-                    <p class="text-xl text-slate-500 mb-10 leading-relaxed font-light">
+                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Jump In</h2>
+                    <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-nl-navy leading-[1.05] mb-8 text-balance">The water isn't going to get warmer while you wait.</h3>
+                    <p class="text-lg text-slate-600 mb-10 leading-relaxed font-normal">
                         We know why businesses hesitate. You're waiting for the "perfect" time: when the data is cleaner, the team is less busy, or the budget is bigger. But in the world of automation, the "perfect time" is a mirage.
                     </p>
                     
@@ -415,7 +429,7 @@
                         </div>
                     </div>
 
-                    <a href="assessment.html" class="inline-block bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-green hover:text-nl-navy transition-all">
+                    <a href="assessment.html" class="inline-block bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-teal transition-all">
                         Take the Plunge
                     </a>
                 </div>
@@ -489,26 +503,80 @@
                 <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-nl-navy to-transparent z-10"></div>
                 
                 <div class="logo-carousel flex items-center" id="logo-carousel">
-                    <!-- Tech logos using SimpleIcons CDN -->
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/microsoft-365/FFFFFF" alt="M365" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/power-bi/FFFFFF" alt="Power BI" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/google-workspace/FFFFFF" alt="Google" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="ChatGPT" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/xero/FFFFFF" alt="Xero" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/quickbooks/FFFFFF" alt="QuickBooks" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/salesforce/FFFFFF" alt="Salesforce" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/hubspot/FFFFFF" alt="HubSpot" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/tableau/FFFFFF" alt="Tableau" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" class="h-14"></div>
+                    <!-- Tech logos using SimpleIcons CDN - 30% larger (h-14 → h-20) -->
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/microsoft/FFFFFF" alt="M365" class="h-20">
+                        <span class="logo-label">Microsoft 365</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/powerbi/FFFFFF" alt="Power BI" class="h-20">
+                        <span class="logo-label">Power BI</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/google/FFFFFF" alt="Google" class="h-20">
+                        <span class="logo-label">Google Workspace</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-20">
+                        <span class="logo-label">Python</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-20">
+                        <span class="logo-label">n8n</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude" class="h-20">
+                        <span class="logo-label">Claude</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="ChatGPT" class="h-20">
+                        <span class="logo-label">ChatGPT</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/xero/FFFFFF" alt="Xero" class="h-20">
+                        <span class="logo-label">Xero</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/quickbooks/FFFFFF" alt="QuickBooks" class="h-20">
+                        <span class="logo-label">QuickBooks</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/salesforce/FFFFFF" alt="Salesforce" class="h-20">
+                        <span class="logo-label">Salesforce</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/hubspot/FFFFFF" alt="HubSpot" class="h-20">
+                        <span class="logo-label">HubSpot</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/tableau/FFFFFF" alt="Tableau" class="h-20">
+                        <span class="logo-label">Tableau</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" class="h-20">
+                        <span class="logo-label">WhatsApp</span>
+                    </div>
                     <!-- Duplicate for infinite scroll -->
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/microsoft-365/FFFFFF" alt="M365" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/power-bi/FFFFFF" alt="Power BI" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/google-workspace/FFFFFF" alt="Google" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-14"></div>
-                    <div class="logo-item"><img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-14"></div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/microsoft/FFFFFF" alt="M365" class="h-20">
+                        <span class="logo-label">Microsoft 365</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/powerbi/FFFFFF" alt="Power BI" class="h-20">
+                        <span class="logo-label">Power BI</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/google/FFFFFF" alt="Google" class="h-20">
+                        <span class="logo-label">Google Workspace</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-20">
+                        <span class="logo-label">Python</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-20">
+                        <span class="logo-label">n8n</span>
+                    </div>
                 </div>
             </div>
         </div>
