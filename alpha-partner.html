@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpha Partner Program 2026 | newlens</title>
+    <meta name="description" content="Join the newlens Alpha Partner Program 2026. Limited spaces for UK SMEs ready to pilot AI automation solutions. Apply now.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; width: 100%; margin: 0; padding: 0; }
+        body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        .form-input, .form-textarea, .form-select {
+            @apply w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-nl-teal focus:ring-2 focus:ring-nl-teal/20 outline-none transition-all bg-white text-slate-800;
+        }
+        .form-label {
+            @apply block text-sm font-bold text-nl-navy mb-2 uppercase tracking-wider;
+        }
+        .error-message {
+            @apply text-red-500 text-xs mt-1 hidden;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            width: 20px;
+            height: 20px;
+            animation: spin 0.6s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-sm font-bold text-nl-slate hover:text-white transition-colors uppercase tracking-widest">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-nl-green via-nl-teal to-nl-navy">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-2 rounded-full mb-6">
+                <p class="text-white font-black uppercase tracking-widest text-xs">Limited Spaces • 2026</p>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">Alpha Partner Program</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed">
+                Join local SMEs pioneering AI automation. Subsidised implementation, priority support, and quarterly strategy reviews.
+            </p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-black text-nl-navy mb-12 text-center">What You Get</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-nl-green/10 rounded-xl flex items-center justify-center">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-lg mb-2">Subsidised Implementation</h3>
+                        <p class="text-slate-600 text-sm">Alpha partners receive preferential pricing on automation projects during the pilot phase.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-nl-teal/10 rounded-xl flex items-center justify-center">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-lg mb-2">Priority Support</h3>
+                        <p class="text-slate-600 text-sm">Direct access to our team with accelerated response times and dedicated onboarding.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-nl-green/10 rounded-xl flex items-center justify-center">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-lg mb-2">Quarterly Strategy Reviews</h3>
+                        <p class="text-slate-600 text-sm">Regular check-ins to optimize workflows and identify new automation opportunities.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 w-12 h-12 bg-nl-teal/10 rounded-xl flex items-center justify-center">
+                        <span class="text-2xl">🚀</span>
+                    </div>
+                    <div>
+                        <h3 class="font-black text-lg mb-2">Early Access</h3>
+                        <p class="text-slate-600 text-sm">First to benefit from new features, integrations, and training programs as we expand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="py-16 md:py-24 bg-slate-100">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-600">Step <span id="currentStep">1</span> of 3</span>
+                    <span class="text-sm font-bold text-nl-teal"><span id="progressPercent">33</span>%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2">
+                    <div id="progressBar" class="progress-bar bg-nl-teal h-2 rounded-full" style="width: 33%"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100">
+                
+                <form id="alphaForm">
+                    
+                    <!-- Step 1: Company Info -->
+                    <div class="step active" id="step1">
+                        <h2 class="text-2xl font-black text-nl-navy mb-6">About Your Business</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="company_name" class="form-label">Company Name *</label>
+                                <input type="text" id="company_name" name="company_name" required class="form-input" placeholder="Your company name">
+                                <span class="error-message" id="companyError">Please enter your company name</span>
+                            </div>
+
+                            <div>
+                                <label for="contact_name" class="form-label">Your Name *</label>
+                                <input type="text" id="contact_name" name="contact_name" required class="form-input" placeholder="Full name">
+                                <span class="error-message" id="nameError">Please enter your name</span>
+                            </div>
+
+                            <div>
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="you@company.com">
+                                <span class="error-message" id="emailError">Please enter a valid email</span>
+                            </div>
+
+                            <div>
+                                <label for="phone" class="form-label">Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+44 7XXX XXXXXX">
+                            </div>
+
+                            <div>
+                                <label for="industry" class="form-label">Industry Sector *</label>
+                                <select id="industry" name="industry" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="professional-services">Professional Services</option>
+                                    <option value="field-services">Field Services</option>
+                                    <option value="retail-manufacturing">Retail & Manufacturing</option>
+                                    <option value="hospitality">Hospitality</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <span class="error-message" id="industryError">Please select your industry</span>
+                            </div>
+
+                            <div>
+                                <label for="team_size" class="form-label">Team Size *</label>
+                                <select id="team_size" name="team_size" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="1-5">1-5</option>
+                                    <option value="6-10">6-10</option>
+                                    <option value="11-20">11-20</option>
+                                    <option value="21-50">21-50</option>
+                                    <option value="50+">50+</option>
+                                </select>
+                                <span class="error-message" id="teamError">Please select team size</span>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="nextStep()" class="mt-8 w-full bg-nl-green text-nl-navy px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">
+                            Next Step →
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Current State -->
+                    <div class="step" id="step2">
+                        <h2 class="text-2xl font-black text-nl-navy mb-6">Your Current Setup</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="automation_level" class="form-label">Current Automation Level *</label>
+                                <select id="automation_level" name="automation_level" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="none">None - everything is manual</option>
+                                    <option value="basic">Basic - using some spreadsheets/templates</option>
+                                    <option value="intermediate">Intermediate - some tools connected</option>
+                                    <option value="advanced">Advanced - automated workflows in place</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="primary_pain" class="form-label">Primary Pain Point *</label>
+                                <select id="primary_pain" name="primary_pain" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="admin-time">Too much time on admin tasks</option>
+                                    <option value="data-quality">Poor data quality/scattered systems</option>
+                                    <option value="scaling">Can't scale without hiring more people</option>
+                                    <option value="customer-experience">Customer experience suffering</option>
+                                    <option value="margins">Losing margins to inefficiency</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="admin_hours" class="form-label">Estimated Weekly Admin Hours Lost *</label>
+                                <select id="admin_hours" name="admin_hours" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="1-5">1-5 hours</option>
+                                    <option value="6-10">6-10 hours</option>
+                                    <option value="11-20">11-20 hours</option>
+                                    <option value="21+">21+ hours</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="tools_used" class="form-label">Current Tools (select all that apply)</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" name="tools_used" value="microsoft-365" class="w-4 h-4 text-nl-teal">
+                                        <span class="text-sm">Microsoft 365</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" name="tools_used" value="google-workspace" class="w-4 h-4 text-nl-teal">
+                                        <span class="text-sm">Google Workspace</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" name="tools_used" value="salesforce" class="w-4 h-4 text-nl-teal">
+                                        <span class="text-sm">Salesforce / HubSpot</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" name="tools_used" value="xero-quickbooks" class="w-4 h-4 text-nl-teal">
+                                        <span class="text-sm">Xero / QuickBooks</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" name="tools_used" value="other" class="w-4 h-4 text-nl-teal">
+                                        <span class="text-sm">Other</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">
+                                ← Back
+                            </button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">
+                                Next Step →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Commitment & Budget -->
+                    <div class="step" id="step3">
+                        <h2 class="text-2xl font-black text-nl-navy mb-6">Commitment & Budget</h2>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="commitment" class="form-label">Can you commit to a 3-month pilot? *</label>
+                                <select id="commitment" name="commitment" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="yes">Yes - ready to start now</option>
+                                    <option value="maybe">Maybe - need more details first</option>
+                                    <option value="no">No - just exploring options</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="budget" class="form-label">Monthly Budget Allocated *</label>
+                                <select id="budget" name="budget" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="under-500">Under £500/month</option>
+                                    <option value="500-1000">£500-1,000/month</option>
+                                    <option value="1000-2000">£1,000-2,000/month</option>
+                                    <option value="2000+">£2,000+/month</option>
+                                    <option value="flexible">Flexible - depends on ROI</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="urgency" class="form-label">Timeline *</label>
+                                <select id="urgency" name="urgency" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="immediate">Immediate - as soon as possible</option>
+                                    <option value="1-month">Within 1 month</option>
+                                    <option value="1-3-months">1-3 months</option>
+                                    <option value="3-6-months">3-6 months</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="goals" class="form-label">What do you hope to achieve? *</label>
+                                <textarea id="goals" name="goals" required rows="4" class="form-textarea" placeholder="Describe your automation goals..."></textarea>
+                                <span class="error-message" id="goalsError">Please describe your goals</span>
+                            </div>
+
+                            <div>
+                                <label for="heard_about" class="form-label">How did you hear about us?</label>
+                                <select id="heard_about" name="heard_about" class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="linkedin">LinkedIn</option>
+                                    <option value="google">Google Search</option>
+                                    <option value="referral">Referral</option>
+                                    <option value="event">Event/Conference</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 rounded-xl p-4 text-xs text-slate-600 leading-relaxed mt-6">
+                            <strong class="text-slate-800">Privacy:</strong> Your application is confidential. We'll review and respond within 48 hours. 
+                            See our <a href="privacy.html" class="text-nl-teal hover:underline">Privacy Policy</a>.
+                        </div>
+
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">
+                                ← Back
+                            </button>
+                            <button type="submit" id="submitBtn" class="flex-1 bg-nl-green text-nl-navy px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all flex items-center justify-center gap-3">
+                                <span id="submitText">Submit Application</span>
+                                <div id="submitSpinner" class="spinner hidden"></div>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="hidden text-center py-12">
+                    <div class="w-20 h-20 bg-nl-green/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-black text-nl-navy mb-4">Application Received!</h3>
+                    <p class="text-slate-600 mb-6 max-w-md mx-auto">
+                        Thank you for applying. We'll review your application and respond within 48 hours.
+                    </p>
+                    <p id="eligibilityMessage" class="text-sm font-bold mb-8"></p>
+                    <a href="index.html" class="inline-block bg-nl-navy text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-teal transition-all">
+                        Back to Home
+                    </a>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="hidden bg-red-50 border-2 border-red-300 text-red-700 p-4 rounded-xl text-sm font-bold text-center">
+                    Something went wrong. Please email us directly at <a href="mailto:info@newlens.uk" class="underline">info@newlens.uk</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-nl-navy border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <a href="index.html" class="text-xl font-black tracking-tighter text-white inline-block mb-4">new<span class="text-nl-green">lens</span></a>
+            <p class="text-nl-slate/60 text-sm">© 2026 newlens. Co No. 16945634 | Registered in England & Wales</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let currentStep = 1;
+        const totalSteps = 3;
+
+        function nextStep() {
+            // Validate current step
+            const currentStepEl = document.getElementById(`step${currentStep}`);
+            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('border-red-300');
+                    const errorEl = document.getElementById(input.id + 'Error');
+                    if (errorEl) errorEl.classList.remove('hidden');
+                } else {
+                    input.classList.remove('border-red-300');
+                    const errorEl = document.getElementById(input.id + 'Error');
+                    if (errorEl) errorEl.classList.add('hidden');
+                }
+            });
+
+            if (!isValid) return;
+
+            // Move to next step
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('currentStep').textContent = currentStep;
+            document.getElementById('progressPercent').textContent = percent;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+        }
+
+        // Form submission
+        document.getElementById('alphaForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            const eligibilityMsg = document.getElementById('eligibilityMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Processing...';
+            submitSpinner.classList.remove('hidden');
+            
+            // Gather form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Get checkboxes separately
+            const toolsUsed = Array.from(document.querySelectorAll('input[name="tools_used"]:checked')).map(cb => cb.value);
+            data.tools_used = toolsUsed.join(', ');
+            
+            // Calculate eligibility score
+            let score = 0;
+            
+            // Scoring logic
+            if (data.team_size === '6-10' || data.team_size === '11-20' || data.team_size === '21-50') score += 2;
+            if (data.team_size === '50+') score += 1;
+            if (data.team_size === '1-5') score += 1;
+            
+            if (data.automation_level === 'none' || data.automation_level === 'basic') score += 2;
+            if (data.automation_level === 'intermediate') score += 1;
+            
+            if (data.admin_hours === '11-20' || data.admin_hours === '21+') score += 2;
+            if (data.admin_hours === '6-10') score += 1;
+            
+            if (data.commitment === 'yes') score += 3;
+            if (data.commitment === 'maybe') score += 1;
+            
+            if (data.budget === '1000-2000' || data.budget === '2000+' || data.budget === 'flexible') score += 2;
+            if (data.budget === '500-1000') score += 1;
+            
+            if (data.urgency === 'immediate' || data.urgency === '1-month') score += 2;
+            if (data.urgency === '1-3-months') score += 1;
+            
+            // Determine eligibility
+            let eligibility = 'waitlist';
+            let message = '';
+            
+            if (score >= 10) {
+                eligibility = 'approved';
+                message = '✅ <span class="text-nl-green">Strong Fit</span> - Your application shows excellent potential for the Alpha Partner program.';
+            } else if (score >= 6) {
+                eligibility = 'waitlist';
+                message = '🟡 <span class="text-yellow-600">Under Review</span> - Your application is competitive. We may have follow-up questions.';
+            } else {
+                eligibility = 'declined';
+                message = '📋 <span class="text-slate-600">Not Quite Ready</span> - We recommend starting with our assessment to identify your automation opportunities first.';
+            }
+            
+            data.eligibility = eligibility;
+            data.score = score;
+            
+            try {
+                // TODO: Replace with actual n8n webhook URL
+                const response = await fetch('https://your-n8n-instance.com/webhook/alpha-partner', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok || true) { // Remove || true when webhook is real
+                    // Hide form, show success
+                    document.getElementById('alphaForm').style.display = 'none';
+                    successMsg.classList.remove('hidden');
+                    eligibilityMsg.innerHTML = message;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMsg.classList.remove('hidden');
+                // Reset button state
+                submitBtn.disabled = false;
+                submitText.textContent = 'Submit Application';
+                submitSpinner.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
