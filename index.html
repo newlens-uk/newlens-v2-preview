@@ -6,13 +6,6 @@
     <title>newlens | Data Clarity, Workflow Efficiency & AI-Powered Growth</title>
     <meta name="description" content="newlens helps SMEs eliminate the 'Admin Tax' through intelligent workflow automation, data clarity, and AI empowerment. Corporate-grade solutions for local agility.">
     
-    <!-- OpenGraph -->
-    <meta property="og:title" content="newlens | Automation & Data Clarity for SMEs">
-    <meta property="og:description" content="Eliminate the Admin Tax. We build self-healing workflows and data systems that scale your business.">
-    <meta property="og:image" content="assets/2026-02-06-final-hero-blend.png">
-    <meta property="og:url" content="https://newlens.uk">
-    <meta property="og:type" content="website">
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -34,6 +27,11 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        html { scroll-behavior: smooth; }
+        .nav-link.active {
+            color: #38D98A;
+            border-bottom: 2px solid #38D98A;
+        }
         .service-card {
             background: #FFFFFF;
             border: 1px solid #F1F5F9;
@@ -52,6 +50,7 @@
         .btn-shadow {
             box-shadow: 0 10px 20px -5px rgba(5, 11, 21, 0.15);
         }
+        section { scroll-margin-top: 80px; }
     </style>
 </head>
 <body class="bg-white text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
@@ -59,12 +58,13 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
-            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest text-nl-slate/60">
-                <a href="solutions.html" class="hover:text-white transition-colors">Solutions</a>
-                <a href="about.html" class="hover:text-white transition-colors">About</a>
-                <a href="case-studies.html" class="hover:text-white transition-colors">Insights</a>
-                <a href="assessment.html" class="bg-white text-nl-navy px-6 py-3 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all font-bold">
+            <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest">
+                <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
+                <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="#insights" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Insights</a>
+                <a href="about.html" class="text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <a href="assessment.html" class="bg-white text-nl-navy px-6 py-3 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all font-bold uppercase text-[10px]">
                     Admin Tax Audit
                 </a>
             </div>
@@ -76,8 +76,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Dark / Indigo Ross Rhythm) -->
-    <header class="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-nl-navy hero-gradient">
+    <!-- Section: Home (Hero) -->
+    <header id="home" class="relative pt-32 pb-16 md:pt-48 md:pb-32 overflow-hidden bg-nl-navy hero-gradient">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
             <div class="relative z-10">
                 <div class="inline-flex items-center gap-3 mb-6">
@@ -94,7 +94,7 @@
                     <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
                         Start Your AI Readiness Audit
                     </a>
-                    <a href="calculator.html" class="flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest py-5 text-white hover:text-nl-teal transition-colors">
+                    <a href="#calculator" class="flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest py-5 text-white hover:text-nl-teal transition-colors">
                         Calculate Your Admin Tax
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -103,20 +103,20 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="assets/2026-02-10-06-30-00-light-office-laptop-draft.png" alt="Data-Native Automation" class="rounded-[2.5rem] shadow-2xl border-4 border-white/10">
+                <img src="assets/2026-02-10-06-45-00-v3-master-hero-draft.png" alt="Data-Native Automation" class="rounded-[2.5rem] shadow-2xl border-4 border-white/10">
             </div>
         </div>
     </header>
 
-    <!-- How We Can Help (Light Rhythm) -->
-    <section class="py-24 bg-white">
+    <!-- Section: Solutions -->
+    <section id="solutions" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="max-w-3xl mb-20">
                 <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">How we can help</h2>
                 <h3 class="text-4xl md:text-5xl font-black text-nl-navy leading-tight">Addressing your productivity challenges with quality-first automation</h3>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-32">
                 <!-- Workflow & Voice -->
                 <div class="service-card p-10 rounded-[2rem]">
                     <h4 class="text-2xl font-bold mb-6 text-nl-navy">Workflow & Voice</h4>
@@ -150,75 +150,120 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Deep Dive: Workflow Visual -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="assets/2026-02-10-07-00-00-v3-workflow-diagram.png" alt="Automation Workflow" class="rounded-[2rem] shadow-xl border border-slate-100">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h4 class="text-3xl font-black text-nl-navy mb-6">Seamless Process Integration.</h4>
+                    <p class="text-slate-500 text-lg leading-relaxed mb-8 font-medium">
+                        We don't just "automate" — we build digital ecosystems. From the moment an enquiry hits your inbox to the final CRM update, our workflows are monitored, self-healing, and designed for enterprise-grade reliability.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-nl-navy font-bold">
+                            <span class="w-2 h-2 bg-nl-green rounded-full"></span>
+                            Zero-Manual Entry Systems
+                        </li>
+                        <li class="flex items-center gap-3 text-nl-navy font-bold">
+                            <span class="w-2 h-2 bg-nl-green rounded-full"></span>
+                            Real-time CRM Synchronization
+                        </li>
+                        <li class="flex items-center gap-3 text-nl-navy font-bold">
+                            <span class="w-2 h-2 bg-nl-green rounded-full"></span>
+                            Intelligent Error Handling
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Verticals (Dark Rhythm) -->
-    <section class="py-24 bg-nl-navy text-white">
+    <!-- Section: Verticals (Dark Rhythm) -->
+    <section id="verticals" class="py-24 bg-nl-navy text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 p-8 bg-white/5 border border-white/10 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h4 class="text-xl font-bold text-nl-green mb-2">Alpha Partner Program : Q1 2026</h4>
-                    <p class="text-nl-slate/80">We are looking for three local businesses to become our first "Alpha Partners." Get enterprise-grade automation at a reduced rate in exchange for a case study.</p>
+                    <h2 class="text-4xl md:text-5xl font-black mb-8">Tailored for your vertical.</h2>
+                    <p class="text-nl-slate text-xl mb-12 font-light leading-relaxed">
+                        Whether you're managing a trades team, a legal firm, or a manufacturing plant, we adapt our 20 years of data depth to your specific industry challenges.
+                    </p>
+                    <div class="space-y-8">
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Professional Services</h4>
+                            <p class="text-nl-slate text-sm">Clarity for consultancies and legal firms through precision-led data auditing.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Field Services</h4>
+                            <p class="text-nl-slate text-sm">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Retail & Manufacturing</h4>
+                            <p class="text-nl-slate text-sm">Protecting margins through rebate analysis and automated supply chain tracking.</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-green text-nl-navy px-8 py-4 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white transition-all">
+                <div class="relative">
+                    <img src="assets/2026-02-10-07-05-00-v3-verticals-group.png" alt="Industry Solutions" class="rounded-[2rem] shadow-2xl border-4 border-white/5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Insights -->
+    <section id="insights" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-xl">
+                    <h2 class="text-4xl md:text-5xl font-black text-nl-navy mb-6">Latest Insights.</h2>
+                    <p class="text-slate-500 font-medium">Real-world results for local businesses. No fluff, just efficiency.</p>
+                </div>
+                <a href="case-studies.html" class="text-sm font-bold uppercase tracking-widest text-nl-teal hover:text-nl-navy transition-colors pb-2 border-b-2 border-nl-teal">View all insights</a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group">
+                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
+                        <img src="assets/sme-professional.png" alt="M&A Advisory" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Professional Services</p>
+                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Automated Reporting Audit</h4>
+                </div>
+                <div class="group">
+                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100 mt-8">
+                        <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Manufacturing</p>
+                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Supply Chain Margin Analysis</h4>
+                </div>
+                <div class="group">
+                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
+                        <img src="assets/sme-retail.png" alt="Retail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Artisan Retail</p>
+                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">24/7 AI Booking Agent</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alpha Partner Callout -->
+    <section class="py-16 bg-nl-green">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-nl-navy">
+                <div class="max-w-2xl text-center md:text-left">
+                    <h4 class="text-2xl font-black mb-2">Alpha Partner Program : Q1 2026</h4>
+                    <p class="font-bold opacity-80 uppercase tracking-widest text-sm">Limited to three local Sudbury businesses.</p>
+                </div>
+                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-navy text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-teal transition-all shadow-xl">
                     Apply to Join
                 </a>
             </div>
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-12">Tailored for your vertical.</h2>
-                    <div class="space-y-10">
-                        <div>
-                            <h4 class="text-2xl font-bold mb-3 text-nl-teal">Field Services</h4>
-                            <p class="text-nl-slate leading-relaxed">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-3 text-nl-teal">Professional Services</h4>
-                            <p class="text-nl-slate leading-relaxed">Clarity for consultancies and legal firms through precision-led data auditing.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-2xl font-bold mb-3 text-nl-teal">Retail & Manufacturing</h4>
-                            <p class="text-nl-slate leading-relaxed">Protecting margins through rebate analysis and automated supply chain tracking.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <img src="assets/sme-professional.png" alt="Professional Services" class="rounded-[2rem] grayscale group-hover:grayscale-0 transition-all">
-                    <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="rounded-[2rem] mt-12 grayscale group-hover:grayscale-0 transition-all">
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- About Section (Light Rhythm) -->
-    <section id="about" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-            <div class="order-2 lg:order-1">
-                <img src="assets/lens-bright-office.png" alt="newlens Office" class="rounded-[3rem] shadow-xl border border-slate-100">
-            </div>
-            <div class="order-1 lg:order-2">
-                <h2 class="text-4xl md:text-5xl font-black mb-8 text-nl-navy">20 Years of Data Depth. <span class="text-nl-green">Local Commitment.</span></h2>
-                <div class="space-y-6 text-slate-600 text-lg leading-relaxed font-light">
-                    <p>Founded by Matthew Keys, newlens was built on a simple premise: automation is only as good as the data behind it. With over two decades of experience managing complex data systems for large enterprise organisations, Mat brings a level of precision to the SME market that pure automation shops often miss.</p>
-                    <p>Based in Sudbury, Suffolk, we bridge the gap between enterprise-grade data logic and the practical, daily needs of growing businesses. We don't just "automate":we build business solutions that are clean, monitored, and designed to scale without creating "data debt."</p>
-                    <div class="pt-8">
-                        <div class="flex items-center gap-6">
-                            <div class="w-16 h-16 bg-nl-navy rounded-2xl flex items-center justify-center">
-                                <span class="text-white font-black text-xl">MK</span>
-                            </div>
-                            <div>
-                                <p class="text-xl font-black text-nl-navy">Matthew Keys</p>
-                                <p class="text-sm font-bold text-slate-400 uppercase tracking-widest">Founder & Principal Consultant</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lead Magnet (Dark Rhythm) -->
+    <!-- Final CTA -->
     <section id="audit" class="py-24 bg-nl-navy text-white overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-6xl font-black mb-8">Stop the Friction.</h2>
@@ -231,7 +276,7 @@
         </div>
     </section>
 
-    <!-- Footer (Light Rhythm) -->
+    <!-- Footer -->
     <footer class="py-20 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-10">
             <div class="max-w-sm">
@@ -243,9 +288,9 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-slate-400 uppercase tracking-widest">
                 <div class="flex flex-col gap-4">
                     <span class="text-nl-navy mb-2">Company</span>
-                    <a href="solutions.html" class="hover:text-nl-teal transition-colors">Solutions</a>
+                    <a href="#home" class="hover:text-nl-teal transition-colors">Home</a>
+                    <a href="#solutions" class="hover:text-nl-teal transition-colors">Solutions</a>
                     <a href="about.html" class="hover:text-nl-teal transition-colors">About</a>
-                    <a href="case-studies.html" class="hover:text-nl-teal transition-colors">Insights</a>
                 </div>
                 <div class="flex flex-col gap-4">
                     <span class="text-nl-navy mb-2">Legal</span>
@@ -259,6 +304,32 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scroll Spy Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
