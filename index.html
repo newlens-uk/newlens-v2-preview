@@ -28,20 +28,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
         .nav-link.active {
             color: #38D98A;
-            border-bottom: 2px solid #38D98A;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
         }
         .service-card {
             background: #FFFFFF;
-            border: 1px solid #F1F5F9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
-            border-color: #39C6D6;
+            transform: translateY(-12px);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12),
+                        0 0 30px 2px rgba(57, 198, 214, 0.15); /* Subtle Brand Glow */
         }
+        .section-padding { padding-top: 80px; padding-bottom: 80px; }
         .hero-gradient {
             background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.1), transparent 50%),
                         radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.05), transparent 50%);
@@ -55,39 +68,55 @@
         /* Tech Stack Animation */
         @keyframes scroll {
             0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-200px * 8)); }
+            100% { transform: translateX(calc(-200px * 13)); }
         }
         .logo-carousel {
             display: flex;
-            width: calc(200px * 16);
-            animation: scroll 40s linear infinite;
+            width: calc(200px * 26);
+            animation: scroll 30s linear infinite;
         }
         .logo-item {
             width: 200px;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 0 40px;
-            filter: grayscale(1) opacity(0.4);
-            transition: all 0.3s ease;
+            padding: 0 20px;
+            filter: grayscale(1) opacity(0.2);
+            transition: filter 0.6s ease, opacity 0.6s ease;
         }
-        .logo-item:hover {
+        .logo-item.active-logo {
             filter: grayscale(0) opacity(1);
+        }
+        .logo-label {
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #BFC9D1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .logo-item.active-logo .logo-label {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
+<body class="bg-[#F8FAFC] text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
-            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest">
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
                 <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
                 <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="#consulting" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Consulting</a>
                 <a href="#insights" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Insights</a>
                 <a href="#jump-in" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Jump In</a>
                 <a href="#about" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <div id="nav-indicator" class="opacity-0"></div>
                 <a href="assessment.html" class="bg-white text-nl-navy px-6 py-3 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all font-bold uppercase text-[10px]">
                     Admin Tax Audit
                 </a>
@@ -127,49 +156,58 @@
                 </div>
             </div>
             <div class="relative">
-                <img src="assets/2026-02-10-06-45-00-v3-master-hero-draft.png" alt="Data-Native Automation" class="rounded-[2.5rem] shadow-2xl border-4 border-white/10">
+                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] p-12 shadow-2xl">
+                    <h3 class="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">Ready to eliminate friction?</h3>
+                    <p class="text-lg text-nl-slate mb-8 leading-relaxed">
+                        Take our 15-minute AI Readiness Audit and discover exactly where automation can save you time and money.
+                    </p>
+                    <a href="assessment.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center w-full">
+                        Start Your Audit
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Section: Solutions -->
-    <section id="solutions" class="py-24 bg-white">
+    <section id="solutions" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-20">
-                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">How we can help</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-nl-navy leading-tight">Addressing your productivity challenges with quality-first automation</h3>
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Solutions</h2>
+                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[1.1] mb-6 text-balance">Addressing your productivity challenges with quality-first automation.</h3>
+                <p class="text-lg text-slate-600 font-normal">How we can help.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 mb-32">
                 <!-- Workflow & Voice -->
-                <div class="service-card p-10 rounded-[2rem]">
+                <div class="service-card p-10 rounded-[2rem] border border-slate-200 flex flex-col">
                     <h4 class="text-2xl font-bold mb-6 text-nl-navy">Workflow & Voice</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
+                    <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                         Reduce admin with intelligent voice agents for reception and bookings: alongside self-healing workflows that keep human intelligence in the loop.
                     </p>
-                    <a href="solutions.html#automation" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#automation" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all text-center">
                         Eliminate Bottlenecks →
                     </a>
                 </div>
 
                 <!-- Data-First Automation -->
-                <div class="service-card p-10 rounded-[2rem]">
+                <div class="service-card p-10 rounded-[2rem] border border-slate-200 flex flex-col">
                     <h4 class="text-2xl font-bold mb-6 text-nl-navy">Data-First Automation</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
+                    <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                         We don't just connect apps: we ensure your data is clean and your insights are accurate. We build "Data-Native" workflows that eliminate manual errors.
                     </p>
-                    <a href="solutions.html#data" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#data" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all text-center">
                         Build Clean Systems →
                     </a>
                 </div>
 
                 <!-- AI Roadmap -->
-                <div class="service-card p-10 rounded-[2rem]">
+                <div class="service-card p-10 rounded-[2rem] border border-slate-200 flex flex-col">
                     <h4 class="text-2xl font-bold mb-6 text-nl-navy">AI Roadmap</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
+                    <p class="text-slate-500 leading-relaxed mb-8 flex-grow">
                         Navigate the AI landscape with practical implementation strategies that empower your people: not replace them.
                     </p>
-                    <a href="solutions.html#ai" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
+                    <a href="solutions.html#ai" class="inline-block bg-nl-navy text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-nl-teal transition-all text-center">
                         Find Your Roadmap →
                     </a>
                 </div>
@@ -204,97 +242,181 @@
         </div>
     </section>
 
-    <!-- Section: Verticals (Dark Rhythm) -->
-    <section id="verticals" class="py-24 bg-nl-navy text-white">
+    <!-- Section: Markets (Light Rhythm) -->
+    <section id="verticals" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-8">Tailored for your vertical.</h2>
-                    <p class="text-nl-slate text-xl mb-12 font-light leading-relaxed">
-                        Whether you're managing a trades team, a legal firm, or a manufacturing plant, we adapt our 20 years of data depth to your specific industry challenges.
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 text-balance text-nl-navy">Tailored for your market.</h2>
+                    <p class="text-slate-600 text-xl mb-12 font-light leading-relaxed">
+                        Whether you're managing a trades team, a legal firm, or a manufacturing plant, we adapt our 20 years of data depth to your specific sector challenges.
                     </p>
                     <div class="space-y-8">
                         <div>
                             <h4 class="text-xl font-bold mb-2 text-nl-teal">Professional Services</h4>
-                            <p class="text-nl-slate text-sm">Clarity for consultancies and legal firms through precision-led data auditing.</p>
+                            <p class="text-slate-500 text-sm">Clarity for consultancies and legal firms through precision-led data auditing.</p>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 text-nl-teal">Field Services</h4>
-                            <p class="text-nl-slate text-sm">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
+                            <p class="text-slate-500 text-sm">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
                         </div>
                         <div>
                             <h4 class="text-xl font-bold mb-2 text-nl-teal">Retail & Manufacturing</h4>
-                            <p class="text-nl-slate text-sm">Protecting margins through rebate analysis and automated supply chain tracking.</p>
+                            <p class="text-slate-500 text-sm">Protecting margins through rebate analysis and automated supply chain tracking.</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <img src="assets/2026-02-10-07-05-00-v3-verticals-group.png" alt="Industry Solutions" class="rounded-[2rem] shadow-2xl border-4 border-white/5">
+                    <img src="assets/2026-02-10-07-05-00-v3-verticals-group.png" alt="Industry Solutions" class="rounded-[2rem] shadow-2xl border-4 border-white">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section: Insights -->
-    <section id="insights" class="py-24 bg-white">
+    <!-- Section: Consulting (Dark Rhythm) -->
+    <section id="consulting" class="section-padding bg-nl-navy text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div class="max-w-xl">
-                    <h2 class="text-4xl md:text-5xl font-black text-nl-navy mb-6">Latest Insights.</h2>
-                    <p class="text-slate-500 font-medium">Real-world results for local businesses. No fluff, just efficiency.</p>
-                </div>
-                <a href="case-studies.html" class="text-sm font-bold uppercase tracking-widest text-nl-teal hover:text-nl-navy transition-colors pb-2 border-b-2 border-nl-teal">View all insights</a>
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Consulting</h2>
+                <h3 class="text-5xl md:text-6xl font-black text-white leading-[1.1] mb-6 text-balance">We are more than workflow automation.</h3>
+                <p class="text-lg text-nl-slate font-normal">Strategic Expertise.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
-                        <img src="assets/sme-professional.png" alt="M&A Advisory" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Systems -->
+                <div class="service-card bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-nl-teal/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
                     </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Professional Services</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Automated Reporting Audit</h4>
+                    <h4 class="text-xl font-bold text-white mb-4">Systems</h4>
+                    <ul class="text-nl-slate text-sm space-y-2">
+                        <li>Architecture Design</li>
+                        <li>Platform Integration</li>
+                        <li>Process Mapping</li>
+                    </ul>
                 </div>
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100 mt-8">
-                        <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+
+                <!-- Analytics -->
+                <div class="service-card bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-nl-green/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                     </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Manufacturing</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Supply Chain Margin Analysis</h4>
+                    <h4 class="text-xl font-bold text-white mb-4">Analytics</h4>
+                    <ul class="text-nl-slate text-sm space-y-2">
+                        <li>Bespoke Reporting</li>
+                        <li>Insight Dashboards</li>
+                        <li>Data Auditing</li>
+                    </ul>
                 </div>
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
-                        <img src="assets/sme-retail.png" alt="Retail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
+
+                <!-- Financial -->
+                <div class="service-card bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-nl-teal/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Artisan Retail</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">24/7 AI Booking Agent</h4>
+                    <h4 class="text-xl font-bold text-white mb-4">Financial</h4>
+                    <ul class="text-nl-slate text-sm space-y-2">
+                        <li>Pricing Strategy</li>
+                        <li>Rebate Analysis</li>
+                        <li>Financial Modeling</li>
+                    </ul>
+                </div>
+
+                <!-- CRM -->
+                <div class="service-card bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                    <div class="w-12 h-12 bg-nl-green/10 rounded-2xl flex items-center justify-center mb-8">
+                        <svg class="w-6 h-6 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-4">CRM</h4>
+                    <ul class="text-nl-slate text-sm space-y-2">
+                        <li>Admin & Management</li>
+                        <li>Salesforce / HubSpot</li>
+                        <li>Implementation</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Alpha Partner Callout -->
-    <section class="py-16 bg-nl-green">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-nl-navy">
-                <div class="max-w-2xl text-center md:text-left">
-                    <h4 class="text-2xl font-black mb-2">Alpha Partner Program : Q1 2026</h4>
-                    <p class="font-bold opacity-80 uppercase tracking-widest text-sm">Limited to three local Sudbury businesses.</p>
-                </div>
-                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-navy text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-teal transition-all shadow-xl">
-                    Apply to Join
+            <div class="mt-16 flex justify-center">
+                <a href="mailto:info@newlens.uk?subject=Consulting Enquiry" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
+                    Enquire About Consulting
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section: The Cost of Hesitation -->
-    <section id="jump-in" class="py-24 bg-white overflow-hidden">
+    <!-- Section: Insights -->
+    <section id="insights" class="section-padding bg-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Insights</h2>
+                <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[1.1] mb-6 text-balance">Data Foundations. Proven Logic.</h3>
+                <p class="text-lg text-slate-600 font-normal">Latest Insights.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Professional Services Case Study -->
+                <article class="service-card p-10 rounded-[2.5rem] border border-slate-200 flex flex-col">
+                    <div class="flex items-start justify-between mb-8">
+                        <div>
+                            <h4 class="text-2xl font-bold text-nl-navy mb-2">Professional Services</h4>
+                            <p class="text-slate-500 font-medium text-sm">Tech Architecture & Scalability</p>
+                        </div>
+                        <span class="bg-nl-green/10 text-nl-green px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Efficiency</span>
+                    </div>
+
+                    <div class="space-y-6 flex-grow">
+                        <div>
+                            <h5 class="text-nl-teal font-black text-[11px] uppercase tracking-wider mb-2">The Challenge</h5>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                A growing professional platform needed a scalable architecture to launch their training platform without creating "Data Debt."
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-nl-teal font-black text-[11px] uppercase tracking-wider mb-2">Our Solution</h5>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                Leveraging enterprise logic, we designed a robust technical blueprint and system integration map, ensuring seamless data flow.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- M&A Advisory Case Study -->
+                <article class="service-card p-10 rounded-[2.5rem] border border-slate-200 flex flex-col">
+                    <div class="flex items-start justify-between mb-8">
+                        <div>
+                            <h4 class="text-2xl font-bold text-nl-navy mb-2">M&A Advisory</h4>
+                            <p class="text-slate-500 font-medium text-sm">CRM Clarity & Pipeline Analytics</p>
+                        </div>
+                        <span class="bg-nl-teal/10 text-nl-teal px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">Clarity</span>
+                    </div>
+
+                    <div class="space-y-6 flex-grow">
+                        <div>
+                            <h5 class="text-nl-teal font-black text-[11px] uppercase tracking-wider mb-2">The Challenge</h5>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                CRM data quality issues and fragmented pipeline reporting were obstructing deal visibility and hampering fast decision-making.
+                            </p>
+                        </div>
+                        <div>
+                            <h5 class="text-nl-teal font-black text-[11px] uppercase tracking-wider mb-2">Our Solution</h5>
+                            <p class="text-slate-500 text-sm leading-relaxed">
+                                Conducted a deep-dive data audit and lead cleanup, followed by automated dashboards to provide real-time commercial clarity.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Jump In (Light Rhythm) -->
+    <section id="jump-in" class="section-padding bg-slate-100 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">The cold water reality</h2>
-                    <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[0.95] mb-8">The water isn't going to get warmer while you wait.</h3>
-                    <p class="text-xl text-slate-500 mb-10 leading-relaxed font-light">
+                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">Jump In</h2>
+                    <h3 class="text-5xl md:text-6xl lg:text-7xl font-black text-nl-navy leading-[1.05] mb-8 text-balance">The water isn't going to get warmer while you wait.</h3>
+                    <p class="text-lg text-slate-600 mb-10 leading-relaxed font-normal">
                         We know why businesses hesitate. You're waiting for the "perfect" time: when the data is cleaner, the team is less busy, or the budget is bigger. But in the world of automation, the "perfect time" is a mirage.
                     </p>
                     
@@ -315,7 +437,7 @@
                         </div>
                     </div>
 
-                    <a href="assessment.html" class="inline-block bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-green hover:text-nl-navy transition-all">
+                    <a href="assessment.html" class="inline-block bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-teal transition-all">
                         Take the Plunge
                     </a>
                 </div>
@@ -333,69 +455,135 @@
         </div>
     </section>
 
-    <!-- Section: About -->
-    <section id="about" class="py-24 bg-nl-navy text-white">
-        <!-- Tech Stack Carousel -->
-        <div class="max-w-7xl mx-auto px-6 mb-32 overflow-hidden border-b border-white/5 pb-20">
-            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-[0.4em] mb-12 text-center">Seamless Integration with your ecosystem</p>
-            <div class="relative">
-                <!-- Overlay Gradients for smooth fade -->
-                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-nl-navy to-transparent z-10"></div>
-                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-nl-navy to-transparent z-10"></div>
-                
-                <div class="logo-carousel flex items-center">
-                    <!-- Tech logos (Text-based placeholders for now, will swap for SVGs) -->
-                    <div class="logo-item font-bold text-lg">Microsoft 365</div>
-                    <div class="logo-item font-bold text-lg">Power BI</div>
-                    <div class="logo-item font-bold text-lg">Google Workspace</div>
-                    <div class="logo-item font-bold text-lg">Python</div>
-                    <div class="logo-item font-bold text-lg">n8n</div>
-                    <div class="logo-item font-bold text-lg">Claude</div>
-                    <div class="logo-item font-bold text-lg">ChatGPT</div>
-                    <div class="logo-item font-bold text-lg">Xero</div>
-                    <div class="logo-item font-bold text-lg">QuickBooks</div>
-                    <div class="logo-item font-bold text-lg">Salesforce</div>
-                    <div class="logo-item font-bold text-lg">HubSpot</div>
-                    <div class="logo-item font-bold text-lg">Tableau</div>
-                    <div class="logo-item font-bold text-lg">WhatsApp</div>
-                    <!-- Duplicate for infinite effect -->
-                    <div class="logo-item font-bold text-lg">Microsoft 365</div>
-                    <div class="logo-item font-bold text-lg">Power BI</div>
-                    <div class="logo-item font-bold text-lg">Google Workspace</div>
+    <!-- Alpha Partner Callout -->
+    <section class="py-16 bg-nl-green">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-nl-navy">
+                <div class="max-w-2xl text-center md:text-left">
+                    <h4 class="text-2xl font-black mb-2">Alpha Partner Program : Q1 2026</h4>
+                    <p class="font-bold opacity-80 uppercase tracking-widest text-sm">Limited to three local Sudbury businesses.</p>
                 </div>
+                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-navy text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-teal transition-all shadow-xl">
+                    Apply to Join
+                </a>
             </div>
         </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- Section: About (Dark Rhythm) -->
+    <section id="about" class="section-padding bg-nl-navy text-white">
+        <div class="max-w-7xl mx-auto px-6 mb-20">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative">
-                    <img src="assets/mat-keys-bio.png" alt="Matthew Keys" class="rounded-[2rem] grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border-4 border-white/5">
+                    <img src="assets/mat-keys-bio.png" alt="Matthew Keys" class="rounded-[2rem] shadow-2xl border-4 border-white/10">
                     <div class="absolute -bottom-6 -right-6 bg-nl-green text-nl-navy p-8 rounded-[2rem] shadow-xl">
                         <p class="text-3xl font-black">20+</p>
                         <p class="text-[10px] font-bold uppercase tracking-widest">Years Experience</p>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">The Human Behind the Lens</h2>
-                    <h3 class="text-5xl font-black mb-8 leading-tight">Enterprise Experience. <br>Local Commitment.</h3>
-                    <p class="text-xl text-nl-slate mb-8 leading-relaxed font-light">
-                        Founded by Matthew Keys, newlens was born from a simple observation: SMEs are being crushed by the "Admin Tax" — the hidden cost of manual, repetitive tasks that enterprise companies solved years ago.
+                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">About</h2>
+                    <h3 class="text-5xl md:text-6xl font-black mb-8 leading-tight">Expert Experience. <br>Local Commitment.</h3>
+                    <p class="text-xl text-nl-slate mb-8 leading-relaxed font-light text-balance">
+                        Founded by Matthew Keys, newlens was born from a simple observation: SMEs are being restricted by manual, repetitive processes and lack the vast IT resources of enterprise companies.
                     </p>
                     <p class="text-lg text-nl-slate/80 mb-10 leading-relaxed italic">
-                        "I've spent two decades building high-fidelity data systems for global firms. Now, I'm bringing that same focus to local businesses in Sudbury and beyond. We don't just 'automate' — we build systems that scale."
+                        "I've spent two decades working with data, workflows, and systems. I'm now bringing that focus to local businesses in Sudbury and beyond. We don't just 'automate' – we build solutions that scale as you grow."
                     </p>
                     <div class="flex gap-8 items-center">
                         <div>
                             <p class="text-2xl font-bold text-white mb-1">Sudbury</p>
                             <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest">Based in Suffolk</p>
                         </div>
-                        <div>
-                            <p class="text-2xl font-bold text-white mb-1">n8n & AI</p>
-                            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest">Tech Stack</p>
-                        </div>
                         <a href="https://www.linkedin.com/in/mat-keys/" target="_blank" class="bg-white/10 hover:bg-nl-teal transition-colors p-4 rounded-full">
                             <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack Carousel (Now below bio) -->
+        <div class="max-w-7xl mx-auto px-6 overflow-hidden border-t border-white/5 pt-20">
+            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-[0.4em] mb-12 text-center">Seamless Integration with your ecosystem</p>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-nl-navy to-transparent z-10"></div>
+                <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-nl-navy to-transparent z-10"></div>
+                
+                <div class="logo-carousel flex items-center" id="logo-carousel">
+                    <!-- Tech logos using SimpleIcons CDN - 30% larger (h-14 → h-20) -->
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/microsoft/FFFFFF" alt="M365" class="h-20">
+                        <span class="logo-label">[ Microsoft 365 ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/powerbi/FFFFFF" alt="Power BI" class="h-20">
+                        <span class="logo-label">[ Power BI ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/google/FFFFFF" alt="Google" class="h-20">
+                        <span class="logo-label">[ Google Workspace ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-20">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-20">
+                        <span class="logo-label">[ n8n ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/anthropic/FFFFFF" alt="Claude" class="h-20">
+                        <span class="logo-label">[ Claude ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/openai/FFFFFF" alt="ChatGPT" class="h-20">
+                        <span class="logo-label">[ ChatGPT ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/xero/FFFFFF" alt="Xero" class="h-20">
+                        <span class="logo-label">[ Xero ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/quickbooks/FFFFFF" alt="QuickBooks" class="h-20">
+                        <span class="logo-label">[ QuickBooks ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/salesforce/FFFFFF" alt="Salesforce" class="h-20">
+                        <span class="logo-label">[ Salesforce ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/hubspot/FFFFFF" alt="HubSpot" class="h-20">
+                        <span class="logo-label">[ HubSpot ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/tableau/FFFFFF" alt="Tableau" class="h-20">
+                        <span class="logo-label">[ Tableau ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/whatsapp/FFFFFF" alt="WhatsApp" class="h-20">
+                        <span class="logo-label">[ WhatsApp ]</span>
+                    </div>
+                    <!-- Duplicate for infinite scroll -->
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/microsoft/FFFFFF" alt="M365" class="h-20">
+                        <span class="logo-label">[ Microsoft 365 ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/powerbi/FFFFFF" alt="Power BI" class="h-20">
+                        <span class="logo-label">[ Power BI ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/google/FFFFFF" alt="Google" class="h-20">
+                        <span class="logo-label">[ Google Workspace ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/python/FFFFFF" alt="Python" class="h-20">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.simpleicons.org/n8n/FFFFFF" alt="n8n" class="h-20">
+                        <span class="logo-label">[ n8n ]</span>
                     </div>
                 </div>
             </div>
@@ -416,23 +604,23 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-white border-t border-slate-100">
+    <footer class="py-20 bg-nl-navy border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-10">
             <div class="max-w-sm">
-                <span class="text-2xl font-black tracking-tighter text-nl-navy">new<span class="text-nl-green">lens</span></span>
-                <p class="text-slate-500 mt-6 leading-relaxed font-medium">Enterprise-grade automation and data clarity for local SMEs. Based in Sudbury, Suffolk.</p>
-                <p class="text-[10px] font-bold text-slate-300 mt-6 uppercase tracking-widest">Co No. 16945634 | Registered in England & Wales</p>
+                <span class="text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></span>
+                <p class="text-nl-slate mt-6 leading-relaxed font-medium">Enterprise-grade automation and data clarity for local SMEs. Based in Sudbury, Suffolk.</p>
+                <p class="text-[10px] font-bold text-white/20 mt-6 uppercase tracking-widest">Co No. 16945634 | Registered in England & Wales</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-slate-400 uppercase tracking-widest">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-nl-slate uppercase tracking-widest">
                 <div class="flex flex-col gap-4">
-                    <span class="text-nl-navy mb-2">Company</span>
+                    <span class="text-white mb-2">Company</span>
                     <a href="#home" class="hover:text-nl-teal transition-colors">Home</a>
                     <a href="#solutions" class="hover:text-nl-teal transition-colors">Solutions</a>
                     <a href="#about" class="hover:text-nl-teal transition-colors">About</a>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <span class="text-nl-navy mb-2">Legal</span>
+                    <span class="text-white mb-2">Legal</span>
                     <a href="privacy.html" class="hover:text-nl-teal transition-colors">Privacy Policy</a>
                     <a href="https://www.linkedin.com/company/newlens-uk" target="_blank" class="hover:text-nl-teal transition-colors flex items-center gap-2">
                         LinkedIn 
@@ -440,9 +628,9 @@
                     </a>
                 </div>
                 <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
-                    <span class="text-nl-navy mb-2">Contact</span>
+                    <span class="text-white mb-2">Contact</span>
                     <a href="mailto:info@newlens.uk" class="text-nl-teal lowercase font-medium">info@newlens.uk</a>
-                    <p class="normal-case font-medium text-slate-300">Sudbury, Suffolk</p>
+                    <p class="normal-case font-medium text-white/40">Sudbury, Suffolk</p>
                 </div>
             </div>
         </div>
@@ -453,43 +641,70 @@
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.nav-link');
+            const indicator = document.getElementById('nav-indicator');
 
             function updateScrollSpy() {
                 let current = '';
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Add an offset to trigger the change earlier
                 const offset = 200;
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
                     if (scrollPos >= sectionTop - offset) {
                         current = section.getAttribute('id');
                     }
                 });
 
-                // Mapping for sections without direct nav links (e.g., 'verticals' part of 'solutions')
                 const mapping = {
                     'verticals': 'solutions',
                     'audit': 'about'
                 };
 
                 const activeId = mapping[current] || current;
+                let activeLink = null;
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     const href = link.getAttribute('href').substring(1);
                     if (href === activeId) {
                         link.classList.add('active');
+                        activeLink = link;
                     }
                 });
+
+                if (activeLink && indicator) {
+                    indicator.style.width = `${activeLink.offsetWidth}px`;
+                    indicator.style.left = `${activeLink.offsetLeft}px`;
+                    indicator.style.opacity = '1';
+                } else if (indicator) {
+                    indicator.style.opacity = '0';
+                }
             }
 
             window.addEventListener('scroll', updateScrollSpy);
-            window.addEventListener('load', updateScrollSpy); // Explicitly run on window load
-            updateScrollSpy(); // Run immediately on DOMContentLoaded
+            window.addEventListener('load', updateScrollSpy);
+            updateScrollSpy();
+
+            // Tech Stack Center-Highlight Script
+            const logoItems = document.querySelectorAll('.logo-item');
+            const centerX = window.innerWidth / 2;
+
+            function highlightCenterLogos() {
+                logoItems.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenter = rect.left + (rect.width / 2);
+                    const distanceFromCenter = Math.abs(centerX - itemCenter);
+                    
+                    // If within 150px of center, activate color
+                    if (distanceFromCenter < 150) {
+                        item.classList.add('active-logo');
+                    } else {
+                        item.classList.remove('active-logo');
+                    }
+                });
+                requestAnimationFrame(highlightCenterLogos);
+            }
+            highlightCenterLogos();
         });
     </script>
 
