@@ -99,11 +99,8 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #64748b;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        .logo-item.active-logo .logo-label {
             opacity: 1;
+            transition: opacity 0.6s ease;
         }
     </style>
 </head>
@@ -502,10 +499,10 @@
     </section>
 
     <!-- Tech Stack Carousel (Light) -->
-    <section class="py-20 bg-slate-100">
-        <div class="max-w-7xl mx-auto px-6 overflow-hidden">
+    <section class="py-20 bg-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
             <p class="text-[10px] font-bold text-nl-teal uppercase tracking-[0.4em] mb-12 text-center">Seamless Integration with your ecosystem</p>
-            <div class="relative overflow-hidden">
+            <div class="relative">
                 
                 <div class="logo-carousel flex items-center" id="logo-carousel">
                     <!-- Tech logos using SimpleIcons CDN - 30% larger (h-14 → h-20) -->
@@ -526,7 +523,7 @@
                         <span class="logo-label">[ Python ]</span>
                     </div>
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" alt="n8n" class="h-20" loading="eager">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
                         <span class="logo-label">[ n8n ]</span>
                     </div>
                     <div class="logo-item">
@@ -579,7 +576,7 @@
                         <span class="logo-label">[ Python ]</span>
                     </div>
                     <div class="logo-item">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/n8n.svg" alt="n8n" class="h-20" loading="eager">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
                         <span class="logo-label">[ n8n ]</span>
                     </div>
                 </div>
