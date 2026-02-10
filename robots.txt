@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /assessment.html
+Disallow: /alpha-partner.html
+Disallow: /calculator.html
+Disallow: /case-studies.html
+Disallow: /solutions.html
+
+Sitemap: https://v2-site-sigma.vercel.app/sitemap.xml
