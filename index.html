@@ -56,7 +56,7 @@
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .service-card:hover {
-            transform: translateY(-12px);
+            transform: scale(1.03);
             box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12),
                         0 0 40px 5px rgba(57, 198, 214, 0.25); /* More pronounced Brand Glow */
         }
@@ -148,7 +148,7 @@
                 </p>
             </div>
             <div class="relative">
-                <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] p-6 md:p-12 shadow-2xl">
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] p-6 md:p-12 shadow-2xl">
                     <p class="text-lg text-nl-slate mb-8 leading-relaxed">
                         Businesses can lose 20-30% of their working week to repetitive admin tasks - what we call the "Admin Tax."
                         <br><br>
@@ -844,7 +844,7 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.boxShadow = '0 40px 80px rgba(57, 198, 214, 0.25)';
-                    entry.target.style.transform = 'translateY(-12px)';
+                    entry.target.style.transform = 'scale(1.03)';
                     entry.target.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
                 } else {
                     entry.target.style.boxShadow = '';
