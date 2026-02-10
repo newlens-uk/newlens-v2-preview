@@ -28,9 +28,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         html { scroll-behavior: smooth; }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
         .nav-link.active {
             color: #38D98A;
-            border-bottom: 2px solid #38D98A;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
         }
         .service-card {
             background: #FFFFFF;
@@ -82,12 +93,13 @@
     <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
             <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
-            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest">
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
                 <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
                 <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
                 <a href="#insights" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Insights</a>
                 <a href="#jump-in" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Jump In</a>
                 <a href="#about" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <div id="nav-indicator" class="opacity-0"></div>
                 <a href="assessment.html" class="bg-white text-nl-navy px-6 py-3 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all font-bold uppercase text-[10px]">
                     Admin Tax Audit
                 </a>
@@ -453,43 +465,49 @@
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.nav-link');
+            const indicator = document.getElementById('nav-indicator');
 
             function updateScrollSpy() {
                 let current = '';
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Add an offset to trigger the change earlier
                 const offset = 200;
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
                     if (scrollPos >= sectionTop - offset) {
                         current = section.getAttribute('id');
                     }
                 });
 
-                // Mapping for sections without direct nav links (e.g., 'verticals' part of 'solutions')
                 const mapping = {
                     'verticals': 'solutions',
                     'audit': 'about'
                 };
 
                 const activeId = mapping[current] || current;
+                let activeLink = null;
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     const href = link.getAttribute('href').substring(1);
                     if (href === activeId) {
                         link.classList.add('active');
+                        activeLink = link;
                     }
                 });
+
+                if (activeLink && indicator) {
+                    indicator.style.width = `${activeLink.offsetWidth}px`;
+                    indicator.style.left = `${activeLink.offsetLeft}px`;
+                    indicator.style.opacity = '1';
+                } else if (indicator) {
+                    indicator.style.opacity = '0';
+                }
             }
 
             window.addEventListener('scroll', updateScrollSpy);
-            window.addEventListener('load', updateScrollSpy); // Explicitly run on window load
-            updateScrollSpy(); // Run immediately on DOMContentLoaded
+            window.addEventListener('load', updateScrollSpy);
+            updateScrollSpy();
         });
     </script>
 
