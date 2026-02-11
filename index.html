@@ -1038,14 +1038,15 @@
                 const offset = 100;  // Reduced from 200 for more precise triggering
 
                 // Define the correct order of sections with their navbar mappings
+                // Based on actual page order (not navbar order)
                 const sectionOrder = [
                     { id: 'home', navId: 'home' },
                     { id: 'solutions', navId: 'solutions' },
-                    { id: 'verticals', navId: 'solutions' },  // Verticals still maps to Solutions nav item
                     { id: 'how-we-work', navId: 'how-we-work' },
+                    { id: 'verticals', navId: 'solutions' },  // Verticals maps to Solutions (comes after how-we-work)
                     { id: 'consulting', navId: 'consulting' },
-                    { id: 'training', navId: 'training' },
-                    { id: 'jump-in', navId: 'jump-in' },
+                    { id: 'training', navId: 'consulting' },  // Training not in navbar, maps to Consulting
+                    { id: 'jump-in', navId: 'consulting' },  // Jump In not in navbar, maps to Consulting
                     { id: 'about', navId: 'about' },
                     { id: 'audit', navId: 'about' }  // Audit section maps to About nav item
                 ];
