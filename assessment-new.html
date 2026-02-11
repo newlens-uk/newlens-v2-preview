@@ -204,6 +204,14 @@
                                     </div>
                                 </div>
                             </label>
+
+                            <label class="radio-card block">
+                                <input type="radio" name="industry" value="other" class="hidden" id="industryOther">
+                                <div class="p-2">
+                                    <p class="font-bold text-nl-navy mb-2">Other</p>
+                                    <input type="text" id="industryOtherText" name="industry_other" class="form-input" placeholder="Please specify your industry" style="display: none;">
+                                </div>
+                            </label>
                         </div>
 
                         <div class="flex gap-4 mt-8">
@@ -237,6 +245,10 @@
                             <label class="radio-card block"><input type="checkbox" name="tools" value="crm" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">CRM (Salesforce, HubSpot)</p></div></label>
                             <label class="radio-card block"><input type="checkbox" name="tools" value="accounting" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Xero / QuickBooks</p></div></label>
                             <label class="radio-card block"><input type="checkbox" name="tools" value="project-management" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Asana / Trello / Monday</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="email" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Email (Gmail, Outlook)</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="slack-teams" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Slack / Microsoft Teams</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="booking" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Booking System (Calendly)</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="erp" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">ERP System (SAP, NetSuite)</p></div></label>
                             <label class="radio-card block"><input type="checkbox" name="tools" value="legacy" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Industry Legacy System</p></div></label>
                             <label class="radio-card block"><input type="checkbox" name="tools" value="paper" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Paper / Manual Folders</p></div></label>
                         </div>
@@ -299,7 +311,7 @@
                         
                         <div class="bg-nl-navy p-8 rounded-2xl text-white mb-8">
                             <p class="text-xs font-bold uppercase tracking-widest text-nl-green mb-2">The newlens Commitment</p>
-                            <p class="text-sm leading-relaxed text-nl-slate">We'll review your answers and send a custom AI Readiness roadmap within 24 hours. No sales fluff. Just practical steps.</p>
+                            <p class="text-sm leading-relaxed text-nl-slate">We'll review your answers and send a custom AI Readiness roadmap within 24 hours. Just practical steps.</p>
                         </div>
 
                         <div class="flex gap-4">
@@ -357,7 +369,7 @@
                 currentStep++;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 updateProgress();
-                window.scrollTo({ top: 200, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
@@ -367,7 +379,7 @@
                 currentStep--;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 updateProgress();
-                window.scrollTo({ top: 200, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
@@ -405,6 +417,19 @@
             });
         });
 
+        // "Other" industry field toggle
+        document.getElementById('industryOther').addEventListener('change', function() {
+            const textField = document.getElementById('industryOtherText');
+            if (this.checked) {
+                textField.style.display = 'block';
+                textField.required = true;
+            } else {
+                textField.style.display = 'none';
+                textField.required = false;
+                textField.value = '';
+            }
+        });
+
         // Form Submission
         document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -435,7 +460,7 @@
                 document.getElementById('step8').classList.remove('active');
                 document.querySelector('.progress-bar').parentElement.parentElement.classList.add('hidden');
                 document.getElementById('successMessage').classList.remove('hidden');
-                window.scrollTo({ top: 200, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } catch (error) {
                 console.error('Submission error:', error);
                 alert('There was an error submitting. Please try again or email info@newlens.uk');

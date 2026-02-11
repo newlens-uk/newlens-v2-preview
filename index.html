@@ -661,20 +661,20 @@
                         Practical workshops for teams at all levels. We teach how to use AI tools effectively, recognize appropriate use cases, and build prompting skills that deliver real results. No technical jargon - just practical capability building.
                     </p>
                     <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Hands-on AI tool training (ChatGPT, Claude, Copilot)</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Prompt engineering for business use cases</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Risk awareness & governance fundamentals</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Role-specific use case libraries</span>
                         </li>
                     </ul>
@@ -692,20 +692,20 @@
                         Advanced training for technical teams and decision-makers. Learn how to evaluate AI platforms, architect AI-augmented workflows, and manage vendor relationships. Designed for those responsible for implementation strategy.
                     </p>
                     <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>AI platform evaluation & selection frameworks</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>Integration architecture & API fundamentals</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>Data privacy & compliance (UK GDPR, ICO)</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>ROI measurement & success metrics</span>
                         </li>
                     </ul>
@@ -1035,19 +1035,32 @@
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
                 const offset = 200;
 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollPos >= sectionTop - offset) {
-                        current = section.getAttribute('id');
+                // Define the correct order of sections with their navbar mappings
+                const sectionOrder = [
+                    { id: 'home', navId: 'home' },
+                    { id: 'solutions', navId: 'solutions' },
+                    { id: 'verticals', navId: 'solutions' },  // Verticals still maps to Solutions nav item
+                    { id: 'how-we-work', navId: 'how-we-work' },
+                    { id: 'consulting', navId: 'consulting' },
+                    { id: 'training', navId: 'training' },
+                    { id: 'jump-in', navId: 'jump-in' },
+                    { id: 'about', navId: 'about' },
+                    { id: 'audit', navId: 'about' }  // Audit section maps to About nav item
+                ];
+
+                // Find the current section based on scroll position
+                for (let i = sectionOrder.length - 1; i >= 0; i--) {
+                    const section = document.getElementById(sectionOrder[i].id);
+                    if (section) {
+                        const sectionTop = section.offsetTop;
+                        if (scrollPos >= sectionTop - offset) {
+                            current = sectionOrder[i].navId;
+                            break;
+                        }
                     }
-                });
+                }
 
-                const mapping = {
-                    'verticals': 'solutions',
-                    'audit': 'about'
-                };
-
-                const activeId = mapping[current] || current;
+                const activeId = current;
                 let activeLink = null;
 
                 navLinks.forEach(link => {
