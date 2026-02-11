@@ -3,8 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>newlens | Data Clarity, Workflow Efficiency & AI-Powered Growth</title>
-    <meta name="description" content="newlens helps SMEs eliminate the 'Admin Tax' through intelligent workflow automation, data clarity, and AI empowerment. Corporate-grade solutions for local agility. (v3.0.1)">
+    <title>newlens | AI Automation & Data Solutions for UK SMEs | Suffolk</title>
+    <meta name="description" content="Expert workflow automation, AI training, and data analytics for UK businesses. Eliminate the 'Admin Tax' with enterprise-grade solutions built for local SMEs. Based in Suffolk.">
+    <meta name="keywords" content="workflow automation, AI consulting UK, business automation Suffolk, data analytics SME, AI training, process automation, UK automation consultant">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://v2-site-sigma.vercel.app/">
+    <meta property="og:title" content="newlens | AI Automation for UK SMEs">
+    <meta property="og:description" content="Eliminate the 'Admin Tax' with expert workflow automation and AI solutions. National experience, local commitment.">
+    <meta property="og:image" content="https://v2-site-sigma.vercel.app/assets/v3-master-hero.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="newlens | AI Automation for UK SMEs">
+    <meta name="twitter:description" content="Eliminate the 'Admin Tax' with expert workflow automation and AI solutions.">
+    <meta name="twitter:image" content="https://v2-site-sigma.vercel.app/assets/v3-master-hero.png">
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "newlens",
+      "description": "Workflow automation, AI consulting, and data analytics for UK SMEs",
+      "url": "https://v2-site-sigma.vercel.app",
+      "logo": "https://v2-site-sigma.vercel.app/assets/v3-master-hero.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Suffolk",
+        "addressCountry": "GB"
+      },
+      "areaServed": "GB",
+      "email": "info@newlens.uk",
+      "foundingDate": "2024",
+      "founder": {
+        "@type": "Person",
+        "name": "Matthew Keys"
+      },
+      "priceRange": "££",
+      "sameAs": [
+        "https://www.linkedin.com/company/newlens-uk",
+        "https://www.linkedin.com/in/mat-keys/"
+      ]
+    }
+    </script>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,21 +70,43 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; width: 100%; margin: 0; padding: 0; }
+        body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
         .nav-link.active {
             color: #38D98A;
-            border-bottom: 2px solid #38D98A;
+        }
+        .logo-text {
+            font-size: 1.75rem; /* Increased from default */
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
         }
         .service-card {
             background: #FFFFFF;
-            border: 1px solid #F1F5F9;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 1;
         }
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
-            border-color: #39C6D6;
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.12),
+                        0 0 60px 0px rgba(57, 198, 214, 0.3); /* Centered glow */
+            z-index: 10;
         }
+        .section-padding { padding-top: 100px; padding-bottom: 100px; } /* Increased from 80px */
         .hero-gradient {
             background: radial-gradient(circle at 70% 30%, rgba(57, 198, 214, 0.1), transparent 50%),
                         radial-gradient(circle at 30% 70%, rgba(56, 217, 138, 0.05), transparent 50%);
@@ -51,22 +116,58 @@
             box-shadow: 0 10px 20px -5px rgba(5, 11, 21, 0.15);
         }
         section { scroll-margin-top: 80px; }
+
+        /* Tech Stack Animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-3600px); }
+        }
+        .logo-carousel {
+            display: flex;
+            width: 7200px;
+            animation: scroll 52s linear infinite;
+        }
+        .logo-item {
+            width: 200px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        .logo-item img {
+            filter: brightness(0);
+        }
+        .logo-item div span {
+            color: #000000 !important;
+        }
+        .logo-label {
+            margin-top: 16px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #64748b;
+        }
     </style>
 </head>
-<body class="bg-white text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
+<body class="bg-[#F8FAFC] text-slate-800 font-sans selection:bg-nl-teal selection:text-white">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
         <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <a href="#home" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
-            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest">
+            <a href="#home" class="logo-text tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
                 <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
                 <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
-                <a href="#insights" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Insights</a>
+                <a href="#consulting" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Consulting</a>
+                <a href="#training" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Training</a>
                 <a href="#jump-in" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Jump In</a>
                 <a href="#about" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
-                <a href="assessment.html" class="bg-white text-nl-navy px-6 py-3 rounded-full hover:bg-nl-green hover:text-nl-navy transition-all font-bold uppercase text-[10px]">
-                    Admin Tax Audit
+                <div id="nav-indicator" class="opacity-0"></div>
+                <a href="#" class="bg-nl-green text-nl-navy px-6 py-3 rounded-full hover:bg-white transition-all font-bold uppercase text-[10px] cursor-not-allowed opacity-70">
+                    Portal Login
                 </a>
             </div>
             <div class="md:hidden text-white">
@@ -83,97 +184,100 @@
             <div class="relative z-10">
                 <div class="inline-flex items-center gap-3 mb-6">
                     <span class="w-2 h-2 bg-nl-teal rounded-full animate-pulse"></span>
-                    <h2 class="text-[11px] font-bold text-nl-teal uppercase tracking-widest">Enterprise Experience. Local Commitment</h2>
+                    <h2 class="text-base md:text-lg font-black text-nl-teal uppercase tracking-[0.3em]">National Experience. Local Commitment</h2>
                 </div>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] mb-8 text-white text-balance">
-                    Improving Productivity with <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Data-Native</span> Automation.
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.0] mb-8 text-white text-balance">
+                    Improving Productivity with <span class="text-transparent bg-clip-text bg-gradient-to-r from-nl-teal to-nl-green">Data-Native</span> Solutions.
                 </h1>
-                <p class="text-xl md:text-2xl text-nl-slate mb-10 max-w-xl leading-relaxed font-light">
-                    Stop paying the "Admin Tax". We bring 20 years of enterprise analytics experience to build intelligent, clean, and self-healing workflows for local SMEs.
+                <p class="text-xl md:text-2xl text-nl-slate max-w-xl leading-relaxed font-light">
+                    Stop paying the "Admin Tax". We bring enterprise analytics experience to build robust, transparent workflows with human intelligence in the loop.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="assessment.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
-                        Start Your AI Readiness Audit
-                    </a>
-                    <a href="#calculator" class="flex items-center justify-center gap-3 text-sm font-bold uppercase tracking-widest py-5 text-white hover:text-nl-teal transition-colors">
-                        Calculate Your Admin Tax
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
-                </div>
             </div>
             <div class="relative">
-                <img src="assets/2026-02-10-06-45-00-v3-master-hero-draft.png" alt="Data-Native Automation" class="rounded-[2.5rem] shadow-2xl border-4 border-white/10">
+                <div class="service-card bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] p-6 md:p-12 shadow-2xl">
+                    <p class="text-lg text-nl-slate mb-8 leading-relaxed">
+                        Businesses can lose 20-30% of their working week to repetitive admin tasks - what we call the "Admin Tax."
+                        <br><br>
+                        Our 5-minute AI Readiness Audit brings clarity to exactly where automation can reclaim your time and protect your margins and your ability to scale.
+                        <br><br>
+                        No generic advice - just a clear solution tailored to your business.
+                        <br><br>
+                        Complete our questionnaire for a free, fast assessment of your AI readiness.
+                    </p>
+                    <a href="assessment-new.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center w-full">
+                        Start Assessment
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Section: Solutions -->
-    <section id="solutions" class="py-24 bg-white">
+    <section id="solutions" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="max-w-3xl mb-20">
-                <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">How we can help</h2>
-                <h3 class="text-4xl md:text-5xl font-black text-nl-navy leading-tight">Addressing your productivity challenges with quality-first automation</h3>
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Solutions</h2>
+                <h3 class="text-4xl md:text-6xl lg:text-7xl font-black text-nl-navy leading-[1.05] mb-8 text-balance">Addressing your productivity challenges with quality-first automation.</h3>
+                <p class="text-xl text-slate-700 font-semibold">How we can help.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-32">
-                <!-- Workflow & Voice -->
-                <div class="service-card p-10 rounded-[2rem]">
-                    <h4 class="text-2xl font-bold mb-6 text-nl-navy">Workflow & Voice</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
-                        Reduce admin with intelligent voice agents for reception and bookings: alongside self-healing workflows that keep human intelligence in the loop.
+            <div class="grid md:grid-cols-2 gap-8 mb-32">
+                <!-- Workflow Automation -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <h4 class="text-2xl font-bold mb-6 text-nl-navy">Workflow Automation</h4>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Reduce admin burden with intelligent workflows that handle high-volume repetitive tasks while keeping human intelligence in the loop for critical decisions.
                     </p>
-                    <a href="solutions.html#automation" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
-                        Eliminate Bottlenecks →
-                    </a>
+                    <p class="text-sm font-bold text-nl-navy mb-3">Areas to consider:</p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• Invoice processing</li>
+                        <li>• Email triage</li>
+                        <li>• Booking confirmations</li>
+                        <li>• Lead routing</li>
+                        <li>• Report generation</li>
+                        <li>• Inventory updates</li>
+                    </ul>
                 </div>
 
-                <!-- Data-First Automation -->
-                <div class="service-card p-10 rounded-[2rem]">
-                    <h4 class="text-2xl font-bold mb-6 text-nl-navy">Data-First Automation</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
-                        We don't just connect apps: we ensure your data is clean and your insights are accurate. We build "Data-Native" workflows that eliminate manual errors.
+                <!-- Data-Native Integration -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <h4 class="text-2xl font-bold mb-6 text-nl-navy">Data-Native Integration</h4>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        We don't just connect apps: we ensure your data is clean, your insights are accurate, and your systems speak the same language. Built on analytics foundations.
                     </p>
-                    <a href="solutions.html#data" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
-                        Build Clean Systems →
-                    </a>
-                </div>
-
-                <!-- AI Roadmap -->
-                <div class="service-card p-10 rounded-[2rem]">
-                    <h4 class="text-2xl font-bold mb-6 text-nl-navy">AI Roadmap</h4>
-                    <p class="text-slate-500 leading-relaxed mb-8">
-                        Navigate the AI landscape with practical implementation strategies that empower your people: not replace them.
-                    </p>
-                    <a href="solutions.html#ai" class="text-sm font-black uppercase tracking-widest text-nl-green hover:text-nl-navy transition-colors">
-                        Find Your Roadmap →
-                    </a>
+                    <p class="text-sm font-bold text-nl-navy mb-3">Areas to consider:</p>
+                    <ul class="text-sm text-slate-600 space-y-2">
+                        <li>• CRM data cleanup</li>
+                        <li>• Cross-platform sync</li>
+                        <li>• Dashboard creation</li>
+                        <li>• Rebate tracking</li>
+                        <li>• Compliance reporting</li>
+                    </ul>
                 </div>
             </div>
 
             <!-- Deep Dive: Workflow Visual -->
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="order-2 lg:order-1">
-                    <img src="assets/2026-02-10-07-00-00-v3-workflow-diagram.png" alt="Automation Workflow" class="rounded-[2rem] shadow-xl border border-slate-100">
+                    <img src="assets/2026-02-10-07-00-00-v3-workflow-diagram.png" alt="Automation Workflow" class="service-card rounded-[2rem] shadow-xl border border-slate-100">
                 </div>
                 <div class="order-1 lg:order-2">
                     <h4 class="text-3xl font-black text-nl-navy mb-6">Seamless Process Integration.</h4>
-                    <p class="text-slate-500 text-lg leading-relaxed mb-8 font-medium">
-                        We don't just "automate" — we build digital ecosystems. From the moment an enquiry hits your inbox to the final CRM update, our workflows are monitored, self-healing, and designed for enterprise-grade reliability.
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8 font-medium">
+                        We don't just "automate" - we build robust automation systems. From the moment a workflow is triggered to the final system update, our workflows are monitored, intelligent, and designed for enterprise-grade reliability and scalability.
                     </p>
                     <ul class="space-y-4">
                         <li class="flex items-center gap-3 text-nl-navy font-bold">
                             <span class="w-2 h-2 bg-nl-green rounded-full"></span>
-                            Zero-Manual Entry Systems
+                            High-Volume Automation with 'Human In the Loop'
                         </li>
                         <li class="flex items-center gap-3 text-nl-navy font-bold">
                             <span class="w-2 h-2 bg-nl-green rounded-full"></span>
-                            Real-time CRM Synchronization
+                            Real-Time System Synchronization
                         </li>
                         <li class="flex items-center gap-3 text-nl-navy font-bold">
                             <span class="w-2 h-2 bg-nl-green rounded-full"></span>
-                            Intelligent Error Handling
+                            Intelligent Error Handling & Recovery
                         </li>
                     </ul>
                 </div>
@@ -181,128 +285,368 @@
         </div>
     </section>
 
-    <!-- Section: Verticals (Dark Rhythm) -->
-    <section id="verticals" class="py-24 bg-nl-navy text-white">
+    <!-- Section: Markets (Light Rhythm) -->
+    <section id="verticals" class="section-padding bg-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-8">Tailored for your vertical.</h2>
-                    <p class="text-nl-slate text-xl mb-12 font-light leading-relaxed">
-                        Whether you're managing a trades team, a legal firm, or a manufacturing plant, we adapt our 20 years of data depth to your specific industry challenges.
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-balance text-nl-navy leading-[1.05]">Tailored for your market.</h2>
+                <p class="text-slate-700 text-xl font-semibold leading-relaxed">
+                    Whether you're managing a trades team, a legal firm, or a manufacturing plant, we adapt our solution to your specific sector challenges.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Professional Services -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-navy/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-black mb-3 text-nl-navy text-center">Professional Services</h4>
+                    <p class="text-slate-600 text-sm mb-6 font-medium text-center">Clarity for consultancies and legal firms through precision-led data auditing.</p>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Client onboarding document automation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Time-tracking and billing reconciliation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">CRM pipeline health monitoring</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Regulatory compliance reporting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Field Services -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-navy/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-black mb-3 text-nl-navy text-center">Field Services</h4>
+                    <p class="text-slate-600 text-sm mb-6 font-medium text-center">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Job booking and calendar sync</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Site photo capture and labelling</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Parts ordering and stock alerts</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Automated invoicing from completed jobs</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Retail & Manufacturing -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-navy/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-black mb-3 text-nl-navy text-center">Retail & Manufacturing</h4>
+                    <p class="text-slate-600 text-sm mb-6 font-medium text-center">Protecting margins through rebate analysis and automated supply chain tracking.</p>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Supplier rebate tracking and reconciliation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Inventory threshold alerts</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Order-to-fulfillment automation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Multi-channel sales aggregation</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hospitality -->
+                <div class="service-card p-6 md:p-10 rounded-[2rem] border border-slate-200">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-navy/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-black mb-3 text-nl-navy text-center">Hospitality</h4>
+                    <p class="text-slate-600 text-sm mb-6 font-medium text-center">Streamlining guest experience from booking to post-stay follow-up.</p>
+                    <ul class="text-slate-600 text-sm space-y-2">
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Booking confirmations and reminders</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Pre-arrival information and check-in prep</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Review requests and feedback collection</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></span>
+                            <span class="leading-tight">Inventory and housekeeping scheduling</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Consulting (Dark Rhythm) -->
+    <section id="consulting" class="section-padding bg-nl-navy text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Consulting</h2>
+                <h3 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 text-balance">We are more than workflow automation.</h3>
+                <p class="text-xl text-nl-slate font-medium leading-relaxed">
+                    Drawing on extensive enterprise analytics, systems design, and commercial insight, we offer targeted consulting for businesses facing complexity at scale. Whether you need architecture clarity, financial modeling, or AI strategy, we bring proven frameworks, delivered locally.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+                <!-- Systems Architecture -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2.5rem] flex flex-col">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-teal/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">Systems Architecture</h4>
+                    <ul class="text-nl-slate text-sm space-y-2 mb-6">
+                        <li>• Technical blueprints & scalability planning</li>
+                        <li>• Platform integration roadmaps</li>
+                        <li>• Process mapping & workflow design</li>
+                    </ul>
+                    <p class="text-slate-400 text-xs leading-relaxed mt-auto">
+                        We design systems that grow with you - avoiding "data debt" and ensuring future integrations are seamless, not surgical.
                     </p>
-                    <div class="space-y-8">
-                        <div>
-                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Professional Services</h4>
-                            <p class="text-nl-slate text-sm">Clarity for consultancies and legal firms through precision-led data auditing.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Field Services</h4>
-                            <p class="text-nl-slate text-sm">Automating the quote-to-invoice pipeline for trades and maintenance teams.</p>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold mb-2 text-nl-teal">Retail & Manufacturing</h4>
-                            <p class="text-nl-slate text-sm">Protecting margins through rebate analysis and automated supply chain tracking.</p>
+                </div>
+
+                <!-- Analytics & Reporting -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2.5rem] flex flex-col">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-green/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         </div>
                     </div>
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">Analytics & Reporting</h4>
+                    <ul class="text-nl-slate text-sm space-y-2 mb-6">
+                        <li>• Bespoke dashboards (Power BI, Tableau)</li>
+                        <li>• Data audits & quality assessments</li>
+                        <li>• Insight delivery frameworks</li>
+                    </ul>
+                    <p class="text-slate-400 text-xs leading-relaxed mt-auto">
+                        Turn raw data into decision-making confidence. We build reporting that executives trust and teams actually use.
+                    </p>
                 </div>
-                <div class="relative">
-                    <img src="assets/2026-02-10-07-05-00-v3-verticals-group.png" alt="Industry Solutions" class="rounded-[2rem] shadow-2xl border-4 border-white/5">
+
+                <!-- Commercial & Financial -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2.5rem] flex flex-col">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-teal/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">Commercial & Financial</h4>
+                    <ul class="text-nl-slate text-sm space-y-2 mb-6">
+                        <li>• Pricing strategy & margin protection</li>
+                        <li>• Rebate tracking & reconciliation</li>
+                        <li>• Financial modeling & forecasting</li>
+                    </ul>
+                    <p class="text-slate-400 text-xs leading-relaxed mt-auto">
+                        Identify hidden revenue leaks, optimize pricing, and build financial models that reflect operational reality.
+                    </p>
+                </div>
+
+                <!-- CRM Strategy -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2.5rem] flex flex-col">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-green/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">CRM Strategy</h4>
+                    <ul class="text-nl-slate text-sm space-y-2 mb-6">
+                        <li>• Salesforce & HubSpot administration</li>
+                        <li>• Data cleanup & pipeline health</li>
+                        <li>• Custom implementation & training</li>
+                    </ul>
+                    <p class="text-slate-400 text-xs leading-relaxed mt-auto">
+                        Stop wrestling with your CRM. We make Salesforce and HubSpot work for you, not against you.
+                    </p>
+                </div>
+
+                <!-- AI Roadmap & Policy -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-10 rounded-[2.5rem] flex flex-col">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-20 h-20 bg-nl-teal/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-10 h-10 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-2xl font-bold text-white mb-6 text-center">AI Roadmap & Policy</h4>
+                    <ul class="text-nl-slate text-sm space-y-2 mb-6">
+                        <li>• Practical AI implementation strategy</li>
+                        <li>• Risk assessment & governance frameworks</li>
+                        <li>• Staff training & empowerment plans</li>
+                    </ul>
+                    <p class="text-slate-400 text-xs leading-relaxed mt-auto">
+                        Navigate the AI landscape with clarity. We build roadmaps that empower your people, not replace them.
+                    </p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Section: Insights -->
-    <section id="insights" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div class="max-w-xl">
-                    <h2 class="text-4xl md:text-5xl font-black text-nl-navy mb-6">Latest Insights.</h2>
-                    <p class="text-slate-500 font-medium">Real-world results for local businesses. No fluff, just efficiency.</p>
-                </div>
-                <a href="case-studies.html" class="text-sm font-bold uppercase tracking-widest text-nl-teal hover:text-nl-navy transition-colors pb-2 border-b-2 border-nl-teal">View all insights</a>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
-                        <img src="assets/sme-professional.png" alt="M&A Advisory" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                    </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Professional Services</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Automated Reporting Audit</h4>
-                </div>
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100 mt-8">
-                        <img src="assets/sme-manufacturing.png" alt="Manufacturing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                    </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Manufacturing</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">Supply Chain Margin Analysis</h4>
-                </div>
-                <div class="group">
-                    <div class="aspect-[4/3] bg-slate-50 rounded-[2rem] overflow-hidden mb-6 shadow-sm border border-slate-100">
-                        <img src="assets/sme-retail.png" alt="Retail" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500">
-                    </div>
-                    <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest mb-2">Artisan Retail</p>
-                    <h4 class="text-xl font-bold text-nl-navy group-hover:text-nl-green transition-colors">24/7 AI Booking Agent</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Alpha Partner Callout -->
-    <section class="py-16 bg-nl-green">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-nl-navy">
-                <div class="max-w-2xl text-center md:text-left">
-                    <h4 class="text-2xl font-black mb-2">Alpha Partner Program : Q1 2026</h4>
-                    <p class="font-bold opacity-80 uppercase tracking-widest text-sm">Limited to three local Sudbury businesses.</p>
-                </div>
-                <a href="mailto:info@newlens.uk?subject=Alpha Partner Interest" class="whitespace-nowrap bg-nl-navy text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-teal transition-all shadow-xl">
-                    Apply to Join
+            <div class="mt-16 flex justify-center">
+                <a href="contact.html?type=consulting" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
+                    Enquire About Consulting
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section: The Cost of Hesitation -->
-    <section id="jump-in" class="py-24 bg-white overflow-hidden">
+    <!-- Section: Training (Dark Rhythm - continuous with Consulting) -->
+    <section id="training" class="section-padding bg-nl-navy text-white border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mb-16">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Training</h2>
+                <h3 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-8 text-balance">Building AI literacy across your business.</h3>
+                <p class="text-xl text-nl-slate font-medium leading-relaxed">
+                    AI adoption isn't about the technology: it's about the people. Without proper training and empowerment frameworks, even the most powerful tools create anxiety and resistance. We deliver practical, role-based training that builds confidence and capability - ensuring your team sees AI as a productivity multiplier, not a threat.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 md:gap-10">
+                <!-- AI Empowerment Training -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-12 rounded-[2.5rem]">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-24 h-24 bg-nl-teal/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-12 h-12 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-3xl font-bold text-white mb-6 text-center">AI Empowerment</h4>
+                    <p class="text-nl-slate leading-relaxed mb-8">
+                        Practical workshops for teams at all levels. We teach how to use AI tools effectively, recognize appropriate use cases, and build prompting skills that deliver real results. No technical jargon - just practical capability building.
+                    </p>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-teal mt-1">→</span>
+                            <span>Hands-on AI tool training (ChatGPT, Claude, Copilot)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-teal mt-1">→</span>
+                            <span>Prompt engineering for business use cases</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-teal mt-1">→</span>
+                            <span>Risk awareness & governance fundamentals</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-teal mt-1">→</span>
+                            <span>Role-specific use case libraries</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AI Solutions Training -->
+                <div class="service-card bg-white/5 border border-white/10 p-6 md:p-12 rounded-[2.5rem]">
+                    <div class="flex justify-center mb-6">
+                        <div class="w-24 h-24 bg-nl-green/10 rounded-3xl flex items-center justify-center">
+                            <svg class="w-12 h-12 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                        </div>
+                    </div>
+                    <h4 class="text-3xl font-bold text-white mb-6 text-center">AI Solutions</h4>
+                    <p class="text-nl-slate leading-relaxed mb-8">
+                        Advanced training for technical teams and decision-makers. Learn how to evaluate AI platforms, architect AI-augmented workflows, and manage vendor relationships. Designed for those responsible for implementation strategy.
+                    </p>
+                    <ul class="text-slate-400 text-sm space-y-3">
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-green mt-1">→</span>
+                            <span>AI platform evaluation & selection frameworks</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-green mt-1">→</span>
+                            <span>Integration architecture & API fundamentals</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-green mt-1">→</span>
+                            <span>Data privacy & compliance (UK GDPR, ICO)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-nl-green mt-1">→</span>
+                            <span>ROI measurement & success metrics</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 flex justify-center">
+                <a href="contact.html?type=training" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all text-center">
+                    Enquire About Training
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Jump In (Light Rhythm) -->
+    <section id="jump-in" class="section-padding bg-slate-100 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">The cold water reality</h2>
-                    <h3 class="text-5xl md:text-6xl font-black text-nl-navy leading-[0.95] mb-8">The water isn't going to get warmer while you wait.</h3>
-                    <p class="text-xl text-slate-500 mb-10 leading-relaxed font-light">
-                        We know why businesses hesitate. You're waiting for the "perfect" time: when the data is cleaner, the team is less busy, or the budget is bigger. But in the world of automation, the "perfect time" is a mirage.
+                    <h2 class="text-[18px] font-black text-nl-navy uppercase tracking-[0.3em] mb-6">Jump In</h2>
+                    <h3 class="text-3xl md:text-5xl lg:text-6xl font-black text-nl-navy leading-[1.05] mb-8 text-balance">What you have now "works" - but it's not efficient.</h3>
+                    <p class="text-xl text-slate-700 mb-10 leading-relaxed font-medium">
+                        We understand the hesitation. You're profitable, your team is functional, and change feels risky. But "working" isn't the same as "efficient" - and the gap between where you are and where you could be is widening every quarter.
                     </p>
                     
                     <div class="space-y-6 mb-12">
                         <div class="flex gap-4">
                             <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-nl-navy flex items-center justify-center text-[10px] font-bold text-white italic">!</div>
                             <div>
-                                <h4 class="font-bold text-nl-navy">The Admin Tax grows.</h4>
-                                <p class="text-slate-500 text-sm">Every month you delay, your manual overhead compounds. You aren't just losing time: you're funding your competitors' agility.</p>
+                                <h4 class="font-bold text-nl-navy">The Admin Tax compounds.</h4>
+                                <p class="text-slate-600 text-sm">Every quarter you delay, your manual overhead grows. What feels manageable today becomes unsustainable tomorrow - and you're funding your competitors' efficiency gains.</p>
                             </div>
                         </div>
                         <div class="flex gap-4">
                             <div class="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-nl-navy flex items-center justify-center text-[10px] font-bold text-white italic">!</div>
                             <div>
-                                <h4 class="font-bold text-nl-navy">The gap is widening.</h4>
-                                <p class="text-slate-500 text-sm">Your competitors aren't waiting for the water to warm up. They're jumping in and using that momentum to price you out of the market.</p>
+                                <h4 class="font-bold text-nl-navy">Waiting costs more than starting.</h4>
+                                <p class="text-slate-600 text-sm">The businesses outpacing you aren't waiting for perfect conditions. They're building momentum - and using that edge to win your clients and your margins.</p>
                             </div>
                         </div>
                     </div>
 
-                    <a href="assessment.html" class="inline-block bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-green hover:text-nl-navy transition-all">
-                        Take the Plunge
+                    <a href="assessment-new.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">
+                        Start Assessment
                     </a>
                 </div>
                 <div class="relative group">
                     <div class="absolute -inset-4 bg-gradient-to-tr from-nl-teal/20 to-nl-green/20 rounded-[3rem] blur-2xl group-hover:opacity-100 opacity-50 transition-opacity"></div>
-                    <div class="relative aspect-square rounded-[2.5rem] bg-nl-navy overflow-hidden border border-white/10 flex items-center justify-center p-12">
-                        <!-- We can replace this with a high-fidelity 'Cold Water/Plunge' asset later -->
-                        <div class="text-center">
-                            <span class="text-8xl mb-8 block">🌊</span>
-                            <p class="text-nl-teal font-black uppercase tracking-widest text-sm">Momentum beats perfection.</p>
+                    <div class="service-card relative aspect-square rounded-[2.5rem] overflow-hidden border-4 border-white/20 shadow-2xl">
+                        <img src="assets/jump-in-cold-plunge.png" alt="Cold water plunge - taking action" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-nl-navy/95 via-nl-navy/80 to-transparent p-10 text-center">
+                            <p class="text-white font-black uppercase tracking-widest text-lg md:text-xl">The Water Won't Get Warmer</p>
                         </div>
                     </div>
                 </div>
@@ -310,37 +654,54 @@
         </div>
     </section>
 
-    <!-- Section: About -->
-    <section id="about" class="py-24 bg-nl-navy text-white">
+    <!-- Alpha Partner Callout -->
+    <section class="py-20 bg-nl-green">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-nl-navy">
+                <div class="max-w-2xl text-center md:text-left">
+                    <h4 class="text-3xl font-black mb-3">Alpha Partner Program: 2026</h4>
+                    <p class="font-semibold text-lg mb-2">Opportunity to join local SMEs in an AI Automation program.</p>
+                    <p class="font-bold opacity-80 uppercase tracking-widest text-xs">Limited spaces. Selection criteria apply.</p>
+                </div>
+                <a href="alpha-partner.html" class="whitespace-nowrap bg-nl-navy text-white px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-white hover:text-nl-navy transition-all shadow-xl">
+                    Click for Details
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: About (Dark - Bio Only) -->
+    <section id="about" class="section-padding bg-nl-navy text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
                 <div class="relative">
-                    <img src="assets/mat-keys-bio.png" alt="Matthew Keys" class="rounded-[2rem] grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border-4 border-white/5">
+                    <img src="assets/mat-keys-bio.png" alt="Matthew Keys" class="rounded-[2rem] shadow-2xl border-4 border-white/10 w-full">
                     <div class="absolute -bottom-6 -right-6 bg-nl-green text-nl-navy p-8 rounded-[2rem] shadow-xl">
                         <p class="text-3xl font-black">20+</p>
                         <p class="text-[10px] font-bold uppercase tracking-widest">Years Experience</p>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">The Human Behind the Lens</h2>
-                    <h3 class="text-5xl font-black mb-8 leading-tight">Enterprise Experience. <br>Local Commitment.</h3>
-                    <p class="text-xl text-nl-slate mb-8 leading-relaxed font-light">
-                        Founded by Matthew Keys, newlens was born from a simple observation: SMEs are being crushed by the "Admin Tax" — the hidden cost of manual, repetitive tasks that enterprise companies solved years ago.
+                    <h2 class="text-[13px] font-bold text-nl-teal uppercase tracking-[0.3em] mb-4">About</h2>
+                    <h3 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 leading-tight text-white">National Experience. <br>Local Commitment.</h3>
+                    <p class="text-xl text-nl-slate mb-8 leading-relaxed font-light text-balance">
+                        Founded by Matthew Keys, newlens was born from a simple observation: SMEs are being restricted by manual, repetitive processes and lack the vast IT resources of enterprise companies.
                     </p>
                     <p class="text-lg text-nl-slate/80 mb-10 leading-relaxed italic">
-                        "I've spent two decades building high-fidelity data systems for global firms. Now, I'm bringing that same focus to local businesses in Sudbury and beyond. We don't just 'automate' — we build systems that scale."
+                        "I've spent two decades working with data, workflows, and systems across national and global platforms. I'm now bringing that focus to local businesses in Suffolk and beyond. We don't just 'automate' - we build solutions that scale as you grow."
                     </p>
-                    <div class="flex gap-8 items-center">
-                        <div>
-                            <p class="text-2xl font-bold text-white mb-1">Sudbury</p>
-                            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest">Based in Suffolk</p>
+                    <div class="flex flex-row flex-wrap gap-6 items-center justify-center md:justify-start mb-10">
+                        <div class="text-center md:text-left">
+                            <p class="text-2xl font-bold text-white mb-1">Suffolk</p>
+                            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest">Based in the UK</p>
                         </div>
-                        <div>
-                            <p class="text-2xl font-bold text-white mb-1">n8n & AI</p>
-                            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-widest">Tech Stack</p>
-                        </div>
-                        <a href="https://www.linkedin.com/in/mat-keys/" target="_blank" class="bg-white/10 hover:bg-nl-teal transition-colors p-4 rounded-full">
+                        <a href="https://www.linkedin.com/in/mat-keys/" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-nl-teal transition-colors p-4 rounded-full">
                             <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <a href="contact.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all">
+                            Contact Us
                         </a>
                     </div>
                 </div>
@@ -348,47 +709,204 @@
         </div>
     </section>
 
+    <!-- Tech Stack Carousel (Light) -->
+    <section class="py-20 bg-slate-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <p class="text-[10px] font-bold text-nl-teal uppercase tracking-[0.4em] mb-12 text-center">Seamless Integration with your ecosystem</p>
+            <div class="relative">
+                
+                <div class="logo-carousel flex items-center" id="logo-carousel">
+                    <!-- Grouped: Productivity Platforms -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWljcm9zb2Z0PC90aXRsZT48cGF0aCBmaWxsPSIjRjI1MDIyIiBkPSJNMCAwdjExLjQwOGgxMS40MDhWMHptMTIuNTk0IDB2MTEuNDA4SDI0VjB6TTAgMTIuNTk0VjI0aDExLjQwOFYxMi41OTR6bTEyLjU5NCAwVjI0SDI0VjEyLjU5NHoiLz48L3N2Zz4=" alt="M365" class="h-20 logo-microsoft" loading="eager">
+                        <span class="logo-label">[ Microsoft 365 ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google" class="h-20" loading="eager">
+                        <span class="logo-label">[ Google Workspace ]</span>
+                    </div>
+                    <!-- Grouped: Data & Analytics -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UG93ZXIgQkk8L3RpdGxlPjxwYXRoIGZpbGw9IiNGMkM4MTEiIGQ9Ik0xMCAxMmExIDEgMCAwIDEgMSAxdjExSDRhMSAxIDAgMCAxLTEtMVYxM2ExIDEgMCAwIDEgMS0xaDZabS0yLS41VjdhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MTdoLTQuNVYxM2ExLjUgMS41IDAgMCAwLTEuNS0xLjVIOFptNS02VjFhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MjJhMSAxIDAgMCAxLTEgMWgtMy41VjdBMS41IDEuNSAwIDAgMCAxNSA1LjVoLTJaIi8+PC9zdmc+" alt="Power BI" class="h-20" loading="eager">
+                        <span class="logo-label">[ Power BI ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tableau.svg" alt="Tableau" class="h-20" loading="eager">
+                        <span class="logo-label">[ Tableau ]</span>
+                    </div>
+                    <!-- Grouped: AI Models -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBmaWxsPSIjMTBBMzdGIiBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg==" alt="ChatGPT" class="h-20" loading="eager">
+                        <span class="logo-label">[ ChatGPT ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #CC9B7A;">Claude</span></div>
+                        <span class="logo-label">[ Claude ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlegemini.svg" alt="Gemini" class="h-20" loading="eager">
+                        <span class="logo-label">[ Gemini ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/meta.svg" alt="Llama" class="h-20" loading="eager">
+                        <span class="logo-label">[ Llama ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-5xl font-black" style="color: #000000;">Kimi</span></div>
+                        <span class="logo-label">[ Kimi ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftcopilot.svg" alt="Copilot" class="h-20" loading="eager">
+                        <span class="logo-label">[ Microsoft Copilot ]</span>
+                    </div>
+                    <!-- Grouped: CRM & Sales -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U2FsZXNmb3JjZTwvdGl0bGU+PHBhdGggZmlsbD0iIzAwQTFFMCIgZD0iTTEwLjAwNiA1LjQxNWE0LjE5NSA0LjE5NSAwIDAxMy4wNDUtMS4zMDZjMS41NiAwIDIuOTU0LjkgMy42OSAyLjIwNS42My0uMyAxLjM1LS40NSAyLjEtLjQ1IDIuODUgMCA1LjE1OSAyLjM0IDUuMTU5IDUuMjJzLTIuMzEgNS4yMi01LjE3NiA1LjIyYy0uMzQ1IDAtLjY5LS4wNDQtMS4wMi0uMTA0YTMuNzUgMy43NSAwIDAxLTMuMyAxLjk1Yy0uNiAwLTEuMTU1LS4xNS0xLjY1LS4zNzVBNC4zMTQgNC4zMTQgMCAwMTguODggMjAuNGE0LjMwMiA0LjMwMiAwIDAxLTQuMDUtMi44MmMtLjI3LjA2Mi0uNTQuMDc2LS44MjUuMDc2LTIuMjA0IDAtNC4wMDUtMS44LTQuMDA1LTQuMDUgMC0xLjUuODExLTIuODA1IDIuMDEtMy41MS0uMjU1LS41Ny0uMzktMS4yLS4zOS0xLjg0NiAwLTIuNTggMi4xLTQuNjUgNC42NS00LjY1IDEuNTMgMCAyLjg1LjcwNSAzLjcyIDEuOCIvPjwvc3ZnPg==" alt="Salesforce" class="h-20" loading="eager">
+                        <span class="logo-label">[ Salesforce ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+SHViU3BvdDwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGN0E1OSIgZD0iTTE4LjE2NCA3LjkzVjUuMDg0YTIuMTk4IDIuMTk4IDAgMDAxLjI2Ny0xLjk3OHYtLjA2N0EyLjIgMi4yIDAgMDAxNy4yMzguODQ1aC0uMDY3YTIuMiAyLjIgMCAwMC0yLjE5MyAyLjE5M3YuMDY3YTIuMTk2IDIuMTk2IDAgMDAxLjI1MiAxLjk3M2wuMDEzLjAwNnYyLjg1MmE2LjIyIDYuMjIgMCAwMC0yLjk2OSAxLjMxbC4wMTItLjAxLTcuODI4LTYuMDk1QTIuNDk3IDIuNDk3IDAgMTA0LjMgNC42NTZsLS4wMTIuMDA2IDcuNjk3IDUuOTkxYTYuMTc2IDYuMTc2IDAgMDAtMS4wMzggMy40NDZjMCAxLjM0My40MjUgMi41ODggMS4xNDcgMy42MDdsLS4wMTMtLjAyLTIuMzQyIDIuMzQzYTEuOTY4IDEuOTY4IDAgMDAtLjU4LS4wOTVoLS4wMDJhMi4wMzMgMi4wMzMgMCAxMDIuMDMzIDIuMDMzIDEuOTc4IDEuOTc4IDAgMDAtLjEtLjU5NWwuMDA1LjAxNCAyLjMxNy0yLjMxN2E2LjI0NyA2LjI0NyAwIDEwNC43ODItMTEuMTM0bC0uMDM2LS4wMDV6bS0uOTY0IDkuMzc4YTMuMjA2IDMuMjA2IDAgMTEzLjIxNS0zLjIwN3YuMDAyYTMuMjA2IDMuMjA2IDAgMDEtMy4yMDcgMy4yMDd6Ii8+PC9zdmc+" alt="HubSpot" class="h-20" loading="eager">
+                        <span class="logo-label">[ HubSpot ]</span>
+                    </div>
+                    <!-- Grouped: Finance & Accounting -->
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
+                        <span class="logo-label">[ Xero ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
+                        <span class="logo-label">[ QuickBooks ]</span>
+                    </div>
+                    <!-- Grouped: Automation & Development -->
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
+                        <span class="logo-label">[ n8n ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UHl0aG9uPC90aXRsZT48cGF0aCBmaWxsPSIjMzc3NkFCIiBkPSJNMTQuMjUuMThsLjkuMi43My4yNi41OS4zLjQ1LjMyLjM0LjM0LjI1LjM0LjE2LjMzLjEuMy4wNC4yNi4wMi4yLS4wMS4xM1Y4LjVsLS4wNS42My0uMTMuNTUtLjIxLjQ2LS4yNi4zOC0uMy4zMS0uMzMuMjUtLjM1LjE5LS4zNS4xNC0uMzMuMS0uMy4wNy0uMjYuMDQtLjIxLjAySDguNzdsLS42OS4wNS0uNTkuMTQtLjUuMjItLjQxLjI3LS4zMy4zMi0uMjcuMzUtLjIuMzYtLjE1LjM3LS4xLjM1LS4wNy4zMi0uMDQuMjctLjAyLjIxdjMuMDZIMy4xN2wtLjIxLS4wMy0uMjgtLjA3LS4zMi0uMTItLjM1LS4xOC0uMzYtLjI2LS4zNi0uMzYtLjM1LS40Ni0uMzItLjU5LS4yOC0uNzMtLjIxLS44OC0uMTQtMS4wNS0uMDUtMS4yMy4wNi0xLjIyLjE2LTEuMDQuMjQtLjg3LjMyLS43MS4zNi0uNTcuNC0uNDQuNDItLjMzLjQyLS4yNC40LS4xNi4zNi0uMS4zMi0uMDUuMjQtLjAxaC4xNmwuMDYuMDFoOC4xNnYtLjgzSDYuMThsLS4wMS0yLjc1LS4wMi0uMzcuMDUtLjM0LjExLS4zMS4xNy0uMjguMjUtLjI2LjMxLS4yMy4zOC0uMi40NC0uMTguNTEtLjE1LjU4LS4xMi42NC0uMS43MS0uMDYuNzctLjA0Ljg0LS4wMiAxLjI3LjA1em0tNi4zIDEuOThsLS4yMy4zMy0uMDguNDEuMDguNDEuMjMuMzQuMzMuMjIuNDEuMDkuNDEtLjA5LjMzLS4yMi4yMy0uMzQuMDgtLjQxLS4wOC0uNDEtLjIzLS4zMy0uMzMtLjIyLS40MS0uMDktLjQxLjA5em0xMy4wOSAzLjk1bC4yOC4wNi4zMi4xMi4zNS4xOC4zNi4yNy4zNi4zNS4zNS40Ny4zMi41OS4yOC43My4yMS44OC4xNCAxLjA0LjA1IDEuMjMtLjA2IDEuMjMtLjE2IDEuMDQtLjI0Ljg2LS4zMi43MS0uMzYuNTctLjQuNDUtLjQyLjMzLS40Mi4yNC0uNC4xNi0uMzYuMDktLjMyLjA1LS4yNC4wMi0uMTYtLjAxaC04LjIydi44Mmg1Ljg0bC4wMSAyLjc2LjAyLjM2LS4wNS4zNC0uMTEuMzEtLjE3LjI5LS4yNS4yNS0uMzEuMjQtLjM4LjItLjQ0LjE3LS41MS4xNS0uNTguMTMtLjY0LjA5LS43MS4wNy0uNzcuMDQtLjg0LjAxLTEuMjctLjA0LTEuMDctLjE0LS45LS4yLS43My0uMjUtLjU5LS4zLS40NS0uMzMtLjM0LS4zNC0uMjUtLjM0LS4xNi0uMzMtLjEtLjMtLjA0LS4yNS0uMDItLjIuMDEtLjEzdi01LjM0bC4wNS0uNjQuMTMtLjU0LjIxLS40Ni4yNi0uMzguMy0uMzIuMzMtLjI0LjM1LS4yLjM1LS4xNC4zMy0uMS4zLS4wNi4yNi0uMDQuMjEtLjAyLjEzLS4wMWg1Ljg0bC42OS0uMDUuNTktLjE0LjUtLjIxLjQxLS4yOC4zMy0uMzIuMjctLjM1LjItLjM2LjE1LS4zNi4xLS4zNS4wNy0uMzIuMDQtLjI4LjAyLS4yMVY2LjA3aDIuMDlsLjE0LjAxem0tNi40NyAxNC4yNWwtLjIzLjMzLS4wOC40MS4wOC40MS4yMy4zMy4zMy4yMy40MS4wOC40MS0uMDguMzMtLjIzLjIzLS4zMy4wOC0uNDEtLjA4LS40MS0uMjMtLjMzLS4zMy0uMjMtLjQxLS4wOC0uNDEuMDh6Ii8+PC9zdmc+" alt="Python" class="h-20" loading="eager">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <!-- Grouped: Communication -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+V2hhdHNBcHA8L3RpdGxlPjxwYXRoIGZpbGw9IiMyNUQzNjYiIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3bS01LjQyMSA3LjQwM2gtLjAwNGE5Ljg3IDkuODcgMCAwMS01LjAzMS0xLjM3OGwtLjM2MS0uMjE0LTMuNzQxLjk4Mi45OTgtMy42NDgtLjIzNS0uMzc0YTkuODYgOS44NiAwIDAxLTEuNTEtNS4yNmMuMDAxLTUuNDUgNC40MzYtOS44ODQgOS44ODgtOS44ODQgMi42NCAwIDUuMTIyIDEuMDMgNi45ODggMi44OThhOS44MjUgOS44MjUgMCAwMTIuODkzIDYuOTk0Yy0uMDAzIDUuNDUtNC40MzcgOS44ODQtOS44ODUgOS44ODRtOC40MTMtMTguMjk3QTExLjgxNSAxMS44MTUgMCAwMDEyLjA1IDBDNS40OTUgMCAuMTYgNS4zMzUuMTU3IDExLjg5MmMwIDIuMDk2LjU0NyA0LjE0MiAxLjU4OCA1Ljk0NUwuMDU3IDI0bDYuMzA1LTEuNjU0YTExLjg4MiAxMS44ODIgMCAwMDUuNjgzIDEuNDQ4aC4wMDVjNi41NTQgMCAxMS44OS01LjMzNSAxMS44OTMtMTEuODkzYTExLjgyMSAxMS44MjEgMCAwMC0zLjQ4LTguNDEzWiIvPjwvc3ZnPg==" alt="WhatsApp" class="h-20" loading="eager">
+                        <span class="logo-label">[ WhatsApp ]</span>
+                    </div>
+                    <!-- Duplicate for infinite scroll (same grouped order) -->
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWljcm9zb2Z0PC90aXRsZT48cGF0aCBmaWxsPSIjRjI1MDIyIiBkPSJNMCAwdjExLjQwOGgxMS40MDhWMHptMTIuNTk0IDB2MTEuNDA4SDI0VjB6TTAgMTIuNTk0VjI0aDExLjQwOFYxMi41OTR6bTEyLjU5NCAwVjI0SDI0VjEyLjU5NHoiLz48L3N2Zz4=" alt="M365" class="h-20 logo-microsoft" loading="eager">
+                        <span class="logo-label">[ Microsoft 365 ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" alt="Google" class="h-20" loading="eager">
+                        <span class="logo-label">[ Google Workspace ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UG93ZXIgQkk8L3RpdGxlPjxwYXRoIGZpbGw9IiNGMkM4MTEiIGQ9Ik0xMCAxMmExIDEgMCAwIDEgMSAxdjExSDRhMSAxIDAgMCAxLTEtMVYxM2ExIDEgMCAwIDEgMS0xaDZabS0yLS41VjdhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MTdoLTQuNVYxM2ExLjUgMS41IDAgMCAwLTEuNS0xLjVIOFptNS02VjFhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMSAxIDF2MjJhMSAxIDAgMCAxLTEgMWgtMy41VjdBMS41IDEuNSAwIDAgMCAxNSA1LjVoLTJaIi8+PC9zdmc+" alt="Power BI" class="h-20" loading="eager">
+                        <span class="logo-label">[ Power BI ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tableau.svg" alt="Tableau" class="h-20" loading="eager">
+                        <span class="logo-label">[ Tableau ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+T3BlbkFJPC90aXRsZT48cGF0aCBmaWxsPSIjMTBBMzdGIiBkPSJNMjIuMjgxOSA5LjgyMTFhNS45ODQ3IDUuOTg0NyAwIDAgMC0uNTE1Ny00LjkxMDggNi4wNDYyIDYuMDQ2MiAwIDAgMC02LjUwOTgtMi45QTYuMDY1MSA2LjA2NTEgMCAwIDAgNC45ODA3IDQuMTgxOGE1Ljk4NDcgNS45ODQ3IDAgMCAwLTMuOTk3NyAyLjkgNi4wNDYyIDYuMDQ2MiAwIDAgMCAuNzQyNyA3LjA5NjYgNS45OCA1Ljk4IDAgMCAwIC41MTEgNC45MTA3IDYuMDUxIDYuMDUxIDAgMCAwIDYuNTE0NiAyLjkwMDFBNS45ODQ3IDUuOTg0NyAwIDAgMCAxMy4yNTk5IDI0YTYuMDU1NyA2LjA1NTcgMCAwIDAgNS43NzE4LTQuMjA1OCA1Ljk4OTQgNS45ODk0IDAgMCAwIDMuOTk3Ny0yLjkwMDEgNi4wNTU3IDYuMDU1NyAwIDAgMC0uNzQ3NS03LjA3Mjl6bS05LjAyMiAxMi42MDgxYTQuNDc1NSA0LjQ3NTUgMCAwIDEtMi44NzY0LTEuMDQwOGwuMTQxOS0uMDgwNCA0Ljc3ODMtMi43NTgyYS43OTQ4Ljc5NDggMCAwIDAgLjM5MjctLjY4MTN2LTYuNzM2OWwyLjAyIDEuMTY4NmEuMDcxLjA3MSAwIDAgMSAuMDM4LjA1MnY1LjU4MjZhNC41MDQgNC41MDQgMCAwIDEtNC40OTQ1IDQuNDk0NHptLTkuNjYwNy00LjEyNTRhNC40NzA4IDQuNDcwOCAwIDAgMS0uNTM0Ni0zLjAxMzdsLjE0Mi4wODUyIDQuNzgzIDIuNzU4MmEuNzcxMi43NzEyIDAgMCAwIC43ODA2IDBsNS44NDI4LTMuMzY4NXYyLjMzMjRhLjA4MDQuMDgwNCAwIDAgMS0uMDMzMi4wNjE1TDkuNzQgMTkuOTUwMmE0LjQ5OTIgNC40OTkyIDAgMCAxLTYuMTQwOC0xLjY0NjR6TTIuMzQwOCA3Ljg5NTZhNC40ODUgNC40ODUgMCAwIDEgMi4zNjU1LTEuOTcyOFYxMS42YS43NjY0Ljc2NjQgMCAwIDAgLjM4NzkuNjc2NWw1LjgxNDQgMy4zNTQzLTIuMDIwMSAxLjE2ODVhLjA3NTcuMDc1NyAwIDAgMS0uMDcxIDBsLTQuODMwMy0yLjc4NjVBNC41MDQgNC41MDQgMCAwIDEgMi4zNDA4IDcuODcyem0xNi41OTYzIDMuODU1OEwxMy4xMDM4IDguMzY0IDE1LjExOTIgNy4yYS4wNzU3LjA3NTcgMCAwIDEgLjA3MSAwbDQuODMwMyAyLjc5MTNhNC40OTQ0IDQuNDk0NCAwIDAgMS0uNjc2NSA4LjEwNDJ2LTUuNjc3MmEuNzkuNzkgMCAwIDAtLjQwNy0uNjY3em0yLjAxMDctMy4wMjMxbC0uMTQyLS4wODUyLTQuNzczNS0yLjc4MThhLjc3NTkuNzc1OSAwIDAgMC0uNzg1NCAwTDkuNDA5IDkuMjI5N1Y2Ljg5NzRhLjA2NjIuMDY2MiAwIDAgMSAuMDI4NC0uMDYxNWw0LjgzMDMtMi43ODY2YTQuNDk5MiA0LjQ5OTIgMCAwIDEgNi42ODAyIDQuNjZ6TTguMzA2NSAxMi44NjNsLTIuMDItMS4xNjM4YS4wODA0LjA4MDQgMCAwIDEtLjAzOC0uMDU2N1Y2LjA3NDJhNC40OTkyIDQuNDk5MiAwIDAgMSA3LjM3NTctMy40NTM3bC0uMTQyLjA4MDVMOC43MDQgNS40NTlhLjc5NDguNzk0OCAwIDAgMC0uMzkyNy42ODEzem0xLjA5NzYtMi4zNjU0bDIuNjAyLTEuNDk5OCAyLjYwNjkgMS40OTk4djIuOTk5NGwtMi41OTc0IDEuNDk5Ny0yLjYwNjctMS40OTk3WiIvPjwvc3ZnPg==" alt="ChatGPT" class="h-20" loading="eager">
+                        <span class="logo-label">[ ChatGPT ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #CC9B7A;">Claude</span></div>
+                        <span class="logo-label">[ Claude ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/googlegemini.svg" alt="Gemini" class="h-20" loading="eager">
+                        <span class="logo-label">[ Gemini ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/meta.svg" alt="Llama" class="h-20" loading="eager">
+                        <span class="logo-label">[ Llama ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-5xl font-black" style="color: #000000;">Kimi</span></div>
+                        <span class="logo-label">[ Kimi ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoftcopilot.svg" alt="Copilot" class="h-20" loading="eager">
+                        <span class="logo-label">[ Microsoft Copilot ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U2FsZXNmb3JjZTwvdGl0bGU+PHBhdGggZmlsbD0iIzAwQTFFMCIgZD0iTTEwLjAwNiA1LjQxNWE0LjE5NSA0LjE5NSAwIDAxMy4wNDUtMS4zMDZjMS41NiAwIDIuOTU0LjkgMy42OSAyLjIwNS42My0uMyAxLjM1LS40NSAyLjEtLjQ1IDIuODUgMCA1LjE1OSAyLjM0IDUuMTU5IDUuMjJzLTIuMzEgNS4yMi01LjE3NiA1LjIyYy0uMzQ1IDAtLjY5LS4wNDQtMS4wMi0uMTA0YTMuNzUgMy43NSAwIDAxLTMuMyAxLjk1Yy0uNiAwLTEuMTU1LS4xNS0xLjY1LS4zNzVBNC4zMTQgNC4zMTQgMCAwMTguODggMjAuNGE0LjMwMiA0LjMwMiAwIDAxLTQuMDUtMi44MmMtLjI3LjA2Mi0uNTQuMDc2LS44MjUuMDc2LTIuMjA0IDAtNC4wMDUtMS44LTQuMDA1LTQuMDUgMC0xLjUuODExLTIuODA1IDIuMDEtMy41MS0uMjU1LS41Ny0uMzktMS4yLS4zOS0xLjg0NiAwLTIuNTggMi4xLTQuNjUgNC42NS00LjY1IDEuNTMgMCAyLjg1LjcwNSAzLjcyIDEuOCIvPjwvc3ZnPg==" alt="Salesforce" class="h-20" loading="eager">
+                        <span class="logo-label">[ Salesforce ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+SHViU3BvdDwvdGl0bGU+PHBhdGggZmlsbD0iI0ZGN0E1OSIgZD0iTTE4LjE2NCA3LjkzVjUuMDg0YTIuMTk4IDIuMTk4IDAgMDAxLjI2Ny0xLjk3OHYtLjA2N0EyLjIgMi4yIDAgMDAxNy4yMzguODQ1aC0uMDY3YTIuMiAyLjIgMCAwMC0yLjE5MyAyLjE5M3YuMDY3YTIuMTk2IDIuMTk2IDAgMDAxLjI1MiAxLjk3M2wuMDEzLjAwNnYyLjg1MmE2LjIyIDYuMjIgMCAwMC0yLjk2OSAxLjMxbC4wMTItLjAxLTcuODI4LTYuMDk1QTIuNDk3IDIuNDk3IDAgMTA0LjMgNC42NTZsLS4wMTIuMDA2IDcuNjk3IDUuOTkxYTYuMTc2IDYuMTc2IDAgMDAtMS4wMzggMy40NDZjMCAxLjM0My40MjUgMi41ODggMS4xNDcgMy42MDdsLS4wMTMtLjAyLTIuMzQyIDIuMzQzYTEuOTY4IDEuOTY4IDAgMDAtLjU4LS4wOTVoLS4wMDJhMi4wMzMgMi4wMzMgMCAxMDIuMDMzIDIuMDMzIDEuOTc4IDEuOTc4IDAgMDAtLjEtLjU5NWwuMDA1LjAxNCAyLjMxNy0yLjMxN2E2LjI0NyA2LjI0NyAwIDEwNC43ODItMTEuMTM0bC0uMDM2LS4wMDV6bS0uOTY0IDkuMzc4YTMuMjA2IDMuMjA2IDAgMTEzLjIxNS0zLjIwN3YuMDAyYTMuMjA2IDMuMjA2IDAgMDEtMy4yMDcgMy4yMDd6Ii8+PC9zdmc+" alt="HubSpot" class="h-20" loading="eager">
+                        <span class="logo-label">[ HubSpot ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/xero.svg" alt="Xero" class="h-20" loading="eager">
+                        <span class="logo-label">[ Xero ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/quickbooks.svg" alt="QuickBooks" class="h-20" loading="eager">
+                        <span class="logo-label">[ QuickBooks ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <div class="h-20 flex items-center justify-center"><span class="text-6xl font-black" style="color: #FF6D5A;">n8n</span></div>
+                        <span class="logo-label">[ n8n ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UHl0aG9uPC90aXRsZT48cGF0aCBmaWxsPSIjMzc3NkFCIiBkPSJNMTQuMjUuMThsLjkuMi43My4yNi41OS4zLjQ1LjMyLjM0LjM0LjI1LjM0LjE2LjMzLjEuMy4wNC4yNi4wMi4yLS4wMS4xM1Y4LjVsLS4wNS42My0uMTMuNTUtLjIxLjQ2LS4yNi4zOC0uMy4zMS0uMzMuMjUtLjM1LjE5LS4zNS4xNC0uMzMuMS0uMy4wNy0uMjYuMDQtLjIxLjAySDguNzdsLS42OS4wNS0uNTkuMTQtLjUuMjItLjQxLjI3LS4zMy4zMi0uMjcuMzUtLjIuMzYtLjE1LjM3LS4xLjM1LS4wNy4zMi0uMDQuMjctLjAyLjIxdjMuMDZIMy4xN2wtLjIxLS4wMy0uMjgtLjA3LS4zMi0uMTItLjM1LS4xOC0uMzYtLjI2LS4zNi0uMzYtLjM1LS40Ni0uMzItLjU5LS4yOC0uNzMtLjIxLS44OC0uMTQtMS4wNS0uMDUtMS4yMy4wNi0xLjIyLjE2LTEuMDQuMjQtLjg3LjMyLS43MS4zNi0uNTcuNC0uNDQuNDItLjMzLjQyLS4yNC40LS4xNi4zNi0uMS4zMi0uMDUuMjQtLjAxaC4xNmwuMDYuMDFoOC4xNnYtLjgzSDYuMThsLS4wMS0yLjc1LS4wMi0uMzcuMDUtLjM0LjExLS4zMS4xNy0uMjguMjUtLjI2LjMxLS4yMy4zOC0uMi40NC0uMTguNTEtLjE1LjU4LS4xMi42NC0uMS43MS0uMDYuNzctLjA0Ljg0LS4wMiAxLjI3LjA1em0tNi4zIDEuOThsLS4yMy4zMy0uMDguNDEuMDguNDEuMjMuMzQuMzMuMjIuNDEuMDkuNDEtLjA5LjMzLS4yMi4yMy0uMzQuMDgtLjQxLS4wOC0uNDEtLjIzLS4zMy0uMzMtLjIyLS40MS0uMDktLjQxLjA5em0xMy4wOSAzLjk1bC4yOC4wNi4zMi4xMi4zNS4xOC4zNi4yNy4zNi4zNS4zNS40Ny4zMi41OS4yOC43My4yMS44OC4xNCAxLjA0LjA1IDEuMjMtLjA2IDEuMjMtLjE2IDEuMDQtLjI0Ljg2LS4zMi43MS0uMzYuNTctLjQuNDUtLjQyLjMzLS40Mi4yNC0uNC4xNi0uMzYuMDktLjMyLjA1LS4yNC4wMi0uMTYtLjAxaC04LjIydi44Mmg1Ljg0bC4wMSAyLjc2LjAyLjM2LS4wNS4zNC0uMTEuMzEtLjE3LjI5LS4yNS4yNS0uMzEuMjQtLjM4LjItLjQ0LjE3LS41MS4xNS0uNTguMTMtLjY0LjA5LS43MS4wNy0uNzcuMDQtLjg0LjAxLTEuMjctLjA0LTEuMDctLjE0LS45LS4yLS43My0uMjUtLjU5LS4zLS40NS0uMzMtLjM0LS4zNC0uMjUtLjM0LS4xNi0uMzMtLjEtLjMtLjA0LS4yNS0uMDItLjIuMDEtLjEzdi01LjM0bC4wNS0uNjQuMTMtLjU0LjIxLS40Ni4yNi0uMzguMy0uMzIuMzMtLjI0LjM1LS4yLjM1LS4xNC4zMy0uMS4zLS4wNi4yNi0uMDQuMjEtLjAyLjEzLS4wMWg1Ljg0bC42OS0uMDUuNTktLjE0LjUtLjIxLjQxLS4yOC4zMy0uMzIuMjctLjM1LjItLjM2LjE1LS4zNi4xLS4zNS4wNy0uMzIuMDQtLjI4LjAyLS4yMVY2LjA3aDIuMDlsLjE0LjAxem0tNi40NyAxNC4yNWwtLjIzLjMzLS4wOC40MS4wOC40MS4yMy4zMy4zMy4yMy40MS4wOC40MS0uMDguMzMtLjIzLjIzLS4zMy4wOC0uNDEtLjA4LS40MS0uMjMtLjMzLS4zMy0uMjMtLjQxLS4wOC0uNDEuMDh6Ii8+PC9zdmc+" alt="Python" class="h-20" loading="eager">
+                        <span class="logo-label">[ Python ]</span>
+                    </div>
+                    <div class="logo-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+V2hhdHNBcHA8L3RpdGxlPjxwYXRoIGZpbGw9IiMyNUQzNjYiIGQ9Ik0xNy40NzIgMTQuMzgyYy0uMjk3LS4xNDktMS43NTgtLjg2Ny0yLjAzLS45NjctLjI3My0uMDk5LS40NzEtLjE0OC0uNjcuMTUtLjE5Ny4yOTctLjc2Ny45NjYtLjk0IDEuMTY0LS4xNzMuMTk5LS4zNDcuMjIzLS42NDQuMDc1LS4yOTctLjE1LTEuMjU1LS40NjMtMi4zOS0xLjQ3NS0uODgzLS43ODgtMS40OC0xLjc2MS0xLjY1My0yLjA1OS0uMTczLS4yOTctLjAxOC0uNDU4LjEzLS42MDYuMTM0LS4xMzMuMjk4LS4zNDcuNDQ2LS41Mi4xNDktLjE3NC4xOTgtLjI5OC4yOTgtLjQ5Ny4wOTktLjE5OC4wNS0uMzcxLS4wMjUtLjUyLS4wNzUtLjE0OS0uNjY5LTEuNjEyLS45MTYtMi4yMDctLjI0Mi0uNTc5LS40ODctLjUtLjY2OS0uNTEtLjE3My0uMDA4LS4zNzEtLjAxLS41Ny0uMDEtLjE5OCAwLS41Mi4wNzQtLjc5Mi4zNzItLjI3Mi4yOTctMS4wNCAxLjAxNi0xLjA0IDIuNDc5IDAgMS40NjIgMS4wNjUgMi44NzUgMS4yMTMgMy4wNzQuMTQ5LjE5OCAyLjA5NiAzLjIgNS4wNzcgNC40ODcuNzA5LjMwNiAxLjI2Mi40ODkgMS42OTQuNjI1LjcxMi4yMjcgMS4zNi4xOTUgMS44NzEuMTE4LjU3MS0uMDg1IDEuNzU4LS43MTkgMi4wMDYtMS40MTMuMjQ4LS42OTQuMjQ4LTEuMjg5LjE3My0xLjQxMy0uMDc0LS4xMjQtLjI3Mi0uMTk4LS41Ny0uMzQ3bS01LjQyMSA3LjQwM2gtLjAwNGE5Ljg3IDkuODcgMCAwMS01LjAzMS0xLjM3OGwtLjM2MS0uMjE0LTMuNzQxLjk4Mi45OTgtMy42NDgtLjIzNS0uMzc0YTkuODYgOS44NiAwIDAxLTEuNTEtNS4yNmMuMDAxLTUuNDUgNC40MzYtOS44ODQgOS44ODgtOS44ODQgMi42NCAwIDUuMTIyIDEuMDMgNi45ODggMi44OThhOS44MjUgOS44MjUgMCAwMTIuODkzIDYuOTk0Yy0uMDAzIDUuNDUtNC40MzcgOS44ODQtOS44ODUgOS44ODRtOC40MTMtMTguMjk3QTExLjgxNSAxMS44MTUgMCAwMDEyLjA1IDBDNS40OTUgMCAuMTYgNS4zMzUuMTU3IDExLjg5MmMwIDIuMDk2LjU0NyA0LjE0MiAxLjU4OCA1Ljk0NUwuMDU3IDI0bDYuMzA1LTEuNjU0YTExLjg4MiAxMS44ODIgMCAwMDUuNjgzIDEuNDQ4aC4wMDVjNi41NTQgMCAxMS44OS01LjMzNSAxMS44OTMtMTEuODkzYTExLjgyMSAxMS44MjEgMCAwMC0zLjQ4LTguNDEzWiIvPjwvc3ZnPg==" alt="WhatsApp" class="h-20" loading="eager">
+                        <span class="logo-label">[ WhatsApp ]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Final CTA -->
-    <section id="audit" class="py-24 bg-nl-navy text-white overflow-hidden">
+    <section id="audit" class="py-24 bg-slate-100 text-slate-800 overflow-hidden">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-4xl md:text-6xl font-black mb-8">Stop the Friction.</h2>
-            <p class="text-xl md:text-2xl text-nl-slate mb-12 max-w-2xl mx-auto leading-relaxed font-light">
-                Take our 15-Minute Friction Audit. We'll identify the "Admin Tax" in your business and provide a bespoke AI Readiness Review.
+            <h2 class="text-3xl md:text-5xl lg:text-6xl font-black mb-8 text-nl-navy">Stop the Friction.</h2>
+            <p class="text-xl md:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+                Take our 5-Minute Friction Audit. We'll identify the "Admin Tax" in your business and provide a bespoke AI Readiness Review.
             </p>
-            <a href="assessment.html" class="inline-block bg-nl-green text-nl-navy px-12 py-6 rounded-full font-black text-sm uppercase tracking-widest hover:bg-white transition-all btn-shadow">
-                Start Your Audit
+            <a href="assessment-new.html" class="inline-block bg-nl-navy text-white px-12 py-6 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-teal transition-all btn-shadow">
+                Start Assessment
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 bg-white border-t border-slate-100">
+    <footer class="py-20 bg-nl-navy border-t border-white/5">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-start gap-12 md:gap-10">
             <div class="max-w-sm">
-                <span class="text-2xl font-black tracking-tighter text-nl-navy">new<span class="text-nl-green">lens</span></span>
-                <p class="text-slate-500 mt-6 leading-relaxed font-medium">Enterprise-grade automation and data clarity for local SMEs. Based in Sudbury, Suffolk.</p>
-                <p class="text-[10px] font-bold text-slate-300 mt-6 uppercase tracking-widest">Co No. 16945634 | Registered in England & Wales</p>
+                <span class="text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></span>
+                <p class="text-nl-slate mt-6 leading-relaxed font-medium">Enterprise-grade automation and data clarity for local SMEs. Based in Suffolk.</p>
+                <p class="text-[10px] font-bold text-nl-green mt-6 uppercase tracking-widest">Co No. 16945634 | Registered in England & Wales</p>
+                <p class="text-[10px] font-bold text-nl-teal mt-4 uppercase tracking-widest">Website Design by newlens' newt - Agentic AI</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-slate-400 uppercase tracking-widest">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-12 text-sm font-bold text-nl-slate uppercase tracking-widest">
                 <div class="flex flex-col gap-4">
-                    <span class="text-nl-navy mb-2">Company</span>
+                    <span class="text-white mb-2">Company</span>
                     <a href="#home" class="hover:text-nl-teal transition-colors">Home</a>
                     <a href="#solutions" class="hover:text-nl-teal transition-colors">Solutions</a>
                     <a href="#about" class="hover:text-nl-teal transition-colors">About</a>
                 </div>
                 <div class="flex flex-col gap-4">
-                    <span class="text-nl-navy mb-2">Legal</span>
+                    <span class="text-white mb-2">Legal</span>
                     <a href="privacy.html" class="hover:text-nl-teal transition-colors">Privacy Policy</a>
-                    <a href="https://www.linkedin.com/company/newlens-uk" target="_blank" class="hover:text-nl-teal transition-colors flex items-center gap-2">
+                    <a href="https://www.linkedin.com/company/newlens-uk" target="_blank" rel="noopener noreferrer" class="hover:text-nl-teal transition-colors flex items-center gap-2">
                         LinkedIn 
                         <svg class="w-3 h-3 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
                 </div>
                 <div class="flex flex-col gap-4 col-span-2 md:col-span-1">
-                    <span class="text-nl-navy mb-2">Contact</span>
+                    <span class="text-white mb-2">Contact</span>
                     <a href="mailto:info@newlens.uk" class="text-nl-teal lowercase font-medium">info@newlens.uk</a>
-                    <p class="normal-case font-medium text-slate-300">Sudbury, Suffolk</p>
+                    <p class="normal-case font-medium text-nl-green">Suffolk, UK</p>
                 </div>
             </div>
         </div>
@@ -399,42 +917,75 @@
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section, header');
             const navLinks = document.querySelectorAll('.nav-link');
+            const indicator = document.getElementById('nav-indicator');
 
             function updateScrollSpy() {
                 let current = '';
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Add an offset to trigger the change earlier
                 const offset = 200;
 
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    
                     if (scrollPos >= sectionTop - offset) {
                         current = section.getAttribute('id');
                     }
                 });
 
-                // Mapping for sections without direct nav links (e.g., 'verticals' part of 'solutions')
                 const mapping = {
                     'verticals': 'solutions',
                     'audit': 'about'
                 };
 
                 const activeId = mapping[current] || current;
+                let activeLink = null;
 
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     const href = link.getAttribute('href').substring(1);
                     if (href === activeId) {
                         link.classList.add('active');
+                        activeLink = link;
                     }
                 });
+
+                if (activeLink && indicator) {
+                    indicator.style.width = `${activeLink.offsetWidth}px`;
+                    indicator.style.left = `${activeLink.offsetLeft}px`;
+                    indicator.style.opacity = '1';
+                } else if (indicator) {
+                    indicator.style.opacity = '0';
+                }
             }
 
             window.addEventListener('scroll', updateScrollSpy);
-            updateScrollSpy(); // Run on load
+            window.addEventListener('load', updateScrollSpy);
+            updateScrollSpy();
+        });
+
+        // Scroll-triggered card glow
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const glowObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.boxShadow = '0 20px 60px -10px rgba(0, 0, 0, 0.12), 0 0 60px 0px rgba(57, 198, 214, 0.3)';
+                    entry.target.style.transform = 'scale(1.03)';
+                    entry.target.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    entry.target.style.zIndex = '10';
+                } else {
+                    entry.target.style.boxShadow = '';
+                    entry.target.style.transform = '';
+                    entry.target.style.zIndex = '';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            glowObserver.observe(card);
         });
     </script>
 
