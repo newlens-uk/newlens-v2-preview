@@ -1123,6 +1123,33 @@
         document.querySelectorAll('.service-card').forEach(card => {
             glowObserver.observe(card);
         });
+
+        // Simple cookie consent (GDPR compliance)
+        if (!localStorage.getItem('cookieConsent')) {
+            const banner = document.createElement('div');
+            banner.id = 'cookieBanner';
+            banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#050B15;color:#fff;padding:1.5rem;text-align:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.3);';
+            banner.innerHTML = `
+                <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <p style="margin:0;font-size:0.875rem;">We use essential cookies to improve your experience. <a href="privacy.html" style="color:#38D98A;text-decoration:underline;">Learn more</a></p>
+                    <div style="display:flex;gap:0.75rem;">
+                        <button onclick="acceptCookies()" style="background:#38D98A;color:#050B15;border:none;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Accept</button>
+                        <button onclick="rejectCookies()" style="background:transparent;color:#BFC9D1;border:2px solid #BFC9D1;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Reject</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(banner);
+        }
+
+        window.acceptCookies = function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').remove();
+        };
+
+        window.rejectCookies = function() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').remove();
+        };
     </script>
 
 </body>
