@@ -89,8 +89,9 @@
             bottom: -4px;
             height: 2px;
             background-color: #38D98A;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
+            will-change: width, left, opacity;
         }
         .service-card {
             background: #FFFFFF;
@@ -1030,10 +1031,11 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const indicator = document.getElementById('nav-indicator');
 
+            let scrollTimeout;
             function updateScrollSpy() {
                 let current = '';
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                const offset = 200;
+                const offset = 100;  // Reduced from 200 for more precise triggering
 
                 // Define the correct order of sections with their navbar mappings
                 const sectionOrder = [
@@ -1081,7 +1083,15 @@
                 }
             }
 
-            window.addEventListener('scroll', updateScrollSpy);
+            // Throttled scroll handler for smoother performance
+            function throttledScrollSpy() {
+                if (scrollTimeout) {
+                    window.cancelAnimationFrame(scrollTimeout);
+                }
+                scrollTimeout = window.requestAnimationFrame(updateScrollSpy);
+            }
+
+            window.addEventListener('scroll', throttledScrollSpy, { passive: true });
             window.addEventListener('load', updateScrollSpy);
             updateScrollSpy();
         });
