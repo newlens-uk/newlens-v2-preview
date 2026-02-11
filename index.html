@@ -163,6 +163,7 @@
                 <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
                 <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
                 <a href="#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
+                <a href="#verticals" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Market Focus</a>
                 <a href="#consulting" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Consulting</a>
                 <a href="#about" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
                 <div id="nav-indicator" class="opacity-0"></div>
@@ -1038,12 +1039,12 @@
                 const offset = 100;  // Reduced from 200 for more precise triggering
 
                 // Define the correct order of sections with their navbar mappings
-                // Based on actual page order (not navbar order)
+                // Based on actual page order
                 const sectionOrder = [
                     { id: 'home', navId: 'home' },
                     { id: 'solutions', navId: 'solutions' },
                     { id: 'how-we-work', navId: 'how-we-work' },
-                    { id: 'verticals', navId: 'solutions' },  // Verticals maps to Solutions (comes after how-we-work)
+                    { id: 'verticals', navId: 'verticals' },  // Market Focus has its own nav item now
                     { id: 'consulting', navId: 'consulting' },
                     { id: 'training', navId: 'consulting' },  // Training not in navbar, maps to Consulting
                     { id: 'jump-in', navId: 'consulting' },  // Jump In not in navbar, maps to Consulting
