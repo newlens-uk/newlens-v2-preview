@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Minute AI Readiness Assessment | newlens</title>
+    <meta name="description" content="Discover where automation can reclaim your time and protect your margins. Free 5-minute assessment with personalized recommendations.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; width: 100%; margin: 0; padding: 0; }
+        body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        .form-input, .form-textarea, .form-select {
+            @apply w-full px-4 py-3 rounded-xl border-2 border-slate-200 focus:border-nl-teal focus:ring-2 focus:ring-nl-teal/20 outline-none transition-all bg-white text-slate-800;
+        }
+        .form-label {
+            @apply block text-sm font-bold text-nl-navy mb-2 uppercase tracking-wider;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        .radio-card {
+            @apply border-2 border-slate-200 rounded-xl p-4 cursor-pointer transition-all hover:border-nl-teal hover:bg-nl-teal/5;
+        }
+        .radio-card input:checked + div {
+            @apply border-nl-teal bg-nl-teal/10;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html" class="text-xl md:text-2xl font-black tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <a href="index.html" class="text-sm font-bold text-nl-slate hover:text-white transition-colors uppercase tracking-widest">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-slate-900">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <div class="inline-block bg-nl-teal/10 backdrop-blur-sm px-6 py-2 rounded-full mb-6 border border-nl-teal/20">
+                <p class="text-nl-teal font-black uppercase tracking-widest text-xs">Takes 5 Minutes</p>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">AI Readiness Assessment</h1>
+            <p class="text-xl text-nl-slate max-w-2xl mx-auto leading-relaxed mb-8">
+                Discover exactly where automation can reclaim your time and protect your margins. Get a personalized roadmap delivered to your inbox.
+            </p>
+            <div class="flex items-center justify-center gap-6 text-sm text-nl-slate/80">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-nl-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <span>No credit card</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-nl-green" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                    <span>Instant results</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Assessment Form -->
+    <section class="py-16 md:py-24">
+        <div class="max-w-3xl mx-auto px-6">
+            
+            <!-- Progress Bar -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-bold text-slate-600">Question <span id="currentStep">1</span> of <span id="totalSteps">8</span></span>
+                    <span class="text-sm font-bold text-nl-teal"><span id="progressPercent">12</span>%</span>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2">
+                    <div id="progressBar" class="progress-bar bg-nl-teal h-2 rounded-full" style="width: 12%"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-slate-100">
+                
+                <form id="assessmentForm" action="https://n8n.newlens.uk/webhook/assessment-submit" method="POST">
+                    
+                    <!-- Step 1: Contact Info -->
+                    <div class="step active" id="step1">
+                        <h2 class="text-3xl font-black text-nl-navy mb-3">Let's start with the basics</h2>
+                        <p class="text-slate-600 mb-8">We'll send your personalized results to this email.</p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" id="name" name="name" required class="form-input" placeholder="Full name">
+                            </div>
+
+                            <div>
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="you@company.com">
+                            </div>
+
+                            <div>
+                                <label for="company" class="form-label">Company Name *</label>
+                                <input type="text" id="company" name="company" required class="form-input" placeholder="Your company">
+                            </div>
+
+                            <div>
+                                <label for="role" class="form-label">Your Role *</label>
+                                <select id="role" name="role" required class="form-select">
+                                    <option value="">Select...</option>
+                                    <option value="owner">Owner/Founder</option>
+                                    <option value="director">Director/C-Level</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="operations">Operations</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="nextStep()" class="mt-8 w-full bg-nl-green text-nl-navy px-10 py-5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">
+                            Start Assessment →
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Industry -->
+                    <div class="step" id="step2">
+                        <h2 class="text-3xl font-black text-nl-navy mb-8">What industry are you in?</h2>
+                        
+                        <div class="space-y-4">
+                            <label class="radio-card block">
+                                <input type="radio" name="industry" value="professional-services" class="hidden" required>
+                                <div class="flex items-center gap-3 p-2">
+                                    <div class="w-10 h-10 bg-nl-navy/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-nl-navy">Professional Services</p>
+                                        <p class="text-sm text-slate-600">Consultancy, legal, accounting, etc.</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="radio-card block">
+                                <input type="radio" name="industry" value="field-services" class="hidden">
+                                <div class="flex items-center gap-3 p-2">
+                                    <div class="w-10 h-10 bg-nl-navy/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-nl-navy">Field Services</p>
+                                        <p class="text-sm text-slate-600">Trades, maintenance, installations</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="radio-card block">
+                                <input type="radio" name="industry" value="retail-manufacturing" class="hidden">
+                                <div class="flex items-center gap-3 p-2">
+                                    <div class="w-10 h-10 bg-nl-navy/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-nl-navy">Retail & Manufacturing</p>
+                                        <p class="text-sm text-slate-600">Product sales, supply chain, inventory</p>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <label class="radio-card block">
+                                <input type="radio" name="industry" value="hospitality" class="hidden">
+                                <div class="flex items-center gap-3 p-2">
+                                    <div class="w-10 h-10 bg-nl-navy/5 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-5 h-5 text-nl-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-nl-navy">Hospitality</p>
+                                        <p class="text-sm text-slate-600">Hotels, restaurants, venues</p>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Team Size -->
+                    <div class="step" id="step3">
+                        <h2 class="text-3xl font-black text-nl-navy mb-8">How many people work in your business?</h2>
+                        <div class="space-y-4">
+                            <label class="radio-card block"><input type="radio" name="team_size" value="1-5" class="hidden" required><div class="p-4"><p class="font-bold text-nl-navy text-center">1-5 employees</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="team_size" value="6-10" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">6-10 employees</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="team_size" value="11-20" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">11-20 employees</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="team_size" value="21-50" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">21-50 employees</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="team_size" value="50+" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">50+ employees</p></div></label>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Current Tools -->
+                    <div class="step" id="step4">
+                        <h2 class="text-3xl font-black text-nl-navy mb-3">Which tools do you use?</h2>
+                        <p class="text-slate-600 mb-8">Select all that apply to your current workflow.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="spreadsheets" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Excel / Google Sheets</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="crm" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">CRM (Salesforce, HubSpot)</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="accounting" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Xero / QuickBooks</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="project-management" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Asana / Trello / Monday</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="legacy" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Industry Legacy System</p></div></label>
+                            <label class="radio-card block"><input type="checkbox" name="tools" value="paper" class="hidden"><div class="p-4 text-center"><p class="font-bold text-nl-navy">Paper / Manual Folders</p></div></label>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Admin Pain -->
+                    <div class="step" id="step5">
+                        <h2 class="text-3xl font-black text-nl-navy mb-8">Where does the "Admin Tax" hit hardest?</h2>
+                        <div class="space-y-4">
+                            <label class="radio-card block"><input type="radio" name="pain_point" value="rekeying" class="hidden" required><div class="p-4"><p class="font-bold text-nl-navy text-center">Rekeying data between systems</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="pain_point" value="invoicing" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Slow invoicing or payment chasing</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="pain_point" value="enquiries" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Missing or late enquiry responses</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="pain_point" value="reporting" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Unclear commercial reporting</p></div></label>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 6: Automation Level -->
+                    <div class="step" id="step6">
+                        <h2 class="text-3xl font-black text-nl-navy mb-8">Current level of automation?</h2>
+                        <div class="space-y-4">
+                            <label class="radio-card block"><input type="radio" name="automation_level" value="none" class="hidden" required><div class="p-4"><p class="font-bold text-nl-navy text-center">100% manual operations</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="automation_level" value="low" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Basic (e.g., auto-reply emails)</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="automation_level" value="medium" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Intermediate (some systems sync)</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="automation_level" value="high" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Advanced (AI/Zapier integrated)</p></div></label>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 7: Ambition -->
+                    <div class="step" id="step7">
+                        <h2 class="text-3xl font-black text-nl-navy mb-8">What is your primary goal?</h2>
+                        <div class="space-y-4">
+                            <label class="radio-card block"><input type="radio" name="goal" value="save-time" class="hidden" required><div class="p-4"><p class="font-bold text-nl-navy text-center">Reduce time spent on admin</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="goal" value="grow-revenue" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Scale operations without hiring</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="goal" value="clarity" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Get better visibility on data</p></div></label>
+                            <label class="radio-card block"><input type="radio" name="goal" value="customer-exp" class="hidden"><div class="p-4"><p class="font-bold text-nl-navy text-center">Improve customer experience</p></div></label>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="button" onclick="nextStep()" class="flex-1 bg-nl-green text-nl-navy px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-navy hover:text-white transition-all">Almost there →</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 8: Review & Submit -->
+                    <div class="step" id="step8">
+                        <h2 class="text-3xl font-black text-nl-navy mb-3">One final thought...</h2>
+                        <p class="text-slate-600 mb-8">Anything specific we should know about your current setup?</p>
+                        <textarea name="notes" class="form-textarea h-32 mb-8" placeholder="e.g., 'We're struggling with lead tracking in our legacy CRM...'"></textarea>
+                        
+                        <div class="bg-nl-navy p-8 rounded-2xl text-white mb-8">
+                            <p class="text-xs font-bold uppercase tracking-widest text-nl-green mb-2">The newlens Commitment</p>
+                            <p class="text-sm leading-relaxed text-nl-slate">We'll review your answers and send a custom AI Readiness roadmap within 24 hours. No sales fluff. Just practical steps.</p>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
+                            <button type="submit" class="flex-[2] bg-nl-green text-nl-navy px-10 py-4 rounded-full font-black text-sm uppercase tracking-widest hover:shadow-[0_0_30px_rgba(56,217,138,0.4)] transition-all">Get My Roadmap →</button>
+                        </div>
+                    </div>
+
+                    <!-- Success State (hidden) -->
+                    <div id="successMessage" class="hidden text-center py-12">
+                        <div class="w-20 h-20 bg-nl-green/10 rounded-full flex items-center justify-center mx-auto mb-6 text-nl-green">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h2 class="text-4xl font-black text-nl-navy mb-4">Assessment Complete</h2>
+                        <p class="text-xl text-slate-600 mb-8">Your roadmap is being calculated. Check your inbox shortly.</p>
+                        <a href="index.html" class="inline-block bg-nl-navy text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest">Back to Site</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 8;
+        
+        document.getElementById('totalSteps').textContent = totalSteps;
+
+        function nextStep() {
+            const currentStepEl = document.getElementById(`step${currentStep}`);
+            const requiredInputs = currentStepEl.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+
+            requiredInputs.forEach(input => {
+                if (input.type === 'radio') {
+                    const isChecked = Array.from(currentStepEl.querySelectorAll(`input[name="${input.name}"]`)).some(r => r.checked);
+                    if (!isChecked) isValid = false;
+                } else if (!input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('border-red-300');
+                } else {
+                    input.classList.remove('border-red-300');
+                }
+            });
+
+            if (!isValid) {
+                alert('Please answer the required questions to continue.');
+                return;
+            }
+
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                updateProgress();
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            }
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('currentStep').textContent = currentStep;
+            document.getElementById('progressPercent').textContent = percent;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+        }
+
+        // Checkbox visual feedback
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                const card = this.closest('.radio-card');
+                if (this.checked) {
+                    card.classList.add('border-nl-teal', 'bg-nl-teal/10');
+                } else {
+                    card.classList.remove('border-nl-teal', 'bg-nl-teal/10');
+                }
+            });
+        });
+
+        // Radio visual feedback
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                group.forEach(r => {
+                    const card = r.closest('.radio-card');
+                    if (r.checked) {
+                        card.classList.add('border-nl-teal', 'bg-nl-teal/10');
+                    } else {
+                        card.classList.remove('border-nl-teal', 'bg-nl-teal/10');
+                    }
+                });
+            });
+        });
+
+        // Form Submission
+        document.getElementById('assessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>Submitting...</span><div class="spinner inline-block ml-3" style="border: 3px solid rgba(5,11,21,0.3); border-top-color: #050B15; width: 20px; height: 20px; border-radius: 50%; animation: spin 0.6s linear infinite;"></div>';
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+            data.tools = Array.from(formData.getAll('tools')); // Handle multi-select checkboxes
+            data.timestamp = new Date().toISOString();
+
+            try {
+                // Post to n8n webhook
+                const response = await fetch('https://n8n.newlens.uk/webhook/assessment-submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Webhook submission failed');
+                }
+                
+                // Hide steps and show success
+                document.getElementById('step8').classList.remove('active');
+                document.querySelector('.progress-bar').parentElement.parentElement.classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                window.scrollTo({ top: 200, behavior: 'smooth' });
+            } catch (error) {
+                console.error('Submission error:', error);
+                alert('There was an error submitting. Please try again or email info@newlens.uk');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Get My Roadmap →';
+            }
+        });
+    </script>
+</body>
+</html>
