@@ -43,9 +43,20 @@
         }
         .step.active {
             display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .progress-bar {
             transition: width 0.3s ease;
+        }
+        .radio-card {
+            @apply border-2 border-slate-200 rounded-xl p-4 cursor-pointer transition-all hover:border-nl-teal hover:bg-nl-teal/5;
+        }
+        .radio-card input:checked + div {
+            @apply border-nl-teal bg-nl-teal/10;
         }
         .spinner {
             border: 3px solid rgba(255, 255, 255, 0.3);
@@ -98,40 +109,48 @@
         <div class="max-w-5xl mx-auto px-6">
             <h2 class="text-3xl font-black text-nl-navy mb-12 text-center">What You Get</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-nl-green/10 rounded-xl flex items-center justify-center">
-                        <span class="text-2xl">💰</span>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-16 h-16 bg-nl-green/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
                     </div>
                     <div>
-                        <h3 class="font-black text-lg mb-2">Subsidised Implementation</h3>
-                        <p class="text-slate-600 text-sm">Alpha partners receive preferential pricing on automation projects during the pilot phase.</p>
+                        <h3 class="font-black text-lg mb-2 text-nl-navy">Subsidised Implementation</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Alpha partners receive preferential pricing on automation projects during the pilot phase.</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-nl-teal/10 rounded-xl flex items-center justify-center">
-                        <span class="text-2xl">🎯</span>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-16 h-16 bg-nl-teal/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
                     </div>
                     <div>
-                        <h3 class="font-black text-lg mb-2">Priority Support</h3>
-                        <p class="text-slate-600 text-sm">Direct access to our team with accelerated response times and dedicated onboarding.</p>
+                        <h3 class="font-black text-lg mb-2 text-nl-navy">Priority Support</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Direct access to our team with accelerated response times and dedicated onboarding.</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-nl-green/10 rounded-xl flex items-center justify-center">
-                        <span class="text-2xl">📊</span>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-16 h-16 bg-nl-green/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
                     </div>
                     <div>
-                        <h3 class="font-black text-lg mb-2">Quarterly Strategy Reviews</h3>
-                        <p class="text-slate-600 text-sm">Regular check-ins to optimize workflows and identify new automation opportunities.</p>
+                        <h3 class="font-black text-lg mb-2 text-nl-navy">Quarterly Strategy Reviews</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Regular check-ins to optimise workflows and identify new automation opportunities.</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
-                    <div class="flex-shrink-0 w-12 h-12 bg-nl-teal/10 rounded-xl flex items-center justify-center">
-                        <span class="text-2xl">🚀</span>
+                <div class="flex gap-4 items-start">
+                    <div class="flex-shrink-0 w-16 h-16 bg-nl-teal/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-nl-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
                     </div>
                     <div>
-                        <h3 class="font-black text-lg mb-2">Early Access</h3>
-                        <p class="text-slate-600 text-sm">First to benefit from new features, integrations, and training programs as we expand.</p>
+                        <h3 class="font-black text-lg mb-2 text-nl-navy">Early Access</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">First to benefit from new features, integrations, and training programmes as we expand.</p>
                     </div>
                 </div>
             </div>
@@ -186,29 +205,55 @@
                             </div>
 
                             <div>
-                                <label for="industry" class="form-label">Industry Sector *</label>
-                                <select id="industry" name="industry" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="professional-services">Professional Services</option>
-                                    <option value="field-services">Field Services</option>
-                                    <option value="retail-manufacturing">Retail & Manufacturing</option>
-                                    <option value="hospitality">Hospitality</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <span class="error-message" id="industryError">Please select your industry</span>
+                                <label class="form-label">Industry Sector *</label>
+                                <div class="space-y-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="industry" value="professional-services" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy">Professional Services</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="industry" value="field-services" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Field Services</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="industry" value="retail-manufacturing" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Retail & Manufacturing</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="industry" value="hospitality" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Hospitality</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="industry" value="other" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Other</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="team_size" class="form-label">Team Size *</label>
-                                <select id="team_size" name="team_size" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="1-5">1-5</option>
-                                    <option value="6-10">6-10</option>
-                                    <option value="11-20">11-20</option>
-                                    <option value="21-50">21-50</option>
-                                    <option value="50+">50+</option>
-                                </select>
-                                <span class="error-message" id="teamError">Please select team size</span>
+                                <label class="form-label">Team Size *</label>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="team_size" value="1-5" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy text-center">1-5</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="team_size" value="6-10" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">6-10</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="team_size" value="11-20" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">11-20</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="team_size" value="21-50" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">21-50</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="team_size" value="50+" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">50+</div>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -223,37 +268,73 @@
                         
                         <div class="space-y-6">
                             <div>
-                                <label for="automation_level" class="form-label">Current Automation Level *</label>
-                                <select id="automation_level" name="automation_level" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="none">None - everything is manual</option>
-                                    <option value="basic">Basic - using some spreadsheets/templates</option>
-                                    <option value="intermediate">Intermediate - some tools connected</option>
-                                    <option value="advanced">Advanced - automated workflows in place</option>
-                                </select>
+                                <label class="form-label">Current Automation Level *</label>
+                                <div class="space-y-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="automation_level" value="none" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy">None - everything is manual</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="automation_level" value="basic" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Basic - using some spreadsheets/templates</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="automation_level" value="intermediate" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Intermediate - some tools connected</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="automation_level" value="advanced" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Advanced - automated workflows in place</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="primary_pain" class="form-label">Primary Pain Point *</label>
-                                <select id="primary_pain" name="primary_pain" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="admin-time">Too much time on admin tasks</option>
-                                    <option value="data-quality">Poor data quality/scattered systems</option>
-                                    <option value="scaling">Can't scale without hiring more people</option>
-                                    <option value="customer-experience">Customer experience suffering</option>
-                                    <option value="margins">Losing margins to inefficiency</option>
-                                </select>
+                                <label class="form-label">Primary Pain Point *</label>
+                                <div class="space-y-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="primary_pain" value="admin-time" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy">Too much time on admin tasks</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="primary_pain" value="data-quality" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Poor data quality/scattered systems</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="primary_pain" value="scaling" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Can't scale without hiring more people</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="primary_pain" value="customer-experience" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Customer experience suffering</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="primary_pain" value="margins" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Losing margins to inefficiency</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="admin_hours" class="form-label">Estimated Weekly Admin Hours Lost *</label>
-                                <select id="admin_hours" name="admin_hours" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="1-5">1-5 hours</option>
-                                    <option value="6-10">6-10 hours</option>
-                                    <option value="11-20">11-20 hours</option>
-                                    <option value="21+">21+ hours</option>
-                                </select>
+                                <label class="form-label">Estimated Weekly Admin Hours Lost *</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="admin_hours" value="1-5" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy text-center">1-5 hours</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="admin_hours" value="6-10" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">6-10 hours</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="admin_hours" value="11-20" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">11-20 hours</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="admin_hours" value="21+" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">21+ hours</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
@@ -299,36 +380,69 @@
                         
                         <div class="space-y-6">
                             <div>
-                                <label for="commitment" class="form-label">Can you commit to a 3-month pilot? *</label>
-                                <select id="commitment" name="commitment" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="yes">Yes - ready to start now</option>
-                                    <option value="maybe">Maybe - need more details first</option>
-                                    <option value="no">No - just exploring options</option>
-                                </select>
+                                <label class="form-label">Can you commit to a 3-month pilot? *</label>
+                                <div class="space-y-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="commitment" value="yes" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy">Yes - ready to start now</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="commitment" value="maybe" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Maybe - need more details first</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="commitment" value="no" class="hidden">
+                                        <div class="font-semibold text-nl-navy">No - just exploring options</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="budget" class="form-label">Monthly Budget Allocated *</label>
-                                <select id="budget" name="budget" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="under-500">Under £500/month</option>
-                                    <option value="500-1000">£500-1,000/month</option>
-                                    <option value="1000-2000">£1,000-2,000/month</option>
-                                    <option value="2000+">£2,000+/month</option>
-                                    <option value="flexible">Flexible - depends on ROI</option>
-                                </select>
+                                <label class="form-label">Monthly Budget Allocated *</label>
+                                <div class="space-y-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="budget" value="under-500" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy">Under £500/month</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="budget" value="500-1000" class="hidden">
+                                        <div class="font-semibold text-nl-navy">£500-£1,000/month</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="budget" value="1000-2000" class="hidden">
+                                        <div class="font-semibold text-nl-navy">£1,000-£2,000/month</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="budget" value="2000+" class="hidden">
+                                        <div class="font-semibold text-nl-navy">£2,000+/month</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="budget" value="flexible" class="hidden">
+                                        <div class="font-semibold text-nl-navy">Flexible - depends on ROI</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
-                                <label for="urgency" class="form-label">Timeline *</label>
-                                <select id="urgency" name="urgency" required class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="immediate">Immediate - as soon as possible</option>
-                                    <option value="1-month">Within 1 month</option>
-                                    <option value="1-3-months">1-3 months</option>
-                                    <option value="3-6-months">3-6 months</option>
-                                </select>
+                                <label class="form-label">Timeline *</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="urgency" value="immediate" class="hidden" required>
+                                        <div class="font-semibold text-nl-navy text-center">Immediate</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="urgency" value="1-month" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">Within 1 month</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="urgency" value="1-3-months" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">1-3 months</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="urgency" value="3-6-months" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center">3-6 months</div>
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
@@ -338,15 +452,29 @@
                             </div>
 
                             <div>
-                                <label for="heard_about" class="form-label">How did you hear about us?</label>
-                                <select id="heard_about" name="heard_about" class="form-select">
-                                    <option value="">Select...</option>
-                                    <option value="linkedin">LinkedIn</option>
-                                    <option value="google">Google Search</option>
-                                    <option value="referral">Referral</option>
-                                    <option value="event">Event/Conference</option>
-                                    <option value="other">Other</option>
-                                </select>
+                                <label class="form-label">How did you hear about us?</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="radio-card block">
+                                        <input type="radio" name="heard_about" value="linkedin" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center text-sm">LinkedIn</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="heard_about" value="google" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center text-sm">Google</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="heard_about" value="referral" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center text-sm">Referral</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="heard_about" value="event" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center text-sm">Event</div>
+                                    </label>
+                                    <label class="radio-card block">
+                                        <input type="radio" name="heard_about" value="other" class="hidden">
+                                        <div class="font-semibold text-nl-navy text-center text-sm">Other</div>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -410,23 +538,37 @@
         function nextStep() {
             // Validate current step
             const currentStepEl = document.getElementById(`step${currentStep}`);
-            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
             let isValid = true;
 
-            inputs.forEach(input => {
+            // Check text inputs and textareas
+            const textInputs = currentStepEl.querySelectorAll('input[type="text"][required], input[type="email"][required], textarea[required]');
+            textInputs.forEach(input => {
                 if (!input.value.trim()) {
                     isValid = false;
                     input.classList.add('border-red-300');
-                    const errorEl = document.getElementById(input.id + 'Error');
-                    if (errorEl) errorEl.classList.remove('hidden');
                 } else {
                     input.classList.remove('border-red-300');
-                    const errorEl = document.getElementById(input.id + 'Error');
-                    if (errorEl) errorEl.classList.add('hidden');
                 }
             });
 
-            if (!isValid) return;
+            // Check radio groups
+            const radioGroups = {};
+            currentStepEl.querySelectorAll('input[type="radio"][required]').forEach(radio => {
+                radioGroups[radio.name] = radioGroups[radio.name] || [];
+                radioGroups[radio.name].push(radio);
+            });
+
+            Object.values(radioGroups).forEach(group => {
+                const isChecked = group.some(radio => radio.checked);
+                if (!isChecked) {
+                    isValid = false;
+                }
+            });
+
+            if (!isValid) {
+                alert('Please answer all required questions to continue.');
+                return;
+            }
 
             // Move to next step
             if (currentStep < totalSteps) {
@@ -454,6 +596,33 @@
             document.getElementById('progressPercent').textContent = percent;
             document.getElementById('progressBar').style.width = `${percent}%`;
         }
+
+        // Radio visual feedback
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const group = document.querySelectorAll(`input[name="${this.name}"]`);
+                group.forEach(r => {
+                    const card = r.closest('.radio-card');
+                    if (r.checked) {
+                        card.classList.add('border-nl-teal', 'bg-nl-teal/10');
+                    } else {
+                        card.classList.remove('border-nl-teal', 'bg-nl-teal/10');
+                    }
+                });
+            });
+        });
+
+        // Checkbox visual feedback
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                const label = this.closest('label');
+                if (this.checked) {
+                    label.classList.add('font-bold', 'text-nl-teal');
+                } else {
+                    label.classList.remove('font-bold', 'text-nl-teal');
+                }
+            });
+        });
 
         // Form submission
         document.getElementById('alphaForm').addEventListener('submit', async function(e) {
@@ -529,6 +698,17 @@
                 submitSpinner.classList.add('hidden');
             }
         });
+
+        // Cookie consent banner
+        if (!localStorage.getItem('cookieConsent')) {
+            const banner = document.createElement('div');
+            banner.id = 'cookieBanner';
+            banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#050B15;color:#fff;padding:1.5rem;text-align:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.3);';
+            banner.innerHTML = '<div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;"><p style="margin:0;font-size:0.875rem;">We use essential cookies to improve your experience. <a href="privacy.html" style="color:#38D98A;text-decoration:underline;">Learn more</a></p><div style="display:flex;gap:0.75rem;"><button onclick="acceptCookies()" style="background:#38D98A;color:#050B15;border:none;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;">Accept</button><button onclick="rejectCookies()" style="background:transparent;color:#BFC9D1;border:2px solid #BFC9D1;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;">Reject</button></div></div>';
+            document.body.appendChild(banner);
+        }
+        window.acceptCookies = function() { localStorage.setItem('cookieConsent', 'accepted'); document.getElementById('cookieBanner').remove(); };
+        window.rejectCookies = function() { localStorage.setItem('cookieConsent', 'rejected'); document.getElementById('cookieBanner').remove(); };
     </script>
 
 </body>

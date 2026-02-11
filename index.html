@@ -89,8 +89,9 @@
             bottom: -4px;
             height: 2px;
             background-color: #38D98A;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
+            will-change: width, left, opacity;
         }
         .service-card {
             background: #FFFFFF;
@@ -160,8 +161,9 @@
             <a href="#home" class="logo-text tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
             <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
                 <a href="#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
-                <a href="#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
                 <a href="#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
+                <a href="#verticals" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Market Focus</a>
                 <a href="#consulting" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Consulting</a>
                 <a href="#about" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
                 <div id="nav-indicator" class="opacity-0"></div>
@@ -661,20 +663,20 @@
                         Practical workshops for teams at all levels. We teach how to use AI tools effectively, recognize appropriate use cases, and build prompting skills that deliver real results. No technical jargon - just practical capability building.
                     </p>
                     <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Hands-on AI tool training (ChatGPT, Claude, Copilot)</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Prompt engineering for business use cases</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Risk awareness & governance fundamentals</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-teal mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-teal rounded-full shrink-0 mt-[6px]"></div>
                             <span>Role-specific use case libraries</span>
                         </li>
                     </ul>
@@ -692,20 +694,20 @@
                         Advanced training for technical teams and decision-makers. Learn how to evaluate AI platforms, architect AI-augmented workflows, and manage vendor relationships. Designed for those responsible for implementation strategy.
                     </p>
                     <ul class="text-slate-400 text-sm space-y-3">
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>AI platform evaluation & selection frameworks</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>Integration architecture & API fundamentals</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>Data privacy & compliance (UK GDPR, ICO)</span>
                         </li>
-                        <li class="flex items-start gap-2">
-                            <span class="text-nl-green mt-1">→</span>
+                        <li class="flex items-start gap-3">
+                            <div class="w-2 h-2 bg-nl-green rounded-full shrink-0 mt-[6px]"></div>
                             <span>ROI measurement & success metrics</span>
                         </li>
                     </ul>
@@ -1030,24 +1032,39 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const indicator = document.getElementById('nav-indicator');
 
+            let scrollTimeout;
             function updateScrollSpy() {
                 let current = '';
                 const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-                const offset = 200;
+                const offset = 100;  // Reduced from 200 for more precise triggering
 
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (scrollPos >= sectionTop - offset) {
-                        current = section.getAttribute('id');
+                // Define the correct order of sections with their navbar mappings
+                // Based on actual page order
+                const sectionOrder = [
+                    { id: 'home', navId: 'home' },
+                    { id: 'solutions', navId: 'solutions' },
+                    { id: 'how-we-work', navId: 'how-we-work' },
+                    { id: 'verticals', navId: 'verticals' },  // Market Focus has its own nav item now
+                    { id: 'consulting', navId: 'consulting' },
+                    { id: 'training', navId: 'consulting' },  // Training not in navbar, maps to Consulting
+                    { id: 'jump-in', navId: 'consulting' },  // Jump In not in navbar, maps to Consulting
+                    { id: 'about', navId: 'about' },
+                    { id: 'audit', navId: 'about' }  // Audit section maps to About nav item
+                ];
+
+                // Find the current section based on scroll position
+                for (let i = sectionOrder.length - 1; i >= 0; i--) {
+                    const section = document.getElementById(sectionOrder[i].id);
+                    if (section) {
+                        const sectionTop = section.offsetTop;
+                        if (scrollPos >= sectionTop - offset) {
+                            current = sectionOrder[i].navId;
+                            break;
+                        }
                     }
-                });
+                }
 
-                const mapping = {
-                    'verticals': 'solutions',
-                    'audit': 'about'
-                };
-
-                const activeId = mapping[current] || current;
+                const activeId = current;
                 let activeLink = null;
 
                 navLinks.forEach(link => {
@@ -1068,7 +1085,15 @@
                 }
             }
 
-            window.addEventListener('scroll', updateScrollSpy);
+            // Throttled scroll handler for smoother performance
+            function throttledScrollSpy() {
+                if (scrollTimeout) {
+                    window.cancelAnimationFrame(scrollTimeout);
+                }
+                scrollTimeout = window.requestAnimationFrame(updateScrollSpy);
+            }
+
+            window.addEventListener('scroll', throttledScrollSpy, { passive: true });
             window.addEventListener('load', updateScrollSpy);
             updateScrollSpy();
         });
@@ -1098,6 +1123,33 @@
         document.querySelectorAll('.service-card').forEach(card => {
             glowObserver.observe(card);
         });
+
+        // Simple cookie consent (GDPR compliance)
+        if (!localStorage.getItem('cookieConsent')) {
+            const banner = document.createElement('div');
+            banner.id = 'cookieBanner';
+            banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:#050B15;color:#fff;padding:1.5rem;text-align:center;z-index:9999;box-shadow:0 -4px 20px rgba(0,0,0,0.3);';
+            banner.innerHTML = `
+                <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <p style="margin:0;font-size:0.875rem;">We use essential cookies to improve your experience. <a href="privacy.html" style="color:#38D98A;text-decoration:underline;">Learn more</a></p>
+                    <div style="display:flex;gap:0.75rem;">
+                        <button onclick="acceptCookies()" style="background:#38D98A;color:#050B15;border:none;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Accept</button>
+                        <button onclick="rejectCookies()" style="background:transparent;color:#BFC9D1;border:2px solid #BFC9D1;padding:0.625rem 1.5rem;border-radius:9999px;font-weight:bold;cursor:pointer;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.05em;">Reject</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(banner);
+        }
+
+        window.acceptCookies = function() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieBanner').remove();
+        };
+
+        window.rejectCookies = function() {
+            localStorage.setItem('cookieConsent', 'rejected');
+            document.getElementById('cookieBanner').remove();
+        };
     </script>
 
 </body>
