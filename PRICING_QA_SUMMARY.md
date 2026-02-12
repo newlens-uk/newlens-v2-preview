@@ -12,7 +12,7 @@
 **URL:** https://v2-site-sigma.vercel.app/pricing.html
 
 **Features:**
-- **Toggle between two models:** Self-Hosted vs Newlens-Hosted
+- **Toggle between two models:** Self-Hosted vs newlens-Hosted
 - **8 tier cards total:** 4 per model (Essential → Growth → Professional → Enterprise/Scale)
 - **Support tier add-ons:** Bronze (free) / Silver (£495/month) / Gold (£1,495/month)
 - **Inline FAQ section:** 5 most common pricing questions
@@ -21,7 +21,7 @@
 
 **Pricing Structure:**
 
-#### Newlens-Hosted (Managed Service)
+#### newlens-Hosted (Managed Service)
 | Tier | Monthly | Setup | Automations | Executions |
 |------|---------|-------|-------------|------------|
 | Essential | £795 | £7,990 | 5 | 5,000 |
@@ -54,9 +54,9 @@
 - **Easy to expand:** Add more Q&As by duplicating HTML structure
 
 **Sample Questions:**
-- What exactly does Newlens do?
-- How is Newlens different from Zapier or Make?
-- How much does Newlens cost?
+- What exactly does newlens do?
+- How is newlens different from Zapier or Make?
+- How much does newlens cost?
 - Is there a minimum contract length?
 - What's the ROI? How do I know it's worth it?
 - Is our data safe? What about security?
@@ -129,7 +129,7 @@
 - Monthly retainers: £2,000 - £10,000
 - Often project-based (not ongoing service)
 
-### Newlens Competitive Position
+### newlens Competitive Position
 
 **vs DIY Platforms:**
 - ✅ More supported (managed service, not self-service)
@@ -162,7 +162,7 @@
 - Healthcare (private clinics, care homes)
 
 **Sweet Spot Pricing:**
-- **Growth tier (Newlens-Hosted):** £1,495/month - appeals to growing SMEs
+- **Growth tier (newlens-Hosted):** £1,495/month - appeals to growing SMEs
 - **Professional tier (Self-Hosted):** £995/month - enterprise-level control at SME price
 
 ### 2. Pricing Psychology
@@ -180,7 +180,7 @@
 - Incentivizes longer commitment, improves cash flow
 
 **Free Trial:**
-- 14-day trial on Essential tier (Newlens-Hosted)
+- 14-day trial on Essential tier (newlens-Hosted)
 - Low risk, high conversion
 
 **Money-Back Guarantee:**
@@ -447,10 +447,10 @@
 | **Make** | £9/month | £79/month | £299/month | DIY, operations-based |
 | **Zapier** | £20/month | £69/month | £599/month | DIY, task-based |
 | **n8n Cloud** | £20/month | £100/month | £500/month | Self-managed |
-| **Newlens Hosted** | £795/month | £1,495/month | £5,995/month | Managed service |
-| **Newlens Self-Hosted** | £495/month | £995/month | £4,995/month | Infrastructure + support |
+| **newlens Hosted** | £795/month | £1,495/month | £5,995/month | Managed service |
+| **newlens Self-Hosted** | £495/month | £995/month | £4,995/month | Infrastructure + support |
 
-**Newlens Premium vs DIY:**
+**newlens Premium vs DIY:**
 - 10-30x higher monthly cost
 - But: Managed service, consulting, AI-first, UK-focused
 - Target customers: Not DIY-ers, want expert partners
@@ -469,7 +469,7 @@
 - 30 hours/week × £25/hour × 52 weeks = **£39,000/year**
 
 **Automation:**
-- Newlens Professional tier: £2,995/month = £35,940/year
+- newlens Professional tier: £2,995/month = £35,940/year
 - Setup: £11,990 (one-time)
 
 **Savings:**
@@ -510,7 +510,7 @@
 ### Future Enhancements
 
 1. **ROI calculator widget** - interactive tool on pricing page
-2. **Pricing comparison table** - Newlens vs Zapier/Make side-by-side
+2. **Pricing comparison table** - newlens vs Zapier/Make side-by-side
 3. **Video testimonials** - social proof on pricing page
 4. **Case study highlights** - "Company X saved £50k/year" cards
 5. **Live chat** - answer questions in real-time on Q&A page

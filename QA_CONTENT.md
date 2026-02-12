@@ -1,4 +1,4 @@
-# Newlens Q&A Content - February 2026
+# newlens Q&A Content - February 2026
 
 ## Q&A Categories & Questions
 
@@ -8,15 +8,15 @@ Structured for searchable table with categories, questions, and comprehensive an
 
 ## Category: Getting Started
 
-### Q1: What exactly does Newlens do?
+### Q1: What exactly does newlens do?
 **Answer:** We help UK businesses automate repetitive work using AI and intelligent workflows. Think of us as your automation partner - we assess your processes, build custom workflows, and manage the technology so you can focus on growing your business. Unlike DIY platforms, we handle everything from strategy to implementation to ongoing support.
 
 **Keywords:** automation, AI, workflows, consulting, managed service
 
 ---
 
-### Q2: How is Newlens different from Zapier or Make?
-**Answer:** Great question! Zapier and Make are DIY platforms - you build automations yourself. Newlens is a full-service partner. We provide:
+### Q2: How is newlens different from Zapier or Make?
+**Answer:** Great question! Zapier and Make are DIY platforms - you build automations yourself. newlens is a full-service partner. We provide:
 - Expert consulting (we design the automations for you)
 - Advanced AI capabilities (not just connecting apps)
 - UK-based support and data hosting
@@ -29,7 +29,7 @@ If you want a managed service with UK data residency, we're your solution. If yo
 
 ---
 
-### Q3: Do I need technical knowledge to work with Newlens?
+### Q3: Do I need technical knowledge to work with newlens?
 **Answer:** No! That's the point. We handle all the technical complexity. You just need to:
 1. Explain your business processes (you're the expert there)
 2. Review and approve what we build
@@ -68,14 +68,14 @@ That said, we've helped solo consultants and also worked with divisions of large
 
 ## Category: Pricing & Value
 
-### Q6: How much does Newlens cost?
+### Q6: How much does newlens cost?
 **Answer:** We offer two models:
 
 **Self-Hosted (you own the infrastructure):**
 - Initial setup: £14,990 - £29,990
 - Monthly subscription: £495 - £4,995 (based on usage)
 
-**Newlens-Hosted (we manage everything):**
+**newlens-Hosted (we manage everything):**
 - Initial setup: £7,990 - £12,990
 - Monthly subscription: £795 - £5,995 (all-inclusive)
 
@@ -102,7 +102,7 @@ Initial setup costs are one-time investments. Some clients choose annual prepay 
 - **Cost:** 30 hrs/week × £25/hr × 52 weeks = **£39,000/year** in labour
 - **Automation saved:** 24 hours/week (80% reduction)
 - **Annual savings:** £31,200
-- **Newlens cost:** £2,995/month = £35,940/year
+- **newlens cost:** £2,995/month = £35,940/year
 - **Net ROI:** Break-even in 13 months, then £31k/year profit
 
 Plus: Staff redeployed to revenue-generating work (client relationships, property viewings). True ROI is much higher.
@@ -144,7 +144,7 @@ No nasty surprises. Ever.
 
 ## Category: Technical & Implementation
 
-### Q11: What technology does Newlens use?
+### Q11: What technology does newlens use?
 **Answer:** We use best-in-class open-source and enterprise tools:
 - **Automation platform:** n8n (flexible, powerful, self-hostable)
 - **AI models:** OpenAI (GPT-4), Anthropic (Claude), Google (Gemini), local models where needed
@@ -250,7 +250,7 @@ We assess sensitivity during discovery and apply appropriate security controls. 
 ### Q18: Who has access to our data?
 **Answer:** **Minimal, controlled access:**
 
-**Newlens-Hosted:**
+**newlens-Hosted:**
 - Only engineers working on your project (2-3 people max)
 - Access logged and auditable
 - NDA and confidentiality agreements in place
@@ -363,7 +363,7 @@ But yes, you can take control whenever you want. No lock-in.
 
 ---
 
-### Q24: What if Newlens goes out of business?
+### Q24: What if newlens goes out of business?
 **Answer:** **Fair question!** You're protected:
 
 **Self-Hosted clients:**
@@ -371,7 +371,7 @@ But yes, you can take control whenever you want. No lock-in.
 - Open-source tools (n8n) - no vendor lock-in
 - Full documentation provided - any developer can maintain it
 
-**Newlens-Hosted clients:**
+**newlens-Hosted clients:**
 - 90-day notice if we ever shut down (unlikely!)
 - Full data export provided (automations, workflows, databases)
 - Assistance migrating to self-hosted or another provider
