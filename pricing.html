@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - Newlens: Transparent AI Automation Pricing</title>
-    <meta name="description" content="Simple, transparent pricing for AI automation services. Choose self-hosted or fully managed - no hidden fees, cancel anytime.">
+    <title>Alpha Program Pricing - Newlens: Managed Automation for UK SMEs</title>
+    <meta name="description" content="Join our alpha program. 50% off managed automation + setup fees waived. We guide your VPS setup (5 minutes), then manage everything for you.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -25,21 +25,22 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .pricing-toggle {
-            transition: all 0.3s ease;
-        }
         .tier-card {
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .tier-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
         .check-icon::before {
             content: "✓";
             color: #10b981;
             font-weight: bold;
             margin-right: 8px;
+        }
+        .strike {
+            text-decoration: line-through;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -59,356 +60,367 @@
 
     <!-- Hero Section -->
     <section class="pt-32 pb-16 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-nl-navy/90 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-bold mb-6">Transparent Pricing.<br>No Surprises.</h1>
-            <p class="text-xl text-nl-slate max-w-3xl mx-auto mb-8">
-                Choose the model that fits your business - self-hosted control or fully managed service.
+        <div class="container mx-auto px-6">
+            <!-- Alpha Badge -->
+            <div class="text-center mb-6">
+                <span class="inline-block bg-nl-green text-nl-navy px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider">
+                    Alpha Program - Limited Availability
+                </span>
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 text-center">Prove Value Before You Commit</h1>
+            <p class="text-xl text-nl-slate max-w-3xl mx-auto mb-8 text-center">
+                We're accepting <strong>10 UK SMEs</strong> for our alpha program. Get 50% off + setup fees waived. You provide a VPS (we guide you through setup - takes 5 minutes), then we manage your automations end-to-end.
             </p>
-            <div class="flex items-center justify-center gap-4 mb-8">
-                <a href="/assessment.html" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full hover:bg-white transition-all font-bold text-sm">
-                    Start Free Assessment
-                </a>
-                <a href="mailto:mat.keys@newlens.uk" class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-nl-navy transition-all font-bold text-sm">
-                    Speak to an Expert
-                </a>
-            </div>
             
-            <!-- Model Toggle -->
-            <div class="inline-flex bg-white/10 rounded-full p-2">
-                <button onclick="showModel('hosted')" id="btn-hosted" class="px-8 py-3 rounded-full font-semibold transition-all bg-white text-nl-navy">
-                    Newlens-Hosted
-                </button>
-                <button onclick="showModel('selfhosted')" id="btn-selfhosted" class="px-8 py-3 rounded-full font-semibold transition-all text-white">
-                    Self-Hosted
-                </button>
+            <!-- Alpha Benefits -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                        <div class="text-4xl font-bold text-nl-green mb-2">50% OFF</div>
+                        <p class="text-sm text-nl-slate">First 3 months alpha pricing</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                        <div class="text-4xl font-bold text-nl-green mb-2">£0 SETUP</div>
+                        <p class="text-sm text-nl-slate">Setup fees waived (save £1,500-3,000)</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                        <div class="text-4xl font-bold text-nl-green mb-2">NO LOCK-IN</div>
+                        <p class="text-sm text-nl-slate">Cancel anytime. You own your VPS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-4">
+                <a href="alpha-apply.html" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full hover:bg-white transition-all font-bold text-sm">
+                    Apply for Alpha Program
+                </a>
+                <a href="#how-it-works" class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-nl-navy transition-all font-bold text-sm">
+                    Learn How It Works
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Cards - Hosted Model -->
-    <section id="pricing-hosted" class="py-16">
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-nl-navy mb-4">Newlens-Hosted Plans</h2>
-                <p class="text-xl text-gray-600">All-inclusive managed service. UK data centres. No infrastructure overhead.</p>
-            </div>
+            <h2 class="text-4xl font-bold text-nl-navy mb-4 text-center">How Self-Hosted Managed Works</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12 text-center">
+                You provide a VPS (£10-20/month from Hetzner or DigitalOcean). We handle everything else.
+            </p>
             
-            <div class="grid md:grid-cols-4 gap-8 mb-16">
-                <!-- Essential -->
-                <div class="tier-card bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Essential</h3>
-                    <p class="text-gray-600 mb-6">Perfect for getting started</p>
-                    <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£795</span>
-                        <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £7,990 - £9,990</p>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 5 automations</li>
-                        <li class="check-icon">5,000 monthly executions</li>
-                        <li class="check-icon">500 AI operations</li>
-                        <li class="check-icon">10 GB storage</li>
-                        <li class="check-icon">Email support</li>
-                        <li class="check-icon">UK data hosting</li>
-                    </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Essential%20Plan%20Enquiry" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-teal transition-all">
-                        Get Started
-                    </a>
+            <div class="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-nl-green rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Get a VPS</h3>
+                    <p class="text-sm text-gray-600">We guide you through Hetzner or DigitalOcean signup. Takes 5 minutes. £10-20/month.</p>
                 </div>
-
-                <!-- Growth (Popular) -->
-                <div class="tier-card bg-white rounded-2xl shadow-xl p-8 border-4 border-nl-green relative">
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-nl-green text-nl-navy px-6 py-1 rounded-full text-sm font-bold">
-                        MOST POPULAR
-                    </div>
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Growth</h3>
-                    <p class="text-gray-600 mb-6">For scaling businesses</p>
-                    <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£1,495</span>
-                        <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £9,990 - £11,990</p>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 15 automations</li>
-                        <li class="check-icon">25,000 monthly executions</li>
-                        <li class="check-icon">2,500 AI operations</li>
-                        <li class="check-icon">50 GB storage</li>
-                        <li class="check-icon">Priority support</li>
-                        <li class="check-icon">Monthly optimization</li>
-                    </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Growth%20Plan%20Enquiry" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-nl-teal hover:text-white transition-all">
-                        Get Started
-                    </a>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-nl-green rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">We Configure Everything</h3>
+                    <p class="text-sm text-gray-600">Send us access. We install n8n, secure it, set up monitoring & backups. You never touch code.</p>
                 </div>
-
-                <!-- Professional -->
-                <div class="tier-card bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Professional</h3>
-                    <p class="text-gray-600 mb-6">For established operations</p>
-                    <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£2,995</span>
-                        <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £11,990 - £14,990</p>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 40 automations</li>
-                        <li class="check-icon">100,000 monthly executions</li>
-                        <li class="check-icon">10,000 AI operations</li>
-                        <li class="check-icon">200 GB storage</li>
-                        <li class="check-icon">Priority support</li>
-                        <li class="check-icon">Quarterly reviews</li>
-                    </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Professional%20Plan%20Enquiry" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-teal transition-all">
-                        Get Started
-                    </a>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-nl-green rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">We Build Your Automations</h3>
+                    <p class="text-sm text-gray-600">Map your processes, design workflows, test, deploy. You review and approve before go-live.</p>
                 </div>
-
-                <!-- Enterprise -->
-                <div class="tier-card bg-gradient-to-br from-nl-navy to-nl-navy/90 rounded-2xl shadow-lg p-8 text-white">
-                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
-                    <p class="text-nl-slate mb-6">Unlimited scale</p>
-                    <div class="mb-6">
-                        <span class="text-5xl font-bold">£5,995</span>
-                        <span class="text-nl-slate">/month</span>
-                        <p class="text-sm text-nl-slate mt-2">Setup: £14,990+</p>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon text-white">Unlimited automations</li>
-                        <li class="check-icon text-white">Unlimited executions</li>
-                        <li class="check-icon text-white">Unlimited AI operations</li>
-                        <li class="check-icon text-white">1 TB storage</li>
-                        <li class="check-icon text-white">24/7 support</li>
-                        <li class="check-icon text-white">Dedicated manager</li>
-                    </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Enterprise%20Plan%20Enquiry" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-white transition-all">
-                        Contact Sales
-                    </a>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-nl-green rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">4</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">We Manage Ongoing</h3>
+                    <p class="text-sm text-gray-600">Updates, changes, monitoring, support. You own the VPS. We manage everything technical.</p>
                 </div>
             </div>
 
-            <!-- What's Included -->
-            <div class="bg-gray-50 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-nl-navy mb-6 text-center">All Newlens-Hosted Plans Include:</h3>
-                <div class="grid md:grid-cols-3 gap-6 text-sm">
-                    <div class="check-icon">Full platform hosting (UK data centres)</div>
-                    <div class="check-icon">Infrastructure management</div>
-                    <div class="check-icon">Security & compliance</div>
-                    <div class="check-icon">Monitoring & alerting</div>
-                    <div class="check-icon">Backup & disaster recovery</div>
-                    <div class="check-icon">Monthly optimization reviews</div>
-                    <div class="check-icon">Version upgrades</div>
-                    <div class="check-icon">Business hours support</div>
-                    <div class="check-icon">No hidden fees</div>
+            <div class="mt-12 max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-nl-navy mb-4">Why Self-Hosted?</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="check-icon text-gray-700">You own the infrastructure forever</div>
+                    <div class="check-icon text-gray-700">Lower monthly cost (no hosting markup)</div>
+                    <div class="check-icon text-gray-700">Data sovereignty (your VPS, your location)</div>
+                    <div class="check-icon text-gray-700">Can self-manage later if you want</div>
+                    <div class="check-icon text-gray-700">Full visibility (you have root access)</div>
+                    <div class="check-icon text-gray-700">GDPR-friendly (UK VPS options)</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Cards - Self-Hosted Model -->
-    <section id="pricing-selfhosted" class="py-16 hidden">
+    <!-- Pricing Tiers -->
+    <section class="py-16">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-nl-navy mb-4">Self-Hosted Plans</h2>
-                <p class="text-xl text-gray-600">You own the infrastructure. We provide expertise and support.</p>
+                <h2 class="text-4xl font-bold text-nl-navy mb-4">Alpha Program Pricing</h2>
+                <p class="text-xl text-gray-600">Choose your tier based on automation complexity. Upgrade anytime.</p>
+                <p class="text-sm text-nl-green font-semibold mt-2">⚡ Alpha pricing available for first 10 partners only. Limited time offer.</p>
             </div>
             
             <div class="grid md:grid-cols-4 gap-8 mb-16">
                 <!-- Starter -->
                 <div class="tier-card bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
                     <h3 class="text-2xl font-bold text-nl-navy mb-2">Starter</h3>
-                    <p class="text-gray-600 mb-6">For smaller workloads</p>
+                    <p class="text-gray-600 mb-6">Perfect for one key process</p>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£495</span>
+                        <div class="text-2xl text-gray-400 strike mb-1">£249/month</div>
+                        <span class="text-5xl font-bold text-nl-green">£124</span>
                         <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £14,990</p>
+                        <p class="text-sm text-nl-slate mt-2">+ your VPS (£10-20/month)</p>
+                        <p class="text-sm text-gray-500 mt-2 strike">Setup: £1,500</p>
+                        <p class="text-sm text-nl-green font-semibold">Alpha: Setup waived</p>
                     </div>
                     <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 10,000 executions</li>
-                        <li class="check-icon">Up to 1,000 AI operations</li>
-                        <li class="check-icon">Platform monitoring</li>
-                        <li class="check-icon">Security updates</li>
-                        <li class="check-icon">Monthly health checks</li>
-                        <li class="check-icon">Email support</li>
+                        <li class="check-icon">1 workflow (up to 20 nodes)</li>
+                        <li class="check-icon">1,000 executions/month</li>
+                        <li class="check-icon">30 mins change time/month</li>
+                        <li class="check-icon">Email support (48h)</li>
+                        <li class="check-icon">Monthly health check</li>
                     </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Self-Hosted%20Starter%20Enquiry" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-teal transition-all">
-                        Get Started
+                    <a href="alpha-apply.html?tier=starter" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-green hover:text-nl-navy transition-all">
+                        Apply Now
                     </a>
                 </div>
 
-                <!-- Professional (Popular) -->
+                <!-- Core (Popular) -->
                 <div class="tier-card bg-white rounded-2xl shadow-xl p-8 border-4 border-nl-green relative">
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-nl-green text-nl-navy px-6 py-1 rounded-full text-sm font-bold">
                         MOST POPULAR
                     </div>
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Professional</h3>
+                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Core</h3>
                     <p class="text-gray-600 mb-6">For growing teams</p>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£995</span>
+                        <div class="text-2xl text-gray-400 strike mb-1">£399/month</div>
+                        <span class="text-5xl font-bold text-nl-green">£199</span>
                         <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £19,990</p>
+                        <p class="text-sm text-nl-slate mt-2">+ your VPS (£10-20/month)</p>
+                        <p class="text-sm text-gray-500 mt-2 strike">Setup: £2,000</p>
+                        <p class="text-sm text-nl-green font-semibold">Alpha: Setup waived</p>
                     </div>
                     <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 50,000 executions</li>
-                        <li class="check-icon">Up to 5,000 AI operations</li>
-                        <li class="check-icon">Everything in Starter</li>
-                        <li class="check-icon">Priority support</li>
-                        <li class="check-icon">Quarterly reviews</li>
-                        <li class="check-icon">Performance tuning</li>
+                        <li class="check-icon">3 workflows (up to 20 nodes each)</li>
+                        <li class="check-icon">5,000 executions/month</li>
+                        <li class="check-icon">90 mins change time/month</li>
+                        <li class="check-icon">Priority support (24h)</li>
+                        <li class="check-icon">Bi-weekly check-ins</li>
                     </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Self-Hosted%20Professional%20Enquiry" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-nl-teal hover:text-white transition-all">
-                        Get Started
+                    <a href="alpha-apply.html?tier=core" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-nl-teal hover:text-white transition-all">
+                        Apply Now
                     </a>
                 </div>
 
-                <!-- Enterprise -->
+                <!-- Growth -->
                 <div class="tier-card bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-200">
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Enterprise</h3>
-                    <p class="text-gray-600 mb-6">For large deployments</p>
+                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Growth</h3>
+                    <p class="text-gray-600 mb-6">For scaling operations</p>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold text-nl-navy">£2,495</span>
+                        <div class="text-2xl text-gray-400 strike mb-1">£649/month</div>
+                        <span class="text-5xl font-bold text-nl-green">£324</span>
                         <span class="text-gray-600">/month</span>
-                        <p class="text-sm text-gray-500 mt-2">Setup: £24,990</p>
+                        <p class="text-sm text-nl-slate mt-2">+ your VPS (£10-20/month)</p>
+                        <p class="text-sm text-gray-500 mt-2 strike">Setup: £2,500</p>
+                        <p class="text-sm text-nl-green font-semibold">Alpha: Setup waived</p>
                     </div>
                     <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon">Up to 250,000 executions</li>
-                        <li class="check-icon">Up to 25,000 AI operations</li>
-                        <li class="check-icon">Everything in Professional</li>
-                        <li class="check-icon">24/7 emergency support</li>
-                        <li class="check-icon">Dedicated engineer</li>
-                        <li class="check-icon">Custom SLAs</li>
+                        <li class="check-icon">6 workflows (up to 30 nodes each)</li>
+                        <li class="check-icon">15,000 executions/month</li>
+                        <li class="check-icon">3 hours change time/month</li>
+                        <li class="check-icon">Priority support (12h)</li>
+                        <li class="check-icon">Weekly optimization calls</li>
                     </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Self-Hosted%20Enterprise%20Enquiry" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-teal transition-all">
-                        Get Started
+                    <a href="alpha-apply.html?tier=growth" class="block w-full bg-nl-navy text-white text-center py-3 rounded-full font-semibold hover:bg-nl-green hover:text-nl-navy transition-all">
+                        Apply Now
                     </a>
                 </div>
 
-                <!-- Scale -->
+                <!-- Professional -->
                 <div class="tier-card bg-gradient-to-br from-nl-navy to-nl-navy/90 rounded-2xl shadow-lg p-8 text-white">
-                    <h3 class="text-2xl font-bold mb-2">Scale</h3>
-                    <p class="text-nl-slate mb-6">Unlimited everything</p>
+                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
+                    <p class="text-nl-slate mb-6">For complex workflows</p>
                     <div class="mb-6">
-                        <span class="text-5xl font-bold">£4,995</span>
+                        <div class="text-2xl text-nl-slate strike mb-1">£1,199/month</div>
+                        <span class="text-5xl font-bold text-nl-green">£599</span>
                         <span class="text-nl-slate">/month</span>
-                        <p class="text-sm text-nl-slate mt-2">Setup: £29,990</p>
+                        <p class="text-sm text-nl-slate mt-2">+ your VPS (£15-25/month)</p>
+                        <p class="text-sm text-nl-slate mt-2 strike">Setup: £3,000</p>
+                        <p class="text-sm text-nl-green font-semibold">Alpha: Setup waived</p>
                     </div>
                     <ul class="space-y-3 mb-8 text-sm">
-                        <li class="check-icon text-white">Unlimited executions</li>
-                        <li class="check-icon text-white">Unlimited AI operations</li>
-                        <li class="check-icon text-white">Everything in Enterprise</li>
-                        <li class="check-icon text-white">Multi-region support</li>
-                        <li class="check-icon text-white">Custom architecture</li>
-                        <li class="check-icon text-white">Hands-on support</li>
+                        <li class="check-icon text-white">12 workflows (up to 50 nodes each)</li>
+                        <li class="check-icon text-white">50,000 executions/month</li>
+                        <li class="check-icon text-white">6 hours change time/month</li>
+                        <li class="check-icon text-white">Priority support (4h)</li>
+                        <li class="check-icon text-white">Weekly strategy sessions</li>
                     </ul>
-                    <a href="mailto:mat.keys@newlens.uk?subject=Self-Hosted%20Scale%20Enquiry" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-white transition-all">
-                        Contact Sales
+                    <a href="alpha-apply.html?tier=professional" class="block w-full bg-nl-green text-nl-navy text-center py-3 rounded-full font-semibold hover:bg-white transition-all">
+                        Apply Now
                     </a>
                 </div>
             </div>
 
-            <!-- What's Included -->
-            <div class="bg-gray-50 rounded-2xl p-8">
-                <h3 class="text-2xl font-bold text-nl-navy mb-6 text-center">All Self-Hosted Plans Include:</h3>
+            <!-- Add-Ons -->
+            <div class="bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto mb-16">
+                <h3 class="text-2xl font-bold text-nl-navy mb-6 text-center">Add-Ons (Available to All Tiers)</h3>
                 <div class="grid md:grid-cols-3 gap-6 text-sm">
-                    <div class="check-icon">Infrastructure setup & hardening</div>
-                    <div class="check-icon">Docker/Kubernetes deployment</div>
-                    <div class="check-icon">Security configuration</div>
-                    <div class="check-icon">Platform monitoring</div>
-                    <div class="check-icon">Security updates</div>
-                    <div class="check-icon">Version upgrades</div>
-                    <div class="check-icon">Monthly health checks</div>
-                    <div class="check-icon">Full documentation</div>
-                    <div class="check-icon">You own the infrastructure</div>
+                    <div class="bg-white rounded-lg p-6 shadow">
+                        <div class="font-bold text-lg text-nl-navy mb-2">Extra Workflow</div>
+                        <div class="text-gray-400 strike">£75/month</div>
+                        <div class="text-2xl font-bold text-nl-green">£37/mo</div>
+                        <p class="text-xs text-gray-600 mt-2">Alpha pricing</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow">
+                        <div class="font-bold text-lg text-nl-navy mb-2">Extra 5,000 Executions</div>
+                        <div class="text-gray-400 strike">£50/month</div>
+                        <div class="text-2xl font-bold text-nl-green">£25/mo</div>
+                        <p class="text-xs text-gray-600 mt-2">Alpha pricing</p>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow">
+                        <div class="font-bold text-lg text-nl-navy mb-2">Extra Change Hour</div>
+                        <div class="text-gray-400 strike">£150/hour</div>
+                        <div class="text-2xl font-bold text-nl-green">£75/hr</div>
+                        <p class="text-xs text-gray-600 mt-2">Alpha pricing</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Support Tiers -->
+    <!-- What You Get -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold text-nl-navy mb-4">Support Tiers</h2>
-                <p class="text-xl text-gray-600">Add premium support to any plan</p>
-            </div>
-            
+            <h2 class="text-4xl font-bold text-nl-navy mb-12 text-center">What's Included in Every Alpha Tier</h2>
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Bronze -->
-                <div class="bg-white rounded-2xl shadow-lg p-8">
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Bronze</h3>
-                    <p class="text-gray-600 mb-4">Included free</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold text-nl-navy">£0</span>
-                        <span class="text-gray-600">/month</span>
-                    </div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="check-icon">Email support (business hours)</li>
-                        <li class="check-icon">48-hour response SLA</li>
-                        <li class="check-icon">Monthly system reports</li>
-                        <li class="check-icon">Security updates</li>
-                    </ul>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">🔐</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Security & Compliance</h3>
+                    <p class="text-sm text-gray-600">SSL/TLS encryption, secure credential storage, regular security updates, UK data residency (your VPS).</p>
                 </div>
-
-                <!-- Silver -->
-                <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-nl-teal">
-                    <h3 class="text-2xl font-bold text-nl-navy mb-2">Silver</h3>
-                    <p class="text-gray-600 mb-4">Priority support</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold text-nl-navy">£495</span>
-                        <span class="text-gray-600">/month</span>
-                    </div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="check-icon">Everything in Bronze</li>
-                        <li class="check-icon">Priority email & chat</li>
-                        <li class="check-icon">12-hour response SLA</li>
-                        <li class="check-icon">Quarterly strategy reviews</li>
-                        <li class="check-icon">4 hours/month optimization</li>
-                    </ul>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Monitoring & Alerts</h3>
+                    <p class="text-sm text-gray-600">24/7 uptime monitoring, automated alerts if workflows fail, performance dashboards, health checks.</p>
                 </div>
-
-                <!-- Gold -->
-                <div class="bg-gradient-to-br from-nl-navy to-nl-navy/90 rounded-2xl shadow-lg p-8 text-white">
-                    <h3 class="text-2xl font-bold mb-2">Gold</h3>
-                    <p class="text-nl-slate mb-4">White-glove service</p>
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">£1,495</span>
-                        <span class="text-nl-slate">/month</span>
-                    </div>
-                    <ul class="space-y-2 text-sm">
-                        <li class="check-icon text-white">Everything in Silver</li>
-                        <li class="check-icon text-white">24/7 emergency support</li>
-                        <li class="check-icon text-white">4-hour response SLA</li>
-                        <li class="check-icon text-white">Dedicated success manager</li>
-                        <li class="check-icon text-white">12 hours/month dev time</li>
-                    </ul>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">💾</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Backups & Recovery</h3>
+                    <p class="text-sm text-gray-600">Daily automated backups, disaster recovery plan, workflow version control, easy rollback.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Updates & Maintenance</h3>
+                    <p class="text-sm text-gray-600">n8n platform updates, security patches, dependency management - all handled for you.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">👤</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Direct Founder Access</h3>
+                    <p class="text-sm text-gray-600">Chat directly with Mat (founder). No support tickets. Telegram/email. Response times based on tier.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <div class="text-4xl mb-4">📖</div>
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Documentation & Training</h3>
+                    <p class="text-sm text-gray-600">Full workflow documentation, team training, user guides, video walkthroughs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Definitions -->
     <section class="py-16">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-nl-navy mb-12 text-center">Pricing FAQs</h2>
+            <h2 class="text-4xl font-bold text-nl-navy mb-8 text-center">What Do These Terms Mean?</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Workflow</h3>
+                    <p class="text-gray-700">A single automation that connects your tools and performs a task. Example: "When tenant enquiry arrives, create folder in Google Drive, send welcome email, add to CRM."</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Execution</h3>
+                    <p class="text-gray-700">Each time a workflow runs counts as one execution. If your "tenant enquiry" workflow runs 50 times this month, that's 50 executions.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Node</h3>
+                    <p class="text-gray-700">Each step in a workflow (e.g., "check Gmail", "create Drive folder", "send Slack message"). More nodes = more complex workflow. We count nodes to keep workflows maintainable.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Change Time</h3>
+                    <p class="text-gray-700">Included minutes per month for us to modify your workflows (adjust a filter, change an email template, add a condition). Major new workflows or logic rebuilds are additional.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">VPS (Virtual Private Server)</h3>
+                    <p class="text-gray-700">A cloud server you rent from providers like Hetzner or DigitalOcean (£10-20/month). We guide you through setup (5 minutes), then we install and manage n8n on it. You own it forever.</p>
+                </div>
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="font-bold text-lg text-nl-navy mb-2">Setup Fee</h3>
+                    <p class="text-gray-700">One-time cost to discover your processes, design workflows, build + test automations, train your team, and go live. <strong>Waived for alpha partners.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Happens After Alpha -->
+    <section class="py-16 bg-nl-navy text-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl font-bold mb-8 text-center">What Happens After the Alpha Period?</h2>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                <div class="space-y-6">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-nl-green rounded-full flex items-center justify-center text-nl-navy font-bold text-xl flex-shrink-0">1</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">3-Month Review (No Pressure)</h3>
+                            <p class="text-nl-slate">We review results together. Have the automations delivered value? Saved time? Reduced errors?</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-nl-green rounded-full flex items-center justify-center text-nl-navy font-bold text-xl flex-shrink-0">2</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">You Choose What Happens Next</h3>
+                            <p class="text-nl-slate">
+                                <strong>Option A:</strong> Continue at standard pricing (still great value).<br>
+                                <strong>Option B:</strong> Negotiate custom pricing based on usage.<br>
+                                <strong>Option C:</strong> Part as friends. We'll help you export everything and transition smoothly.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-nl-green rounded-full flex items-center justify-center text-nl-navy font-bold text-xl flex-shrink-0">3</div>
+                        <div>
+                            <h3 class="font-bold text-lg mb-2">You Own Your VPS</h3>
+                            <p class="text-nl-slate">Even if you stop using our managed service, you keep the VPS and n8n installation. It's yours. You can self-manage or hire someone else. No lock-in.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-8 text-lg font-semibold">Our goal: Prove value in 3 months, then you decide if we're worth the standard price.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-nl-navy mb-12 text-center">Alpha Program FAQs</h2>
             <div class="max-w-4xl mx-auto space-y-4">
                 <details class="bg-white rounded-lg shadow-md p-6">
-                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Is there a minimum contract length?</summary>
-                    <p class="mt-4 text-gray-600">No. All subscriptions are month-to-month after the initial setup. Cancel anytime.</p>
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">How do I qualify for the alpha program?</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">You need to be a UK-based SME (10-500 employees) with repetitive manual processes that are costing you time. Apply via the form, we'll schedule a 30-minute call to understand your needs. If it's a good fit, you're in!</p>
                 </details>
                 <details class="bg-white rounded-lg shadow-md p-6">
-                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What if I exceed my usage limits?</summary>
-                    <p class="mt-4 text-gray-600">We monitor usage and contact you before any overages occur. Overage rates are reasonable and transparent - typically £0.05/execution or £0.50/AI operation.</p>
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Do I really need a VPS? Sounds technical.</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">Yes, but <strong>we guide you through it</strong>. It's a 5-minute signup at Hetzner or DigitalOcean (like ordering hosting for a website). Pick the £15/month option, give us access, and we handle everything technical. You never touch code or servers.</p>
                 </details>
                 <details class="bg-white rounded-lg shadow-md p-6">
-                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Are there any hidden fees?</summary>
-                    <p class="mt-4 text-gray-600">No. The only additional costs are optional add-on services (custom integrations, extra training) which you explicitly request.</p>
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What if I exceed my execution limit?</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">We monitor usage and notify you before you hit limits. Options: upgrade to next tier, or add execution packs (£25 per 5,000 extra executions). We'll never surprise you with overage charges - we discuss first.</p>
                 </details>
                 <details class="bg-white rounded-lg shadow-md p-6">
-                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Can I switch between plans?</summary>
-                    <p class="mt-4 text-gray-600">Yes! Upgrade or downgrade anytime. Changes take effect on your next billing cycle.</p>
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Is alpha pricing really only £124-599/month?</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">Yes, plus your VPS cost (£10-20/month). So total is £134-619/month all-in. After 3 months, standard pricing is £249-1,199/month plus VPS. Still very competitive vs alternatives.</p>
                 </details>
                 <details class="bg-white rounded-lg shadow-md p-6">
-                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Do you offer discounts for annual prepay?</summary>
-                    <p class="mt-4 text-gray-600">Yes - save 15% by paying annually in advance. Contact us for a custom quote.</p>
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What if I need more than 3 changes per month?</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">Change time covers small tweaks (adjust filters, change templates). If you need more, you can: upgrade to a higher tier (more included change time), or purchase extra change time at £75/hour (alpha pricing). We'll discuss options before charging.</p>
+                </details>
+                <details class="bg-white rounded-lg shadow-md p-6">
+                    <summary class="font-semibold text-lg text-nl-navy cursor-pointer">How quickly can I get started?</summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed">Apply today → Discovery call within 48 hours → VPS setup (5 minutes) → We configure (1-2 days) → First automation live in 1-2 weeks. Fastest we've done: 5 days from application to first workflow running.</p>
                 </details>
             </div>
             <div class="text-center mt-8">
@@ -418,18 +430,19 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 bg-gradient-to-r from-nl-navy to-nl-navy/90 text-white">
+    <section class="py-16 bg-gradient-to-r from-nl-green to-nl-teal text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Automate Your Business?</h2>
-            <p class="text-xl text-nl-slate mb-8 max-w-2xl mx-auto">
-                Start with a free 30-minute discovery call. No pressure, just conversation.
+            <h2 class="text-4xl font-bold mb-6">Ready to Join the Alpha Program?</h2>
+            <p class="text-xl mb-2 max-w-2xl mx-auto">
+                Only <strong>10 spots available</strong>. Apply now to lock in 50% off + waived setup fees.
             </p>
+            <p class="text-sm mb-8 opacity-90">Alpha program closes March 31, 2026 or when all spots are filled.</p>
             <div class="flex items-center justify-center gap-4">
-                <a href="/assessment.html" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full hover:bg-white transition-all font-bold">
-                    Take Free Assessment
+                <a href="alpha-apply.html" class="bg-white text-nl-navy px-8 py-4 rounded-full hover:bg-nl-navy hover:text-white transition-all font-bold border-2 border-white">
+                    Apply for Alpha Program
                 </a>
                 <a href="mailto:mat.keys@newlens.uk" class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-nl-navy transition-all font-bold">
-                    Book Discovery Call
+                    Questions? Email Us
                 </a>
             </div>
         </div>
@@ -446,31 +459,6 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        function showModel(model) {
-            const hostedSection = document.getElementById('pricing-hosted');
-            const selfhostedSection = document.getElementById('pricing-selfhosted');
-            const btnHosted = document.getElementById('btn-hosted');
-            const btnSelfhosted = document.getElementById('btn-selfhosted');
-            
-            if (model === 'hosted') {
-                hostedSection.classList.remove('hidden');
-                selfhostedSection.classList.add('hidden');
-                btnHosted.classList.add('bg-white', 'text-nl-navy');
-                btnHosted.classList.remove('text-white');
-                btnSelfhosted.classList.remove('bg-white', 'text-nl-navy');
-                btnSelfhosted.classList.add('text-white');
-            } else {
-                hostedSection.classList.add('hidden');
-                selfhostedSection.classList.remove('hidden');
-                btnSelfhosted.classList.add('bg-white', 'text-nl-navy');
-                btnSelfhosted.classList.remove('text-white');
-                btnHosted.classList.remove('bg-white', 'text-nl-navy');
-                btnHosted.classList.add('text-white');
-            }
-        }
-    </script>
 
 </body>
 </html>

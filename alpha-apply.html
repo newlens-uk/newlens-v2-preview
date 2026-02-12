@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Alpha Program - Newlens</title>
+    <meta name="description" content="Apply to join Newlens alpha program. 50% off + setup fees waived. Limited to 10 UK SME partners.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#1e3a5f',
+                        'nl-teal': '#2dd4bf',
+                        'nl-green': '#10b981',
+                        'nl-slate': '#94a3b8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 text-white z-50 h-16 md:h-20 flex items-center">
+        <div class="container mx-auto px-6 flex items-center justify-between">
+            <a href="index.html" class="text-3xl font-bold tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="flex items-center gap-6 text-sm font-semibold uppercase tracking-wider">
+                <a href="index.html" class="text-nl-slate/60 hover:text-white transition-colors">Home</a>
+                <a href="pricing.html" class="text-nl-slate/60 hover:text-white transition-colors">Pricing</a>
+                <a href="qanda.html" class="text-nl-slate/60 hover:text-white transition-colors">Q&A</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-12 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-nl-navy/90 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <span class="inline-block bg-nl-green text-nl-navy px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider">
+                    Alpha Program Application
+                </span>
+            </div>
+            <h1 class="text-5xl font-bold mb-4">Join the Newlens Alpha Program</h1>
+            <p class="text-xl text-nl-slate max-w-2xl mx-auto">
+                We're accepting 10 UK SMEs to pilot managed automation. Get 50% off + setup fees waived for 3 months.
+            </p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                <form id="alpha-form" action="https://n8n.newlens.uk/webhook/alpha-submit" method="POST">
+                    
+                    <!-- Company Info -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-nl-navy mb-6">About Your Business</h2>
+                        
+                        <div class="mb-6">
+                            <label for="company_name" class="block text-sm font-semibold text-gray-700 mb-2">Company Name *</label>
+                            <input type="text" id="company_name" name="company_name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="industry" class="block text-sm font-semibold text-gray-700 mb-2">Industry *</label>
+                            <select id="industry" name="industry" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                                <option value="">Select your industry</option>
+                                <option value="property">Property / Real Estate</option>
+                                <option value="legal">Legal / Conveyancing</option>
+                                <option value="finance">Finance / Accounting</option>
+                                <option value="healthcare">Healthcare / Medical</option>
+                                <option value="professional-services">Professional Services / Consulting</option>
+                                <option value="retail">Retail / E-commerce</option>
+                                <option value="manufacturing">Manufacturing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="team_size" class="block text-sm font-semibold text-gray-700 mb-2">Team Size *</label>
+                            <select id="team_size" name="team_size" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                                <option value="">Select team size</option>
+                                <option value="1-10">1-10 employees</option>
+                                <option value="11-50">11-50 employees</option>
+                                <option value="51-200">51-200 employees</option>
+                                <option value="201-500">201-500 employees</option>
+                                <option value="500+">500+ employees</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Pain Points -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-nl-navy mb-6">Your Automation Needs</h2>
+                        
+                        <div class="mb-6">
+                            <label for="manual_processes" class="block text-sm font-semibold text-gray-700 mb-2">
+                                What manual processes are costing you time? *
+                            </label>
+                            <p class="text-sm text-gray-600 mb-2">Describe the repetitive tasks your team does manually (e.g., "We spend 10 hours/week copying data from emails into our CRM")</p>
+                            <textarea id="manual_processes" name="manual_processes" rows="5" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green"></textarea>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="tools_used" class="block text-sm font-semibold text-gray-700 mb-2">
+                                What tools do you currently use? *
+                            </label>
+                            <p class="text-sm text-gray-600 mb-2">List the software your team uses (e.g., "Xero, HubSpot, Gmail, Slack")</p>
+                            <input type="text" id="tools_used" name="tools_used" required
+                                placeholder="e.g., Xero, HubSpot, Gmail, Slack"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="desired_tier" class="block text-sm font-semibold text-gray-700 mb-2">Preferred Tier</label>
+                            <select id="desired_tier" name="desired_tier"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                                <option value="">Not sure yet</option>
+                                <option value="starter">Starter (£124/mo + VPS)</option>
+                                <option value="core">Core (£199/mo + VPS) - Most Popular</option>
+                                <option value="growth">Growth (£324/mo + VPS)</option>
+                                <option value="professional">Professional (£599/mo + VPS)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold text-nl-navy mb-6">Your Contact Details</h2>
+                        
+                        <div class="mb-6">
+                            <label for="full_name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name *</label>
+                            <input type="text" id="full_name" name="full_name" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone (Optional)</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="referral_source" class="block text-sm font-semibold text-gray-700 mb-2">How did you hear about us?</label>
+                            <select id="referral_source" name="referral_source"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-nl-green">
+                                <option value="">Select one</option>
+                                <option value="linkedin">LinkedIn</option>
+                                <option value="twitter">Twitter/X</option>
+                                <option value="referral">Referral from colleague</option>
+                                <option value="search">Google search</option>
+                                <option value="networking">Networking event</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="border-t pt-6">
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-nl-green text-white py-4 rounded-full font-bold text-lg hover:bg-nl-teal transition-all">
+                            Submit Application
+                        </button>
+                        <p class="text-sm text-gray-600 text-center mt-4">
+                            We'll review your application and contact you within 48 hours.
+                        </p>
+                    </div>
+
+                </form>
+
+                <!-- Success Message (Hidden) -->
+                <div id="success-message" class="hidden text-center py-12">
+                    <div class="text-6xl mb-4">✅</div>
+                    <h2 class="text-3xl font-bold text-nl-green mb-4">Application Submitted!</h2>
+                    <p class="text-lg text-gray-700 mb-6">
+                        Thank you for applying. We'll review your application and contact you within 48 hours.
+                    </p>
+                    <p class="text-sm text-gray-600 mb-6">
+                        Check your email for a confirmation message.
+                    </p>
+                    <a href="index.html" class="inline-block bg-nl-navy text-white px-8 py-3 rounded-full font-bold hover:bg-nl-green transition-all">
+                        Return to Homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nl-navy text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-nl-slate">&copy; 2026 Newlens. All rights reserved.</p>
+            <div class="mt-4 space-x-4">
+                <a href="privacy.html" class="text-nl-slate hover:text-white transition-colors">Privacy</a>
+                <a href="qanda.html" class="text-nl-slate hover:text-white transition-colors">Q&A</a>
+                <a href="mailto:mat.keys@newlens.uk" class="text-nl-slate hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('alpha-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const form = document.getElementById('alpha-form');
+            const successMessage = document.getElementById('success-message');
+            
+            // Disable submit button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            
+            try {
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Hide form, show success
+                    form.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                alert('There was an error submitting your application. Please try again or email us directly at mat.keys@newlens.uk');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Application';
+            }
+        });
+
+        // Pre-fill tier from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const tier = urlParams.get('tier');
+        if (tier) {
+            document.getElementById('desired_tier').value = tier;
+        }
+    </script>
+
+</body>
+</html>
