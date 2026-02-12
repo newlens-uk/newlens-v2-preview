@@ -1,10 +1,10 @@
-# Newlens Pricing Strategy - February 2026
+# newlens Pricing Strategy - February 2026
 
 ## Executive Summary
 
 Three-tier approach:
 1. **Self-Hosted** - Higher upfront, lower monthly (enterprise control)
-2. **Newlens-Hosted** - Lower upfront, predictable monthly (managed service)
+2. **newlens-Hosted** - Lower upfront, predictable monthly (managed service)
 3. **Support Tiers** - Bronze/Silver/Gold (addon to either model)
 
 ---
@@ -51,7 +51,7 @@ Based on automation complexity and execution volume:
 
 ---
 
-## Model 2: Newlens-Hosted (Managed Service)
+## Model 2: newlens-Hosted (Managed Service)
 
 **Best for:** SMEs, rapid deployment, no infrastructure overhead
 
@@ -168,7 +168,7 @@ Based on automation complexity and execution volume:
 - Hourly rates: £150 - £350/hour
 - Monthly retainers: £2,000 - £10,000
 
-### Newlens Positioning
+### newlens Positioning
 **Value Proposition:**
 - More affordable than pure consulting (end-to-end service)
 - More supported than DIY platforms (managed expertise)
@@ -185,7 +185,7 @@ Based on automation complexity and execution volume:
 - **CTA:** "Start with Free Assessment" / "Speak to an Expert"
 
 ### Model Toggle
-- Switch between "Self-Hosted" and "Newlens-Hosted"
+- Switch between "Self-Hosted" and "newlens-Hosted"
 - Clear visual distinction
 - "Not sure? Take our 2-min quiz"
 
@@ -239,7 +239,7 @@ Based on automation complexity and execution volume:
 - **Anchor High:** Show Enterprise tier first in some contexts
 - **Most Popular:** Badge on Professional/Growth tiers
 - **Annual Discount:** Offer 15% off for annual prepay
-- **Free Trial:** 14-day trial on Newlens-Hosted Essential tier
+- **Free Trial:** 14-day trial on newlens-Hosted Essential tier
 - **Money-Back Guarantee:** 30-day satisfaction guarantee
 
 ---
