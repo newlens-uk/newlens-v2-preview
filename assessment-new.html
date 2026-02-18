@@ -363,7 +363,11 @@
                 currentStep++;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 updateProgress();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Scroll to the form card instead of page top
+                const formCard = document.querySelector('.bg-white.rounded-3xl');
+                if (formCard) {
+                    formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
 
@@ -373,7 +377,11 @@
                 currentStep--;
                 document.getElementById(`step${currentStep}`).classList.add('active');
                 updateProgress();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Scroll to the form card instead of page top
+                const formCard = document.querySelector('.bg-white.rounded-3xl');
+                if (formCard) {
+                    formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }
         }
 
@@ -422,7 +430,11 @@
                 document.getElementById(`step${totalSteps}`).classList.remove('active');
                 document.getElementById('progressContainer').classList.add('hidden');
                 document.getElementById('successMessage').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // Scroll to the form card to show success message
+                const formCard = document.querySelector('.bg-white.rounded-3xl');
+                if (formCard) {
+                    formCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             } catch (error) {
                 console.error('Submission error:', error);
                 alert('Connection error. Please try again or email info@newlens.uk');
