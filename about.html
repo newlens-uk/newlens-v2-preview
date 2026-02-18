@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Matthew Keys & newlens | Suffolk-Based AI Automation</title>
+    <meta name="description" content="Founded by Matthew Keys in Suffolk, newlens brings 20+ years of enterprise analytics experience to local UK SMEs. National experience, local commitment.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        .section-padding { padding: 6rem 0; }
+        @media (min-width: 768px) {
+            .section-padding { padding: 8rem 0; }
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link.active {
+            color: #38D98A !important;
+        }
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            will-change: width, left, opacity;
+        }
+        .service-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .service-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.12),
+                        0 0 60px 0px rgba(57, 198, 214, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 text-white z-50 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html#home" class="logo-text tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
+                <a href="index.html#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
+                <a href="index.html#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="index.html#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
+                <div class="h-4 w-px bg-nl-slate/30"></div>
+                <a href="services.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Services</a>
+                <a href="pricing.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Pricing</a>
+                <a href="qanda.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Q&A</a>
+                <a href="about.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <div id="nav-indicator" class="opacity-0"></div>
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-6 py-3 rounded-full hover:bg-white transition-all font-bold uppercase text-[10px]">
+                    newlens Portal
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6H7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-nl-navy transition-transform duration-300 translate-x-full md:hidden">
+        <div class="flex flex-col h-full p-8 text-white">
+            <div class="flex justify-between items-center mb-12">
+                <a href="index.html" class="text-3xl font-bold tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+                <button id="close-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 text-xl font-bold uppercase tracking-[0.2em]">
+                <a href="index.html" class="text-nl-slate hover:text-nl-green transition-colors">Home</a>
+                <a href="services.html" class="text-nl-slate hover:text-nl-green transition-colors">Services</a>
+                <a href="pricing.html" class="text-nl-slate hover:text-nl-green transition-colors">Pricing</a>
+                <a href="qanda.html" class="text-nl-slate hover:text-nl-green transition-colors">Q&A</a>
+                <a href="about.html" class="text-nl-slate hover:text-nl-green transition-colors">About</a>
+            </div>
+            <div class="mt-auto pt-12 border-t border-white/10 flex flex-col gap-6">
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    newlens Portal
+                </a>
+                <a href="assessment-new.html" class="bg-white text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    Start Assessment
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-nl-navy/90 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">About</h2>
+                <h1 class="text-5xl md:text-7xl font-black leading-[1.05] mb-8">National Experience. Local Commitment.</h1>
+                <p class="text-xl md:text-2xl text-nl-slate font-medium leading-relaxed">
+                    Founded by Matthew Keys, newlens brings 20+ years of enterprise analytics and systems design expertise to UK SMEs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio Section -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <img src="assets/mat-keys-bio.png" alt="Matthew Keys" class="rounded-[2rem] shadow-2xl border-4 border-slate-100 w-full">
+                    <div class="absolute -bottom-6 -right-6 bg-nl-teal text-white rounded-2xl p-6 shadow-xl">
+                        <p class="text-5xl font-black">20+</p>
+                        <p class="text-sm font-bold uppercase tracking-wider">Years Experience</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Founder</h2>
+                    <h3 class="text-4xl md:text-5xl font-black text-nl-navy leading-tight mb-8">
+                        Matthew Keys
+                    </h3>
+                    <p class="text-xl text-slate-600 font-medium leading-relaxed mb-6">
+                        newlens was born from a simple observation: SMEs are being restricted by manual, repetitive processes and lack the vast IT resources of enterprise companies.
+                    </p>
+                    <p class="text-xl text-slate-600 font-medium leading-relaxed mb-8">
+                        "I've spent two decades working with data, workflows, and systems across national and global platforms. I'm now bringing that focus to local businesses in Suffolk and beyond. We don't just 'automate' - we build solutions that scale as you grow."
+                    </p>
+
+                    <div class="flex items-center gap-6 p-6 bg-slate-50 rounded-2xl mb-8">
+                        <div>
+                            <p class="text-2xl font-black text-nl-navy">Suffolk</p>
+                            <p class="text-sm text-slate-500 uppercase tracking-wider font-bold">Based in the UK</p>
+                        </div>
+                        <a href="https://www.linkedin.com/in/mat-keys/" target="_blank" rel="noopener noreferrer" class="ml-auto">
+                            <svg class="w-10 h-10 text-nl-teal hover:text-nl-navy transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <a href="contact.html" class="inline-block bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-teal hover:text-white transition-all">
+                        Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Suffolk Section -->
+    <section class="section-padding bg-nl-navy text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6 text-center">Why Suffolk</h2>
+            <h3 class="text-4xl md:text-5xl font-black leading-tight mb-8 text-center">Local roots, national standards.</h3>
+            <p class="text-xl text-nl-slate leading-relaxed mb-8 text-center">
+                We're proud to be based in Suffolk, bringing enterprise-grade automation to local businesses. Whether you're in Ipswich, Norwich, or anywhere in the UK, we deliver the same quality of service that Fortune 500 companies expect - but with the personal touch and understanding of local business challenges.
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                <div class="text-center">
+                    <div class="bg-nl-green/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black mb-2">Local Presence</h4>
+                    <p class="text-nl-slate text-sm">Face-to-face meetings, on-site visits, and genuine understanding of regional business needs.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-nl-green/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black mb-2">Enterprise Standards</h4>
+                    <p class="text-nl-slate text-sm">20+ years of experience with Fortune 500 analytics, now applied to SME challenges.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-nl-green/10 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-nl-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-black mb-2">Personal Service</h4>
+                    <p class="text-nl-slate text-sm">Direct access to the founder. No call centres, no ticket queues - just real conversations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Our Approach</h2>
+                <h3 class="text-4xl md:text-5xl font-black text-nl-navy leading-tight">How we work with clients.</h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-slate-50 rounded-3xl p-8 border-2 border-slate-100">
+                    <div class="text-4xl font-black text-nl-teal mb-4">01</div>
+                    <h4 class="text-2xl font-black text-nl-navy mb-4">Transparency First</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        No black boxes. You see exactly what your workflows do, where your data lives, and how every automation works. We build confidence through clarity.
+                    </p>
+                </div>
+
+                <div class="service-card bg-slate-50 rounded-3xl p-8 border-2 border-slate-100">
+                    <div class="text-4xl font-black text-nl-teal mb-4">02</div>
+                    <h4 class="text-2xl font-black text-nl-navy mb-4">Data-Native</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        We clean the data before we automate. Built on 20+ years of analytics foundations, our workflows are designed for accuracy and reliability.
+                    </p>
+                </div>
+
+                <div class="service-card bg-slate-50 rounded-3xl p-8 border-2 border-slate-100">
+                    <div class="text-4xl font-black text-nl-teal mb-4">03</div>
+                    <h4 class="text-2xl font-black text-nl-navy mb-4">Human in the Loop</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Automation handles repetitive tasks. Humans make the decisions that matter. We build systems that empower your team, not replace them.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-nl-navy text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Ready to reclaim your time?</h2>
+            <p class="text-xl text-nl-slate mb-10 leading-relaxed">
+                Start with our free 5-minute AI Readiness Assessment, or get in touch to discuss your automation needs.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="assessment-new.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all">
+                    Start Free Assessment
+                </a>
+                <a href="contact.html" class="bg-white/10 text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-nl-navy transition-all border-2 border-white/20">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nl-navy text-white py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-black text-white mb-6 tracking-tighter">new<span class="text-nl-green">lens</span></div>
+                    <p class="text-nl-slate text-sm leading-relaxed mb-6">Enterprise-grade automation and data clarity for UK SMEs. Based in Suffolk.</p>
+                    <p class="text-nl-teal text-xs font-bold">Co No. 16945634</p>
+                    <p class="text-nl-slate text-xs opacity-60 italic mt-1">Registered in England & Wales</p>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Platform</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="https://portal.newlens.uk/" class="text-nl-slate hover:text-white transition-colors">newlens Portal</a></li>
+                        <li><a href="pricing.html" class="text-nl-slate hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="assessment-new.html" class="text-nl-slate hover:text-white transition-colors">AI Readiness Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="text-nl-slate hover:text-white transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-nl-slate hover:text-white transition-colors">Services</a></li>
+                        <li><a href="qanda.html" class="text-nl-slate hover:text-white transition-colors">Q&A</a></li>
+                        <li><a href="contact.html" class="text-nl-slate hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Connect</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:info@newlens.uk" class="text-nl-slate hover:text-white transition-colors">info@newlens.uk</a></li>
+                        <li><a href="https://www.linkedin.com/company/newlens-uk" target="_blank" class="text-nl-slate hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="privacy.html" class="text-nl-slate hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-nl-slate text-[10px] uppercase tracking-widest font-bold">© 2026 newlens. All Rights Reserved.</p>
+                <p class="text-nl-slate text-[10px] font-medium">Web dev by <span class="text-nl-green font-bold">newt</span> - the newlens agentic AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuButton = document.getElementById('close-menu-button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+            document.body.style.overflow = '';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target) && !mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+    <!-- Navigation Active State Script -->
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const indicator = document.getElementById('nav-indicator');
+
+        function updateIndicator(link) {
+            const rect = link.getBoundingClientRect();
+            const navRect = link.parentElement.getBoundingClientRect();
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.left = `${rect.left - navRect.left}px`;
+            indicator.style.opacity = '1';
+        }
+
+        function highlightCurrentPage() {
+            const path = window.location.pathname;
+            const page = path.split("/").pop() || "index.html";
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === page || (page === "index.html" && href.startsWith("index.html#"))) {
+                    link.classList.add('active');
+                    updateIndicator(link);
+                }
+            });
+        }
+
+        window.addEventListener('load', highlightCurrentPage);
+        window.addEventListener('resize', () => {
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) updateIndicator(activeLink);
+        });
+    </script>
+</body>
+</html>

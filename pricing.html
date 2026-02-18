@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Automation, Consulting & Training | newlens</title>
+    <meta name="description" content="Transparent pricing for managed automation, enterprise consulting, and AI training. Join our alpha program for 50% off managed services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link.active {
+            color: #38D98A !important;
+        }
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            will-change: width, left, opacity;
+        }
+        .tier-card { 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tier-card:hover { 
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.12),
+                        0 0 60px 0px rgba(57, 198, 214, 0.3);
+        }
+        .check-icon::before { content: "✓"; color: #38D98A; font-weight: bold; margin-right: 8px; }
+        .strike { text-decoration: line-through; opacity: 0.5; }
+        .tab-btn.active { background-color: #38D98A; color: #050B15; border-color: #38D98A; }
+        .pricing-section { display: none; }
+        .pricing-section.active { display: block; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC]">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 text-white z-50 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html#home" class="logo-text tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
+                <a href="index.html#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
+                <a href="index.html#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="index.html#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
+                <div class="h-4 w-px bg-nl-slate/30"></div>
+                <a href="services.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Services</a>
+                <a href="pricing.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Pricing</a>
+                <a href="qanda.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Q&A</a>
+                <a href="about.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <div id="nav-indicator" class="opacity-0"></div>
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-6 py-3 rounded-full hover:bg-white transition-all font-bold uppercase text-[10px]">
+                    newlens Portal
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m7 6H7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-nl-navy transition-transform duration-300 translate-x-full md:hidden">
+        <div class="flex flex-col h-full p-8 text-white">
+            <div class="flex justify-between items-center mb-12">
+                <a href="index.html" class="text-3xl font-bold tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+                <button id="close-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 text-xl font-bold uppercase tracking-[0.2em]">
+                <a href="index.html" class="text-nl-slate hover:text-nl-green transition-colors">Home</a>
+                <a href="services.html" class="text-nl-slate hover:text-nl-green transition-colors">Services</a>
+                <a href="pricing.html" class="text-nl-slate hover:text-nl-green transition-colors">Pricing</a>
+                <a href="qanda.html" class="text-nl-slate hover:text-nl-green transition-colors">Q&A</a>
+                <a href="about.html" class="text-nl-slate hover:text-nl-green transition-colors">About</a>
+            </div>
+            <div class="mt-auto pt-12 border-t border-white/10 flex flex-col gap-6">
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    newlens Portal
+                </a>
+                <a href="alpha-apply.html" class="bg-white text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-nl-navy/90 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-nl-teal font-black uppercase tracking-[0.3em] text-sm mb-6">Pricing</h2>
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-[1.05]">Fixed pricing. Clear limits. Real value.</h1>
+            <p class="text-xl md:text-2xl text-nl-slate font-medium leading-relaxed mb-12 max-w-4xl mx-auto">
+                From managed automation to strategic consulting and practical AI training, we deliver enterprise-grade capabilities at SME-friendly pricing. Clear tiers, transparent limits, and no hidden costs.
+            </p>
+            
+            <!-- Tab Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto p-2 bg-white/5 rounded-full border border-white/10">
+                <button onclick="showSection('consulting')" class="tab-btn flex-1 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all border border-transparent text-nl-slate/60 hover:text-white">
+                    Consulting
+                </button>
+                <button onclick="showSection('automation')" class="tab-btn active flex-1 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all border border-transparent">
+                    Automation
+                </button>
+                <button onclick="showSection('training')" class="tab-btn flex-1 px-8 py-4 rounded-full font-bold uppercase tracking-widest text-xs transition-all border border-transparent text-nl-slate/60 hover:text-white">
+                    Training
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTOMATION SECTION -->
+    <div id="automation" class="pricing-section active">
+        <!-- Alpha Badge -->
+        <section id="alpha-details" class="py-12">
+            <div class="container mx-auto px-6 text-center">
+                <div class="inline-block bg-nl-green text-nl-navy px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wider mb-8">
+                    Alpha Partner Program 2026
+                </div>
+                <h2 class="text-4xl md:text-5xl font-black text-nl-navy mb-6 text-balance">Shape the future of managed automation.</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+                    Our Alpha Program is for <strong>UK-based SMEs</strong> who want to lead their industry with AI. We are looking for partners ready to eliminate repetitive processes, willing to provide honest feedback, and looking for a long-term automation edge. Limited availability.
+                </p>
+
+                <!-- Alpha Benefits -->
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+                    <div class="bg-white rounded-3xl p-10 border border-slate-100 shadow-sm text-left">
+                        <div class="text-4xl font-black text-nl-green mb-4">50% Off</div>
+                        <h4 class="text-xl font-bold text-nl-navy mb-2">Alpha Pricing</h4>
+                        <p class="text-slate-500 text-sm">Lock in 50% discount for the first 3 months of managed service while we prove the value to your business.</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-10 border border-slate-100 shadow-sm text-left">
+                        <div class="text-4xl font-black text-nl-green mb-4">£0 Setup</div>
+                        <h4 class="text-xl font-bold text-nl-navy mb-2">Fees Waived</h4>
+                        <p class="text-slate-500 text-sm">Save between £1,500 and £3,000 in implementation and setup fees as an early adopter partner.</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-10 border border-slate-100 shadow-sm text-left">
+                        <div class="text-4xl font-black text-nl-green mb-4">No Lock-in</div>
+                        <h4 class="text-xl font-bold text-nl-navy mb-2">Month-to-Month</h4>
+                        <p class="text-slate-500 text-sm">We earn your trust every month. You own your infrastructure and can cancel with 1 month notice.</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16 max-w-7xl mx-auto">
+                    <!-- Starter -->
+                    <div class="tier-card bg-white rounded-[2.5rem] p-8 border-2 border-slate-200 text-left">
+                        <h3 class="text-2xl font-black text-nl-navy mb-2">Starter</h3>
+                        <p class="text-slate-500 text-sm mb-6">Perfect for one key process.</p>
+                        <div class="mb-8">
+                            <div class="text-xl text-slate-400 strike">£249/mo</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-black text-nl-navy">£124</span>
+                                <span class="text-slate-500 font-bold">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm font-medium text-slate-600">
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 1 Workflow (up to 20 nodes)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 1,000 Executions / month
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 30 mins change time / mo
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> Email support (48h)
+                            </li>
+                        </ul>
+                        <a href="alpha-apply.html?tier=starter" class="block text-center bg-nl-navy text-white py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-teal transition-all">Apply for Alpha</a>
+                    </div>
+
+                    <!-- Core -->
+                    <div class="tier-card bg-white rounded-[2.5rem] p-8 border-4 border-nl-green text-left relative">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-nl-green text-nl-navy px-4 py-1 rounded-full font-black text-[10px] uppercase tracking-widest shadow-lg">Recommended</div>
+                        <h3 class="text-2xl font-black text-nl-navy mb-2">Core</h3>
+                        <p class="text-slate-500 text-sm mb-6">For small, growing teams.</p>
+                        <div class="mb-8">
+                            <div class="text-xl text-slate-400 strike">£399/mo</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-black text-nl-navy">£199</span>
+                                <span class="text-slate-500 font-bold">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm font-medium text-slate-600">
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 3 Workflows (20 nodes ea)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 5,000 Executions / month
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 90 mins change time / mo
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> Priority support (24h)
+                            </li>
+                        </ul>
+                        <a href="alpha-apply.html?tier=core" class="block text-center bg-nl-green text-nl-navy py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-navy hover:text-white transition-all">Apply for Alpha</a>
+                    </div>
+
+                    <!-- Growth -->
+                    <div class="tier-card bg-white rounded-[2.5rem] p-8 border-2 border-slate-200 text-left">
+                        <h3 class="text-2xl font-black text-nl-navy mb-2">Growth</h3>
+                        <p class="text-slate-500 text-sm mb-6">Scaling your operations.</p>
+                        <div class="mb-8">
+                            <div class="text-xl text-slate-400 strike">£649/mo</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-black text-nl-navy">£324</span>
+                                <span class="text-slate-500 font-bold">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm font-medium text-slate-600">
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 6 Workflows (30 nodes ea)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 15,000 Executions / month
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 3 hours change time / mo
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> Priority support (12h)
+                            </li>
+                        </ul>
+                        <a href="alpha-apply.html?tier=growth" class="block text-center bg-nl-navy text-white py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-teal transition-all">Apply for Alpha</a>
+                    </div>
+
+                    <!-- Professional -->
+                    <div class="tier-card bg-nl-navy rounded-[2.5rem] p-8 text-white text-left">
+                        <h3 class="text-2xl font-black mb-2">Pro</h3>
+                        <p class="text-nl-slate text-sm mb-6">Enterprise-grade complexity.</p>
+                        <div class="mb-8">
+                            <div class="text-xl text-nl-slate strike">£1,199/mo</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-5xl font-black text-white">£599</span>
+                                <span class="text-nl-slate font-bold">/mo</span>
+                            </div>
+                        </div>
+                        <ul class="space-y-4 mb-8 text-sm font-medium text-nl-slate">
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 12 Workflows (50 nodes ea)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 50,000 Executions / month
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> 6 hours change time / mo
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-nl-green">✓</span> Priority support (4h)
+                            </li>
+                        </ul>
+                        <a href="alpha-apply.html?tier=professional" class="block text-center bg-nl-green text-nl-navy py-4 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white transition-all">Apply for Alpha</a>
+                    </div>
+                </div>
+                
+                <div class="max-w-4xl mx-auto bg-slate-100 rounded-[2.5rem] p-12 text-center border-2 border-white">
+                    <h4 class="text-2xl font-black text-nl-navy mb-6">Self-Hosted Managed Model</h4>
+                    <p class="text-slate-600 mb-8 leading-relaxed font-medium">
+                        You provide a VPS - we handle everything else. Getting started is easy, and we provide full guidance throughout setup. You own the server. You own the data. We manage the technical complexity. Total transparency and no lock-in.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-8 text-xs font-black text-nl-navy uppercase tracking-[0.2em]">
+                        <div class="flex items-center justify-center gap-3"><span class="text-nl-green">✓</span> Data Sovereignty</div>
+                        <div class="flex items-center justify-center gap-3"><span class="text-nl-green">✓</span> UK Data Residency</div>
+                        <div class="flex items-center justify-center gap-3"><span class="text-nl-green">✓</span> No Hosting Markup</div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="max-w-4xl mx-auto mt-20 text-center">
+                    <h3 class="text-3xl md:text-4xl font-black text-nl-navy mb-6">Ready to eliminate your Admin Tax?</h3>
+                    <p class="text-xl text-slate-600 mb-10 leading-relaxed">
+                        Join our Alpha Partner Program and get 50% off managed automation for the first 3 months, plus setup fees waived (save £1,500-3,000). Limited availability for UK SMEs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="alpha-apply.html" class="bg-nl-navy text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-nl-teal transition-all">
+                            Apply for Alpha Program
+                        </a>
+                        <a href="assessment-new.html" class="bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white transition-all border-2 border-nl-green">
+                            Start Free Assessment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONSULTING SECTION -->
+    <div id="consulting" class="pricing-section">
+        <section class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-black text-nl-navy mb-6">Enterprise Consulting</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-16 leading-relaxed">
+                    Bespoke strategic guidance, data architecture, and commercial modeling delivered with national experience and local commitment.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
+                    <div class="bg-white rounded-[2.5rem] p-10 border-2 border-slate-100 text-left hover:border-nl-teal transition-all">
+                        <h3 class="text-3xl font-black text-nl-navy mb-4">Hourly / Day Rates</h3>
+                        <p class="text-slate-600 mb-8 font-medium">Focused expertise for short-term projects or technical deep-dives.</p>
+                        <div class="mb-10">
+                            <span class="text-2xl font-bold text-nl-navy">Contact for details</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 text-slate-600 font-medium">
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Systems Architecture Review</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Financial & Commercial Modeling</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> CRM Health Checks (Salesforce/HubSpot)</li>
+                        </ul>
+                        <a href="contact.html?type=consulting" class="block text-center bg-nl-navy text-white py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-teal transition-all">Enquire Now</a>
+                    </div>
+
+                    <div class="bg-nl-navy rounded-[2.5rem] p-10 text-white text-left relative overflow-hidden flex flex-col">
+                        <div class="absolute top-0 right-0 bg-nl-teal text-nl-navy px-8 py-2 rounded-bl-3xl font-black text-[10px] uppercase tracking-widest">Retainer</div>
+                        <h3 class="text-3xl font-black mb-4">Strategic Partner</h3>
+                        <p class="text-nl-slate mb-8 font-medium">Ongoing technical and strategic guidance for growing SMEs.</p>
+                        <div class="mb-10">
+                            <span class="text-white text-lg font-bold">Fixed Project Fee</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 text-nl-slate font-medium flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Quarterly Automation Roadmaps</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Long-term Data Strategy</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Technical Hiring Guidance</li>
+                        </ul>
+                        <div class="flex justify-center">
+                            <a href="contact.html?type=consulting" class="inline-block text-center bg-nl-green text-nl-navy px-10 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-white transition-all">Discuss Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TRAINING SECTION -->
+    <div id="training" class="pricing-section">
+        <section class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl font-black text-nl-navy mb-6">AI Training & Workshops</h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-16 leading-relaxed">
+                    Empowering your team with practical AI literacy. Move from resistance to productivity with role-based training workshops.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto mb-16">
+                    <div class="bg-white rounded-[2.5rem] p-10 border-2 border-slate-100 text-left hover:border-nl-teal transition-all flex flex-col">
+                        <h3 class="text-3xl font-black text-nl-navy mb-4">Empowerment</h3>
+                        <p class="text-slate-600 mb-8 font-medium">Half-day or Full-day practical workshop for teams.</p>
+                        <div class="mb-10">
+                            <span class="text-2xl font-bold text-nl-navy">Contact for pricing</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 text-slate-600 font-medium text-sm flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Hands-on LLM Training (ChatGPT/Claude)</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Prompt Engineering for SMEs</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> AI Risk & Policy Fundamentals</li>
+                        </ul>
+                        <div class="flex justify-center">
+                            <a href="contact.html?type=training" class="inline-block text-center bg-nl-navy text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-teal transition-all">Request Quote</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[2.5rem] p-10 border-2 border-slate-100 text-left hover:border-nl-teal transition-all flex flex-col">
+                        <h3 class="text-3xl font-black text-nl-navy mb-4">Solution Design</h3>
+                        <p class="text-slate-600 mb-8 font-medium">Strategic workshop for leadership and technical teams.</p>
+                        <div class="mb-10">
+                            <span class="text-2xl font-bold text-nl-navy">Contact for pricing</span>
+                        </div>
+                        <ul class="space-y-4 mb-10 text-slate-600 font-medium text-sm flex-grow">
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Platform Evaluation Frameworks</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> API & Integration Architecture</li>
+                            <li class="flex items-start gap-3"><span class="text-nl-green">✓</span> Custom ROI Measurement</li>
+                        </ul>
+                        <div class="flex justify-center">
+                            <a href="contact.html?type=training" class="inline-block text-center bg-nl-navy text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-nl-teal transition-all">Request Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="bg-nl-navy text-white py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-black text-white mb-6 tracking-tighter">new<span class="text-nl-green">lens</span></div>
+                    <p class="text-nl-slate text-sm leading-relaxed mb-6">Enterprise-grade automation and data clarity for UK SMEs. Based in Suffolk.</p>
+                    <p class="text-nl-teal text-xs font-bold">Co No. 16945634</p>
+                    <p class="text-nl-slate text-xs opacity-60 italic mt-1">Registered in England & Wales</p>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Platform</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="https://portal.newlens.uk/" class="text-nl-slate hover:text-white transition-colors">newlens Portal</a></li>
+                        <li><a href="pricing.html" class="text-nl-slate hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="assessment-new.html" class="text-nl-slate hover:text-white transition-colors">AI Readiness Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="text-nl-slate hover:text-white transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-nl-slate hover:text-white transition-colors">Services</a></li>
+                        <li><a href="qanda.html" class="text-nl-slate hover:text-white transition-colors">Q&A</a></li>
+                        <li><a href="contact.html" class="text-nl-slate hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Connect</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:info@newlens.uk" class="text-nl-slate hover:text-white transition-colors">info@newlens.uk</a></li>
+                        <li><a href="https://www.linkedin.com/company/newlens-uk" target="_blank" class="text-nl-slate hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="privacy.html" class="text-nl-slate hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-nl-slate text-[10px] uppercase tracking-widest font-bold">© 2026 newlens. All Rights Reserved.</p>
+                <p class="text-nl-slate text-[10px] font-medium">Web dev by <span class="text-nl-green font-bold">newt</span> - the newlens agentic AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.pricing-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                btn.classList.add('text-nl-slate/60');
+            });
+            // currentTarget is reliable when called from onclick
+            if (event) {
+                event.currentTarget.classList.add('active');
+                event.currentTarget.classList.remove('text-nl-slate/60');
+            }
+        }
+
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            closeMenuButton.addEventListener('click', toggleMenu);
+        }
+    </script>
+
+    <!-- Navigation Active State Script -->
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const indicator = document.getElementById('nav-indicator');
+
+        function updateIndicator(link) {
+            const rect = link.getBoundingClientRect();
+            const navRect = link.parentElement.getBoundingClientRect();
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.left = `${rect.left - navRect.left}px`;
+            indicator.style.opacity = '1';
+        }
+
+        function highlightCurrentPage() {
+            const path = window.location.pathname;
+            const page = path.split("/").pop() || "index.html";
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === page || (page === "index.html" && href.startsWith("index.html#"))) {
+                    link.classList.add('active');
+                    updateIndicator(link);
+                }
+            });
+        }
+
+        window.addEventListener('load', highlightCurrentPage);
+        window.addEventListener('resize', () => {
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) updateIndicator(activeLink);
+        });
+    </script>
+
+</body>
+</html>

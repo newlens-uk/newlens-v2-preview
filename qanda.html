@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A - newlens: Frequently Asked Questions</title>
+    <meta name="description" content="Common questions about newlens managed automation services - pricing, security, implementation, and more.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'nl-navy': '#050B15',
+                        'nl-teal': '#39C6D6',
+                        'nl-green': '#38D98A',
+                        'nl-slate': '#BFC9D1',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        details summary {
+            list-style: none;
+        }
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details summary::after {
+            content: "+";
+            float: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #38D98A;
+            transition: transform 0.2s ease;
+        }
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link.active {
+            color: #38D98A !important;
+        }
+        .logo-text {
+            font-size: 1.75rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+        #nav-indicator {
+            position: absolute;
+            bottom: -4px;
+            height: 2px;
+            background-color: #38D98A;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            will-change: width, left, opacity;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-nl-navy/95 backdrop-blur-md border-b border-white/5 text-white z-50 h-16 md:h-20 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
+            <a href="index.html#home" class="logo-text tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-bold uppercase tracking-widest relative">
+                <a href="index.html#home" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Home</a>
+                <a href="index.html#solutions" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Solutions</a>
+                <a href="index.html#how-we-work" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">How We Work</a>
+                <div class="h-4 w-px bg-nl-slate/30"></div>
+                <a href="services.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Services</a>
+                <a href="pricing.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Pricing</a>
+                <a href="qanda.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">Q&A</a>
+                <a href="about.html" class="nav-link text-nl-slate/60 hover:text-white transition-colors pb-1">About</a>
+                <div id="nav-indicator" class="opacity-0"></div>
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-6 py-3 rounded-full hover:bg-white transition-all font-bold uppercase text-[10px]">
+                    newlens Portal
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m7 6H7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-nl-navy transition-transform duration-300 translate-x-full md:hidden">
+        <div class="flex flex-col h-full p-8 text-white">
+            <div class="flex justify-between items-center mb-12">
+                <a href="index.html" class="text-3xl font-bold tracking-tighter text-white">new<span class="text-nl-green">lens</span></a>
+                <button id="close-menu-button" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <div class="flex flex-col gap-6 text-xl font-bold uppercase tracking-[0.2em]">
+                <a href="index.html" class="text-nl-slate hover:text-nl-green transition-colors">Home</a>
+                <a href="services.html" class="text-nl-slate hover:text-nl-green transition-colors">Services</a>
+                <a href="pricing.html" class="text-nl-slate hover:text-nl-green transition-colors">Pricing</a>
+                <a href="qanda.html" class="text-nl-slate hover:text-nl-green transition-colors">Q&A</a>
+                <a href="about.html" class="text-nl-slate hover:text-nl-green transition-colors">About</a>
+            </div>
+            <div class="mt-auto pt-12 border-t border-white/10 flex flex-col gap-6">
+                <a href="https://portal.newlens.uk/" target="_blank" rel="noopener noreferrer" class="bg-nl-green text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    newlens Portal
+                </a>
+                <a href="alpha-apply.html" class="bg-white text-nl-navy px-8 py-5 rounded-full text-center font-black uppercase tracking-widest text-sm">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-nl-navy via-nl-navy/95 to-nl-navy/90 text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-[18px] font-black text-nl-teal uppercase tracking-[0.3em] mb-6">Q&A</h2>
+                <h1 class="text-5xl md:text-7xl font-black leading-[1.05] mb-8">Questions & Answers</h1>
+                <p class="text-xl md:text-2xl text-nl-slate font-medium leading-relaxed">
+                    Everything you need to know about newlens managed automation services.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A Content -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto">
+                
+                <!-- Getting Started -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-green rounded-full"></span>
+                        Getting Started
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What exactly does newlens do?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We help UK SMEs automate repetitive work using intelligent workflows. Think of us as your automation partner - we set up your VPS (guide you through it - 5 minutes), build custom workflows, and manage everything ongoing so you can focus on growing your business. Unlike DIY platforms, we handle all the technical work. We also provide consulting and training services to help empower your business with practical AI literacy and strategic insights.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Do I need technical knowledge to work with newlens?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">No! That's the point. We handle all the technical complexity. You just need to: get a VPS (we guide you - 5 minutes), explain your business processes (you're the expert there), review and approve what we build, and use the automations (simple interfaces, no coding). We translate business problems into technical solutions - you don't need to speak code.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">How long does it take to get started?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Apply for alpha:</strong> Today<br><strong>Discovery call:</strong> Within 48 hours<br><strong>VPS setup:</strong> 5 minutes (we guide you)<br><strong>We configure everything:</strong> 1-2 days<br><strong>First automation live:</strong> 1-2 weeks<br><br>Our fastest: 5 days from application to first workflow running.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What size businesses do you work with?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We're built for UK SMEs - typically 10-100 employees across finance, legal, property, professional services, and healthcare. That said, we've helped solo consultants and also worked with divisions of larger enterprises. If you have repetitive processes eating your team's time, we can probably help.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Alpha Program -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-teal rounded-full"></span>
+                        Alpha Program
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What is the Alpha Program?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We're accepting 10 UK SMEs to pilot newlens managed automation. You get <strong>50% off for 3 months</strong> (£124-599/month depending on tier, plus your VPS at £10-20/month) and <strong>setup fees waived</strong> (save £1,500-3,000). After 3 months, you decide: continue at standard pricing, negotiate custom pricing, or part as friends. No lock-in - you own your VPS either way.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">How do I qualify for alpha?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">You need to be: UK-based SME (10-100 employees), have repetitive manual processes costing you time, willing to provide honest feedback and shape the product. Apply via the form, we'll schedule a 30-minute call to understand your needs. If it's a good fit, you're in!</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What happens after the 3-month alpha period?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We review results together - did automations save time, reduce errors, deliver value? Then you choose: <strong>Option A:</strong> Continue at standard pricing (£249-1,199/month + VPS). <strong>Option B:</strong> Negotiate custom pricing based on usage. If you decide not to continue, the service simply turns off - you keep your VPS but the automation infrastructure is ours.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Why are you doing an alpha program?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We want to prove value before asking for full pricing. Alpha partners get discounts in exchange for: honest feedback on what works/doesn't, helping us refine the product, being case studies (if you're happy to share results). It's a partnership - we succeed when you succeed.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Pricing & Value -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-green rounded-full"></span>
+                        Pricing & Value
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">How much does newlens cost?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Alpha Program (50% off):</strong><br>• Starter: £124/month + your VPS (£10-20/mo) = £134-144/month all-in<br>• Core: £199/month + VPS = £209-219/month all-in<br>• Growth: £324/month + VPS = £334-344/month all-in<br>• Professional: £599/month + VPS = £609-619/month all-in<br><br><strong>Setup fees waived</strong> for alpha (normally £1,500-3,000).<br><br><strong>Standard pricing after alpha:</strong> £249-1,199/month + VPS. <a href="pricing.html" class="text-nl-teal hover:underline">View full pricing →</a></p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What's the ROI? How do I know it's worth it?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Most clients see positive ROI within <strong>2-4 months</strong>. <br><br><strong>Example: Property Management Firm</strong><br>• <strong>Problem:</strong> 2 staff spending 15 hours/week on tenant onboarding (admin, emails, docs)<br>• <strong>Cost:</strong> 30 hrs/week × £25/hr × 52 weeks = <strong>£39,000/year</strong> in labour<br>• <strong>newlens Core Alpha:</strong> £199/month + £15 VPS = £214/month = £2,568/year<br>• <strong>Automation saved:</strong> 24 hours/week (80% reduction)<br>• <strong>Annual savings:</strong> £31,200<br>• <strong>Net ROI:</strong> £31,200 - £2,568 = <strong>£28,632/year profit</strong><br><br>Plus: Staff redeployed to revenue-generating work (client relationships, property viewings). True ROI is much higher.<br><br>We provide a custom ROI model during your assessment - no guesswork.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What if I only need one or two automations?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">Perfect! Start with <strong>Starter tier</strong> (£124/month alpha + £15 VPS = £139/month). Gets you 1 workflow, 1,000 executions/month, 30 mins change time. Prove ROI, then expand. Many alpha partners start small, see results, then upgrade to Core or Growth.</p>
+                        </details>
+
+                        <!-- TODO: REVIEW ADD-ON PRICING AS PART OF PRICING REVIEW (£25/5k executions, £37/workflow) -->
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Are there hidden fees or usage surprises?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>No.</strong> Fixed monthly subscription covers our management. Usage limits clearly stated (executions, storage). If you exceed limits, we contact you <strong>before</strong> charging overage. Add-ons are transparent (£25 per 5,000 extra executions, £37 per extra workflow). The only "extras" are optional services you explicitly request (major new workflows, training). No nasty surprises. Ever.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Technical & Implementation -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-teal rounded-full"></span>
+                        Technical & Implementation
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What is self-hosted managed? Do I need to be technical?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Self-hosted managed</strong> means: You get a VPS from a cloud provider (£10-20/month, we guide you through signup - takes 5 minutes). We SSH in, install the automation platform, configure security, build your workflows, and manage everything ongoing. <strong>You never touch code or servers.</strong><br><br><strong>Why this model?</strong> Lower monthly cost (you're not paying us for hosting markup), data sovereignty (your VPS, your location, you choose where your data lives), transparent ownership (you own the VPS).</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Can you integrate with our existing systems?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Very likely, yes.</strong> We integrate with: Standard apps (Xero, HubSpot, Slack, Office 365, Google Workspace), custom APIs (if your system has an API, we can connect), legacy systems (screen scraping, file transfers when APIs don't exist), databases (direct connections when needed). Our platform supports 400+ pre-built integrations. During your assessment, we'll audit your tech stack and confirm compatibility.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What happens if an automation breaks?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">We monitor 24/7 and catch most issues before you notice. Automated monitoring alerts us to failures, we diagnose root cause (API change? Data issue?), fix and deploy (usually within hours), then notify you of issue + resolution. <strong>Response times:</strong> Starter (48h), Core (24h), Growth (12h), Professional (4h). Plus, we build resilience into automations (retry logic, fallbacks, graceful failures). Most "breaks" are handled automatically.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Security & Compliance -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-green rounded-full"></span>
+                        Security & Compliance
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Is our data safe? What about security?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Absolutely.</strong> <strong>Your VPS, your control:</strong> Data lives on your VPS (you choose location - UK options available), you have root access if needed. <strong>We secure it:</strong> SSL/TLS encryption, secure credential storage (encrypted vault), firewall configuration, regular security patches, SSH key authentication (no passwords). <strong>Monitoring:</strong> 24/7 uptime checks, automated alerts, daily backups. Self-hosted gives you maximum control - data never leaves your infrastructure.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Are you GDPR compliant?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Yes.</strong> UK-based company (data controller), your VPS can be UK data centre (you choose location during setup), Data Processing Agreements (DPA) provided, right to erasure/portability/access fully supported, privacy by design in all automations. We can also help <em>you</em> become more GDPR compliant - automations can enforce data retention policies, manage consent, and provide audit trails.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Who has access to our data?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Minimal, controlled access.</strong> Only newlens engineers working on your project, access logged and auditable, NDA and confidentiality agreements in place, access via SSH key (secure). We only access when working on your workflows - no standing 24/7 access.</p>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Support & Service -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-nl-navy mb-6 flex items-center gap-3">
+                        <span class="w-3 h-3 bg-nl-teal rounded-full"></span>
+                        Support & Service
+                    </h2>
+                    <div class="space-y-4">
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What support do you provide?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>All alpha partners get:</strong> Direct access to newlens support via email, response times based on tier (Starter 48h, Core 24h, Growth 12h, Professional 4h), monthly check-in calls (bi-weekly for Growth+), workflow monitoring & alerts, security updates, bug fixes (always free). We'll be implementing a support ticket system as we scale, but for now it's direct email communication.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">What if we need changes to our automations?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed"><strong>Changes are expected!</strong> Your business evolves, automations should too. <strong>Included:</strong> Change time per tier (30 mins to 6 hours/month) covers small tweaks (adjust filters, change templates, add conditions). Bug fixes always free. <strong>Additional:</strong> Major changes (new workflow steps, different logic) - add extra change time at £75/hour (alpha pricing, £150/hour outside Alpha program), or upgrade to higher tier. We discuss costs before work starts - no surprises.</p>
+                        </details>
+
+                        <details class="bg-white rounded-lg shadow-md p-6">
+                            <summary class="font-semibold text-lg text-nl-navy cursor-pointer">Can we manage automations ourselves eventually?</summary>
+                            <p class="mt-4 text-gray-600 leading-relaxed">You own the VPS, but the workflow IP and automation platform configuration are ours. If you stop your monthly subscription, the automations will be turned off. If you want to purchase the automation IP and self-manage in future, contact us to discuss pricing - we can then provide training to help your team take over. Most clients prefer we handle ongoing management - automations need monitoring, security patches, and optimization. We catch issues proactively so you don't have to.</p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-nl-navy to-nl-navy/90 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">Still Have Questions?</h2>
+            <p class="text-xl text-nl-slate mb-8 max-w-2xl mx-auto">
+                Book a free 30-minute discovery call. We'd love to chat!
+            </p>
+            <div class="flex items-center justify-center gap-4">
+                <a href="alpha-apply.html" class="bg-nl-green text-nl-navy px-8 py-4 rounded-full hover:bg-white transition-all font-bold">
+                    Apply for Alpha Program
+                </a>
+                <a href="mailto:mat.keys@newlens.uk" class="border-2 border-white px-8 py-4 rounded-full hover:bg-white hover:text-nl-navy transition-all font-bold">
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-nl-navy text-white py-20 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="text-2xl font-black text-white mb-6 tracking-tighter">new<span class="text-nl-green">lens</span></div>
+                    <p class="text-nl-slate text-sm leading-relaxed mb-6">Enterprise-grade automation and data clarity for UK SMEs. Based in Suffolk.</p>
+                    <p class="text-nl-teal text-xs font-bold">Co No. 16945634</p>
+                    <p class="text-nl-slate text-xs opacity-60 italic mt-1">Registered in England & Wales</p>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Platform</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="https://portal.newlens.uk/" class="text-nl-slate hover:text-white transition-colors">newlens Portal</a></li>
+                        <li><a href="pricing.html" class="text-nl-slate hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="assessment-new.html" class="text-nl-slate hover:text-white transition-colors">AI Readiness Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="about.html" class="text-nl-slate hover:text-white transition-colors">About</a></li>
+                        <li><a href="services.html" class="text-nl-slate hover:text-white transition-colors">Services</a></li>
+                        <li><a href="qanda.html" class="text-nl-slate hover:text-white transition-colors">Q&A</a></li>
+                        <li><a href="contact.html" class="text-nl-slate hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-black uppercase tracking-widest text-xs mb-6">Connect</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:info@newlens.uk" class="text-nl-slate hover:text-white transition-colors">info@newlens.uk</a></li>
+                        <li><a href="https://www.linkedin.com/company/newlens-uk" target="_blank" class="text-nl-slate hover:text-white transition-colors">LinkedIn</a></li>
+                        <li><a href="privacy.html" class="text-nl-slate hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-nl-slate text-[10px] uppercase tracking-widest font-bold">© 2026 newlens. All Rights Reserved.</p>
+                <p class="text-nl-slate text-[10px] font-medium">Web dev by <span class="text-nl-green font-bold">newt</span> - the newlens agentic AI</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            closeMenuButton.addEventListener('click', toggleMenu);
+        }
+    </script>
+
+    <!-- Navigation Active State Script -->
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        const indicator = document.getElementById('nav-indicator');
+
+        function updateIndicator(link) {
+            const rect = link.getBoundingClientRect();
+            const navRect = link.parentElement.getBoundingClientRect();
+            indicator.style.width = `${rect.width}px`;
+            indicator.style.left = `${rect.left - navRect.left}px`;
+            indicator.style.opacity = '1';
+        }
+
+        function highlightCurrentPage() {
+            const path = window.location.pathname;
+            const page = path.split("/").pop() || "index.html";
+            
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === page || (page === "index.html" && href.startsWith("index.html#"))) {
+                    link.classList.add('active');
+                    updateIndicator(link);
+                }
+            });
+        }
+
+        window.addEventListener('load', highlightCurrentPage);
+        window.addEventListener('resize', () => {
+            const activeLink = document.querySelector('.nav-link.active');
+            if (activeLink) updateIndicator(activeLink);
+        });
+    </script>
+
+</body>
+</html>
