@@ -50,10 +50,16 @@
             transition: width 0.3s ease;
         }
         .radio-card {
-            @apply border-2 border-slate-200 rounded-xl p-4 cursor-pointer transition-all hover:border-nl-teal hover:bg-nl-teal/5;
+            @apply border-2 border-slate-200 rounded-xl p-4 cursor-pointer transition-all hover:border-nl-teal hover:bg-nl-teal/5 relative;
         }
         .radio-card.selected {
-            @apply border-nl-teal bg-nl-teal/10;
+            @apply border-nl-teal bg-nl-teal/10 ring-4 ring-nl-teal/10;
+        }
+        .check-icon {
+            @apply absolute top-3 right-3 text-nl-teal opacity-0 transition-opacity;
+        }
+        .radio-card.selected .check-icon {
+            @apply opacity-100;
         }
     </style>
 </head>
@@ -136,12 +142,41 @@
                     <div class="step" id="step2">
                         <h2 class="text-3xl font-black text-nl-navy mb-8">How many employees does your business have?</h2>
                         <div class="space-y-4">
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="1-5" class="hidden" required><div class="p-2"><p class="font-bold text-nl-navy text-center">1 - 5</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="6-10" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">6 - 10</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="11-20" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">11 - 20</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="21-50" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">21 - 50</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="51-100" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">51 - 100</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q1_employees" value="100+" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">100+</p></div></label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="1-5" class="hidden" required>
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">1 - 5</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="6-10" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">6 - 10</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="11-20" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">11 - 20</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="21-50" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">21 - 50</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="51-100" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">51 - 100</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="101-250" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">101 - 250</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q1_employees" value="250+" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">250+ (Enterprise)</p></div>
+                            </label>
                         </div>
                         <div class="flex gap-4 mt-8">
                             <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
@@ -153,9 +188,21 @@
                     <div class="step" id="step3">
                         <h2 class="text-3xl font-black text-nl-navy mb-8">Is AI being sponsored or led by leadership (Executive Team)?</h2>
                         <div class="space-y-4">
-                            <label class="radio-card block"><input type="radio" name="q2_leadership" value="yes" class="hidden" required><div class="p-2"><p class="font-bold text-nl-navy text-center">Yes</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q2_leadership" value="working-on-it" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">We are working on it</p></div></label>
-                            <label class="radio-card block"><input type="radio" name="q2_leadership" value="no" class="hidden"><div class="p-2"><p class="font-bold text-nl-navy text-center">No</p></div></label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q2_leadership" value="yes" class="hidden" required>
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">Yes</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q2_leadership" value="working-on-it" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">We are working on it</p></div>
+                            </label>
+                            <label class="radio-card block">
+                                <input type="radio" name="q2_leadership" value="no" class="hidden">
+                                <div class="check-icon"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg></div>
+                                <div class="p-2"><p class="font-bold text-nl-navy text-center">No</p></div>
+                            </label>
                         </div>
                         <div class="flex gap-4 mt-8">
                             <button type="button" onclick="prevStep()" class="flex-1 bg-slate-200 text-slate-700 px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-slate-300 transition-all">← Back</button>
